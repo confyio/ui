@@ -11,7 +11,7 @@ A good web app stores config in env vars. As the amount of config variables is h
 Prerequisites are:
 
  * Node.js __v0.10.x__
- * npm, grunt, bower
+ * npm install -g grunt-cli bower loom
 
 ```bash
 $ git clone git://github.com/asm-products/confy-web && cd confy-web

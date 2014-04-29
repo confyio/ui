@@ -1,30 +1,6 @@
 // jshint node:true
 
 module.exports = function(grunt) {
-  //
-  // * for LESS, run `npm install --save-dev grunt-contrib-less`
-  //
-  // * for LiveReload, `npm install --save-dev connect-livereload`
-  //
-  // * for displaying the execution time of the grunt tasks,
-  //   `npm install --save-dev time-grunt`
-  //
-  // * for minimizing the index.html at the end of the dist task
-  //   `npm install --save-dev grunt-contrib-htmlmin`
-  //
-  // * for minimizing images in the dist task
-  //   `npm install --save-dev grunt-contrib-imagemin`
-  //
-  // * for using images based CSS sprites (http://youtu.be/xD8DW6IQ6r0)
-  //   `npm install --save-dev grunt-fancy-sprites`
-  //   `bower install --save fancy-sprites-scss`
-  //
-  // * for automatically adding CSS vendor prefixes (autoprefixer)
-  //   `npm install --save-dev grunt-autoprefixer`
-  //
-  // * for package import validations
-  //   `npm install --save-dev grunt-es6-import-validate`
-  //
 
   var Helpers = require('./tasks/helpers'),
       filterAvailable = Helpers.filterAvailableTasks,
@@ -55,70 +31,55 @@ module.exports = function(grunt) {
 
   config.env = process.env;
 
-
   // Confy's Main Tasks
   // ====================
 
-
   // Generate the production version
   // ------------------
-  grunt.registerTask('dist', "Build a minified & production-ready version of your app.", filterAvailable([
-                     'clean:dist',
-                     'build:dist',
-                     'copy:assemble',
-                     'useminPrepare', // Configures concat, cssmin and uglify
-                     'concat', // Combines css and javascript files
-                     'cssmin', // Minifies css
-                     'uglify', // Minifies javascript
-                     'imagemin', // Optimizes image compression
-                     'svgmin', // Optimize svg images
-                     'copy:dist', // Copies files not covered by concat and imagemin
-                     'rev', // Appends 8 char hash value to filenames
-                     'usemin', // Replaces file references
-                     'htmlmin:dist' // Removes comments and whitespace
-                     ]));
-
+  grunt.registerTask('build:dist', "Build a minified & production-ready version of your app.", filterAvailable([
+    'clean:dist',
+    'mktmp', // Create directoy beforehand, fixes race condition
+    'sprites:create',
+    'concurrent:dist', // Executed in parallel, see config below
+    'copy:assemble',
+    'useminPrepare', // Configures concat, cssmin and uglify
+    'concat', // Combines css and javascript files
+    'cssmin', // Minifies css
+    'uglify', // Minifies javascript
+    'imagemin', // Optimizes image compression
+    'copy:dist', // Copies files not covered by concat and imagemin
+    'rev', // Appends 8 char hash value to filenames
+    'usemin', // Replaces file references
+    'htmlmin:dist' // Removes comments and whitespace
+  ]));
 
   // Default Task
   // ------------------
-  grunt.registerTask('default', "Running your server", ['server']);
-
+  grunt.registerTask('default', "Running your server", ['server:debug']);
 
   // Servers
   // -------------------
-  grunt.registerTask('server', "Run your server in development mode, auto-rebuilding when files change.", function(proxyMethod) {
-    var expressServerTask = 'expressServer:debug';
-    if (proxyMethod) {
-      expressServerTask += ':' + proxyMethod;
-    }
-
-    grunt.task.run(['clean:debug',
-                    'build:debug',
-                    expressServerTask,
-                    'watch'
-                    ]);
-  });
+  grunt.registerTask('server:debug', "Run your server in development mode, auto-rebuilding when files change.", [
+    'clean:debug',
+    'build:debug',
+    'express:debug',
+    'watch'
+  ]);
 
   grunt.registerTask('server:dist', "Build and preview a minified & production-ready version of your app.", [
-                     'dist',
-                     'expressServer:dist:keepalive'
-                     ]);
+    'build:dist',
+    'express:dist:keepalive'
+  ]);
 
   // Worker tasks
   // =================================
 
-  grunt.registerTask('build:dist', filterAvailable([
-                     'mkdir', // Create directoy beforehand, fixes race condition
-                     'fancySprites:create',
-                     'concurrent:dist', // Executed in parallel, see config below
-                     ]));
-
   grunt.registerTask('build:debug', filterAvailable([
-                     'jshint:tooling',
-                     'mkdir', // Create directoy beforehand, fixes race condition
-                     'fancySprites:create',
-                     'concurrent:debug', // Executed in parallel, see config below
-                     ]));
+    'jshint:tooling',
+    'mktmp', // Create directoy beforehand, fixes race condition
+    'sprites:create',
+    'concurrent:debug' // Executed in parallel, see config below
+  ]));
 
   // Parallelize most of the build process
   _.merge(config, {
@@ -140,21 +101,21 @@ module.exports = function(grunt) {
 
   // Scripts
   grunt.registerTask('buildScripts', filterAvailable([
-                     'jshint:app',
-                     'validate-imports',
-                     'copy:javascript',
-                     'transpile',
-                     'concat_sourcemap'
-                     ]));
+    'jshint:app',
+    'validate-imports',
+    'copy:javascript',
+    'transpile',
+    'concat_sourcemap'
+  ]));
 
   // Styles
   grunt.registerTask('buildStyles', filterAvailable([
-                     'less:compile',
-                     'copy:css',
-                     'autoprefixer:app'
-                     ]));
+    'less:compile',
+    'copy:css',
+    'autoprefixer:app'
+  ]));
 
-  grunt.registerTask('mkdir', function() {
+  grunt.registerTask('mktmp', function() {
     grunt.file.mkdir('tmp/result');
   });
 

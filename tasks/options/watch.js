@@ -8,7 +8,7 @@ var docs = '{app}/**/*.js',
     templates = 'app/templates/**/*.{hbs,handlebars,hjs}',
     sprites = 'app/sprites/**/*.{png,jpg,jpeg}',
     styles = 'app/styles/**/*.{css,less}',
-    indexHTML = 'app/index.html',
+    html = 'app/*.html',
     other = '{app,public}/**/*',
     bowerFile = 'bower.json',
     npmFile = 'package.json';
@@ -20,22 +20,22 @@ module.exports = {
   },
   templates: {
     files: [templates],
-    tasks: ['lock', 'buildTemplates:debug', 'unlock']
+    tasks: ['lock', 'templates:debug', 'unlock']
   },
   sprites: {
     files: [sprites],
-    tasks: filterAvailable(['lock', 'fancySprites:create', 'unlock'])
+    tasks: filterAvailable(['lock', 'sprites:create', 'unlock'])
   },
   styles: {
     files: [styles],
     tasks: ['lock', 'buildStyles', 'unlock']
   },
-  indexHTML: {
-    files: [indexHTML],
+  html: {
+    files: [html],
     tasks: ['lock', 'preprocess:debug', 'unlock']
   },
   other: {
-    files: [other, '!'+scripts, '!'+templates, '!'+styles, '!'+indexHTML, bowerFile, npmFile],
+    files: [other, '!'+scripts, '!'+templates, '!'+styles, '!'+html, bowerFile, npmFile],
     tasks: ['lock', 'build:debug', 'unlock']
   },
 

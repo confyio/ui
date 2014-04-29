@@ -1,4 +1,5 @@
 module.exports = function(grunt) {
+
   var express = require('express'),
       lockFile = require('lockfile'),
       Helpers = require('./helpers'),
@@ -11,45 +12,25 @@ module.exports = function(grunt) {
 
   Note: The expressServer:debug task looks for files in multiple directories.
   */
-  grunt.registerTask('expressServer', function(target, proxyMethodToUse) {
+  grunt.registerTask('express', function(target, proxyMethodToUse) {
     // Load namespace module before creating the server
     require('express-namespace');
 
     var app = express(),
         done = this.async(),
-        proxyMethod = proxyMethodToUse || grunt.config('express-server.options.APIMethod');
+        proxyMethod = proxyMethodToUse || grunt.config('express.options.APIMethod');
 
     app.use(lock);
     app.use(express.compress());
 
-    if (proxyMethod === 'stub') {
-      grunt.log.writeln('Using API Stub');
-
-      // Load API stub routes
-      app.use(express.json());
-      app.use(express.urlencoded());
-      require('../api-stub/routes')(app);
-    } else if (proxyMethod === 'proxy') {
-      var proxyURL = grunt.config('express-server.options.proxyURL'),
-          proxyPath = grunt.config('express-server.options.proxyPath') || '/api';
-      grunt.log.writeln('Proxying API requests matching ' + proxyPath + '/* to: ' + proxyURL);
-
-      // Use API proxy
-      app.all(proxyPath + '/*', passThrough(proxyURL));
-    }
-
     if (target === 'debug') {
-      // For `expressServer:debug`
+      // For `express:debug`
 
       // Add livereload middleware after lock middleware if enabled
       if (Helpers.isPackageAvailable("connect-livereload")) {
         var liveReloadPort = grunt.config('watch.options.livereload');
         app.use(require("connect-livereload")({port: liveReloadPort}));
       }
-
-      // YUIDoc serves static HTML, so just serve the index.html
-      app.all('/docs', function(req, res) { res.redirect(302, '/docs/index.html'); });
-      app.use(static({ urlRoot: '/docs', directory: 'docs' }));
 
       // These three lines simulate what the `copy:assemble` task does
       app.use(static({ urlRoot: '/config', directory: 'config' }));
@@ -59,7 +40,7 @@ module.exports = function(grunt) {
       app.use(static({ directory: 'tmp/result' }));
       app.use(static({ file: 'tmp/result/index.html', ignoredFileExtensions: /\.\w{1,5}$/ })); // Gotta catch 'em all
     } else {
-      // For `expressServer:dist`
+      // For `express:dist`
 
       app.use(lock);
       app.use(static({ directory: 'dist' }));
@@ -67,11 +48,14 @@ module.exports = function(grunt) {
     }
 
     var port = parseInt(process.env.PORT || 8000, 10);
+
     if (isNaN(port) || port < 1 || port > 65535) {
       grunt.fail.fatal('The PORT environment variable of ' + process.env.PORT + ' is not valid.');
     }
+
     app.listen(port);
     grunt.log.ok('Started development server on port %d.', port);
+
     if (!this.flags.keepalive) { done(); }
   });
 
