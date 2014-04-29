@@ -3,13 +3,13 @@ var Helpers = require('../helpers'),
     LIVERELOAD_PORT = 35729,
     liveReloadPort = (parseInt(process.env.PORT || 8000, 10) - 8000) + LIVERELOAD_PORT;
 
-var docs = '{app}/**/*.{js,coffee,em}',
-    scripts = '{app,tests,config}/**/*.{js,coffee,em}',
-    templates = 'app/templates/**/*.{hbs,handlebars,hjs,emblem}',
+var docs = '{app}/**/*.js',
+    scripts = '{app,config}/**/*.js',
+    templates = 'app/templates/**/*.{hbs,handlebars,hjs}',
     sprites = 'app/sprites/**/*.{png,jpg,jpeg}',
-    styles = 'app/styles/**/*.{css,sass,scss,less,styl}',
+    styles = 'app/styles/**/*.{css,less}',
     indexHTML = 'app/index.html',
-    other = '{app,tests,public}/**/*',
+    other = '{app,public}/**/*',
     bowerFile = 'bower.json',
     npmFile = 'package.json';
 
@@ -32,11 +32,7 @@ module.exports = {
   },
   indexHTML: {
     files: [indexHTML],
-    tasks: ['lock', 'buildIndexHTML:debug', 'unlock']
-  },
-  docs: {
-    files: [docs],
-    tasks: ['lock', 'buildDocs', 'unlock']
+    tasks: ['lock', 'preprocess:debug', 'unlock']
   },
   other: {
     files: [other, '!'+scripts, '!'+templates, '!'+styles, '!'+indexHTML, bowerFile, npmFile],

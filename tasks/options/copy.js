@@ -2,22 +2,16 @@ module.exports = {
 
   // Note: These tasks are listed in the order in which they will run.
 
-  javascriptToTmp: {
+  javascript: {
     files: [{
       expand: true,
       cwd: 'app',
       src: '**/*.js',
       dest: 'tmp/javascript/app'
-    },
-    {
-      expand: true,
-      cwd: 'tests',
-      src: ['**/*.js', '!test-helper.js', '!test-loader.js'],
-      dest: 'tmp/javascript/tests/'
     }]
   },
 
-  cssToResult: {
+  css: {
     expand: true,
     cwd: 'app/styles',
     src: ['**/*.css'],
@@ -29,12 +23,8 @@ module.exports = {
   // place (tmp/dist) enables the subtasks of dist to only look there. Note: However,
   // for normal development this is done on the fly by the development server.
   assemble: {
-    files: [{
-      expand: true,
-      cwd: 'tests',
-      src: ['test-helper.js', 'test-loader.js'],
-      dest: 'tmp/result/tests/'
-    }, {
+    files: [
+    {
       expand: true,
       cwd: 'public',
       src: ['**'],
@@ -46,7 +36,6 @@ module.exports = {
       src: ['config/environment.js', 'config/environments/production.js'],
       dest: 'tmp/result/'
     }
-
     ]
   },
 
@@ -62,7 +51,6 @@ module.exports = {
         '**',
         '!**/*.{css,js}', // Already handled by concat
         '!**/*.{png,gif,jpg,jpeg}', // Already handled by imagemin
-        '!tests/**/*', // No tests, please
         '!**/*.map' // No source maps
       ],
       filter: 'isFile',

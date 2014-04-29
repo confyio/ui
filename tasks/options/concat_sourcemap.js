@@ -14,12 +14,4 @@ module.exports = {
       sourcesContent: true
     },
   },
-
-  test: {
-    src: 'tmp/transpiled/tests/**/*.js',
-    dest: 'tmp/result/tests/tests.js',
-    options: {
-      sourcesContent: true
-    }
-  }
 };

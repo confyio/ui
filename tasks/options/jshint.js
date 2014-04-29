@@ -14,13 +14,6 @@ module.exports = {
     options: { jshintrc: 'tasks/.jshintrc' }
   },
 
-  tests: {
-    src: [
-      'tests/**/*.js',
-    ],
-    options: { jshintrc: 'tests/.jshintrc' }
-  },
-
   options: {
     force: true
   }
