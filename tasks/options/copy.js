@@ -30,7 +30,7 @@ module.exports = {
       src: ['**'],
       dest: 'tmp/result/'
     }, {
-      src: ['vendor/**/*.js', 'vendor/**/*.css'],
+      src: ['bower_components/**/*.js', 'bower_components/**/*.css'],
       dest: 'tmp/result/'
     }, {
       src: ['config/environment.js', 'config/environments/production.js'],

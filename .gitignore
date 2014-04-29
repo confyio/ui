@@ -6,10 +6,9 @@
 
 # dependencies
 /node_modules
-/vendor
+/bower_components
 
 # misc
-/.sass-cache
 /connect.lock
 /libpeerconnection.log
 .DS_Store

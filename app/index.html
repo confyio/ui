@@ -24,30 +24,28 @@
       <script src="/config/environments/production.js"></script>
       <!-- @endif -->
 
-    <!-- @endif --><!-- @if tests=true -->
-      <script src="/config/environments/test.js"></script>
     <!-- @endif -->
 
   <!-- endbuild -->
 
   <!-- build:js(tmp/result) /assets/vendor.min.js -->
 
-    <script src="/vendor/jquery/jquery.js"></script>
+    <script src="/bower_components/jquery/jquery.js"></script>
 
     <!-- @if dist=false -->
-    <script src="/vendor/handlebars/handlebars.js"></script>
-    <script src="/vendor/ember/ember.js"></script>
+    <script src="/bower_components/handlebars/handlebars.js"></script>
+    <script src="/bower_components/ember/ember.js"></script>
     <!-- @endif --><!-- @if dist=true -->
-    <script src="/vendor/handlebars/handlebars.runtime.js"></script>
-    <script src="/vendor/ember/ember.prod.js"></script>
+    <script src="/bower_components/handlebars/handlebars.runtime.js"></script>
+    <script src="/bower_components/ember/ember.prod.js"></script>
     <!-- @endif -->
 
-    <script src="/vendor/ember-data/ember-data.js"></script>
-    <script src="/vendor/loader.js/loader.js"></script>
-    <script src="/vendor/ember-resolver/dist/ember-resolver.js"></script>
-    <script src="/vendor/ember-shim.js"></script>
-    <script src="/vendor/ic-ajax/dist/named-amd/main.js"></script>
-    <script src="/vendor/ember-load-initializers/ember-load-initializers.js"></script>
+    <script src="/bower_components/ember-data/ember-data.js"></script>
+    <script src="/bower_components/loader.js/loader.js"></script>
+    <script src="/bower_components/ember-resolver/dist/ember-resolver.js"></script>
+    <script src="/bower_components/ember-shim.js"></script>
+    <script src="/bower_components/ic-ajax/dist/named-amd/main.js"></script>
+    <script src="/bower_components/ember-load-initializers/ember-load-initializers.js"></script>
 
   <!-- endbuild -->
 
@@ -65,30 +63,6 @@
     .ember-view { animation: domChanged 1s; -webkit-animation: domChanged 1s; }
   </style>
   <!-- @endif -->
-  <!-- @if tests=true -->
-  <script src="/vendor/ember-shim.js"></script>
-  <link rel="stylesheet" href="/vendor/qunit/qunit/qunit.css">
-  <script src="/vendor/qunit/qunit/qunit.js"></script>
-  <script src="/vendor/qunit-shim.js"></script>
-  <script src="/vendor/ember-qunit/dist/named-amd/main.js"></script>
-
-  <style>
-    #ember-testing-container {
-      position: absolute;
-      background: white;
-      bottom: 0;
-      right: 0;
-      width: 640px;
-      height: 384px;
-      overflow: auto;
-      z-index: 9999;
-      border: 1px solid #ccc;
-    }
-    #ember-testing {
-      zoom: 50%;
-    }
-  </style>
-  <!-- @endif -->
 
 </head>
 <body>
@@ -99,15 +73,6 @@
       to improve your experience.
     </p>
   <![endif]-->
-
-  <!-- @if tests=true -->
-  <div id="qunit"></div>
-  <div id="qunit-fixture"></div>
-  <script src="/tests/tests.js"></script>
-  <script src="/tests/test-helper.js"></script>
-  <script src="/tests/test-loader.js"></script>
-  <script src="/testem.js"></script>
-  <!-- @endif -->
 
   <!-- @if tests=false -->
   <script>
