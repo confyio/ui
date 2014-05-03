@@ -12,13 +12,10 @@ module.exports = function(grunt) {
 
   Note: The expressServer:debug task looks for files in multiple directories.
   */
-  grunt.registerTask('express', function(target, proxyMethodToUse) {
-    // Load namespace module before creating the server
-    require('express-namespace');
+  grunt.registerTask('express', function(target) {
 
     var app = express(),
-        done = this.async(),
-        proxyMethod = proxyMethodToUse || grunt.config('express.options.APIMethod');
+        done = this.async();
 
     app.use(lock);
     app.use(express.compress());
