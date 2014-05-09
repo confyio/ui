@@ -12,3 +12,5 @@ window.ENV.APP = {
   LOG_TRANSITIONS_INTERNAL: true,
   LOG_VIEW_LOOKUPS:         true
 };
+
+window.ENV.BASE_URL = "http://localhost:5000";
