@@ -20,7 +20,7 @@ module.exports = {
   },
   templates: {
     files: [templates],
-    tasks: ['lock', 'templates:debug', 'unlock']
+    tasks: ['lock', 'unlock']
   },
   sprites: {
     files: [sprites],

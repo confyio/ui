@@ -6,8 +6,9 @@
     "ember": "~1.5.0",
     "bootstrap": "~3.1.1",
     "fontawesome": "~4.0.3",
-    "ember-data": "~1.0.0-beta.7",
     "ic-ajax": "~1.0.4",
+    "ember-data": "~1.0.0-beta.7",
+    "ember-model": "~0.0.11",
     "ember-resolver": "git://github.com/stefanpenner/ember-jj-abrams-resolver.git#master",
     "ember-load-initializers": "git://github.com/stefanpenner/ember-load-initializers.git#0.0.1",
     "loader.js": "~1.0.0"
