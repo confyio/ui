@@ -20,7 +20,7 @@ module.exports = {
   },
   templates: {
     files: [templates],
-    tasks: ['lock', 'unlock']
+    tasks: ['lock', 'emberTemplates:debug', 'unlock']
   },
   sprites: {
     files: [sprites],

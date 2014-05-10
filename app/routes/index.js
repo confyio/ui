@@ -1,7 +1,9 @@
-import User from 'confy/models/user';
+import Env from 'confy/models/env';
 
 export default Ember.Route.extend({
   model: function() {
-    return User.find('user');
+    window.ORG = 'confy';
+    window.PROJECT = 'main'
+    return Env.find('staging');
   }
 });
