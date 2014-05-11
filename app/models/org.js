@@ -5,7 +5,7 @@ var Org = Ember.Model.extend({
   name: Ember.attr(),
   email: Ember.attr(),
   plan: Ember.attr(),
-  owner: Ember.belongsTo(User, {key: 'owner'})
+  owner: Ember.attr()
 });
 
 Org.url = '/orgs';

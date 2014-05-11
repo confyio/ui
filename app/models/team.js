@@ -6,7 +6,7 @@ var Team = Ember.Model.extend({
   name: Ember.attr(),
   description: Ember.attr(),
   org: Ember.belongsTo(Org, {key: 'org'}),
-  users: Ember.hasMany(User, {key: 'users'})
+  users: Ember.attr(Array)
 });
 
 Team.url = '/teams';
