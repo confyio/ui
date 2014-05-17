@@ -1,83 +1,132 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Confy</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Save your config in the cloud. Securely.">
+	<meta name="keywords" content="Confy,Configuration,SaaS,Cloud">
 
-  <!-- build:css(tmp/result) /assets/app.min.css -->
-  <link rel="stylesheet" href="/assets/app.css">
-  <!-- endbuild -->
+	<title>Confy</title>
 
-  <!-- build:js(tmp/result) /assets/config.min.js -->
+	<link rel="shortcut icon" type="image/png" href="/favicon.png"/>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300,800' rel='stylesheet' type='text/css'>
 
-    <script src="/config/environment.js"></script>
-    <!-- @if tests=false -->
+	<!-- build:css(tmp/result) /assets/app.min.css -->
+	<link rel="stylesheet" href="/assets/app.css">
+	<!-- endbuild -->
 
-      <!-- @if dist=false -->
-      <script src="/config/environments/development.js"></script>
-      <!-- @endif --><!-- @if dist=true -->
-      <script src="/config/environments/production.js"></script>
-      <!-- @endif -->
+	<!-- build:js(tmp/result) /assets/config.min.js -->
 
-    <!-- @endif -->
+		<script src="/config/environment.js"></script>
+		<!-- @if tests=false -->
 
-  <!-- endbuild -->
+			<!-- @if dist=false -->
+			<script src="/config/environments/development.js"></script>
+			<!-- @endif --><!-- @if dist=true -->
+			<script src="/config/environments/production.js"></script>
+			<!-- @endif -->
 
-  <!-- build:js(tmp/result) /assets/vendor.min.js -->
+		<!-- @endif -->
 
-    <script src="/bower_components/jquery/jquery.js"></script>
-    <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+	<!-- endbuild -->
 
-    <!-- @if dist=false -->
-    <script src="/bower_components/handlebars/handlebars.js"></script>
-    <script src="/bower_components/ember/ember.js"></script>
-    <!-- @endif --><!-- @if dist=true -->
-    <script src="/bower_components/handlebars/handlebars.runtime.js"></script>
-    <script src="/bower_components/ember/ember.prod.js"></script>
-    <!-- @endif -->
+	<!-- build:js(tmp/result) /assets/vendor.min.js -->
 
-    <script src="/bower_components/loader.js/loader.js"></script>
+		<script src="/bower_components/jquery/jquery.js"></script>
+		<script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
 
-    <script src="/bower_components/ember-data/ember-data.js"></script>
-    <script src="/bower_components/ember-model/ember-model.js"></script>
-    <script src="/bower_components/ember-resolver/dist/ember-resolver.js"></script>
-    <script src="/bower_components/ember-load-initializers/ember-load-initializers.js"></script>
+		<!-- @if dist=false -->
+		<script src="/bower_components/handlebars/handlebars.js"></script>
+		<script src="/bower_components/ember/ember.js"></script>
+		<!-- @endif --><!-- @if dist=true -->
+		<script src="/bower_components/handlebars/handlebars.runtime.js"></script>
+		<script src="/bower_components/ember/ember.prod.js"></script>
+		<!-- @endif -->
 
-  <!-- endbuild -->
+		<script src="/bower_components/loader.js/loader.js"></script>
 
-  <!-- build:js(tmp/result) /assets/app.min.js -->
+		<script src="/bower_components/ember-data/ember-data.js"></script>
+		<script src="/bower_components/ember-model/ember-model.js"></script>
+		<script src="/bower_components/ember-resolver/dist/ember-resolver.js"></script>
+		<script src="/bower_components/ember-load-initializers/ember-load-initializers.js"></script>
 
-    <script src="/assets/app.js"></script>
-    <script src="/assets/templates.js"></script>
+	<!-- endbuild -->
 
-  <!-- endbuild -->
+	<!-- build:js(tmp/result) /assets/app.min.js -->
 
-  <!-- @if dist=false -->
-  <style>
-    @keyframes domChanged { from { background: yellow; } }
-    @-webkit-keyframes domChanged { from { background: yellow; } }
-    .ember-view { animation: domChanged 1s; -webkit-animation: domChanged 1s; }
-  </style>
-  <!-- @endif -->
+		<script src="/assets/app.js"></script>
+		<script src="/assets/templates.js"></script>
+
+	<!-- endbuild -->
+
+	<!-- @if dist=false -->
+	<style>
+		@keyframes domChanged { from { background: yellow; } }
+		@-webkit-keyframes domChanged { from { background: yellow; } }
+		.ember-view { animation: domChanged 1s; -webkit-animation: domChanged 1s; }
+	</style>
+	<!-- @endif -->
 
 </head>
 <body>
-  <!--[if lt IE 8]>
-    <p class="browsehappy">
-      You are using an <strong>outdated</strong> browser. Please
-      <a href="http://browsehappy.com/">upgrade your browser</a>
-      to improve your experience.
-    </p>
-  <![endif]-->
+	<!--[if lt IE 8]>
+		<p class="browsehappy">
+			You are using an <strong>outdated</strong> browser. Please
+			<a href="http://browsehappy.com/">upgrade your browser</a>
+			to improve your experience.
+		</p>
+	<![endif]-->
 
-  <!-- @if tests=false -->
-  <script>
-    window.App = require('confy/app')['default'].create(ENV.APP);
-  </script>
-  <!-- @endif -->
+	<div class="navbar navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#"><span></span>Confy</a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="active"><a href="#">Benefits</a></li>
+					<li><a href="#">Login</a></li>
+					<li><a href="#">Signup</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="container" id="wrap">
+		<div class="row">
+
+			<div class="col-sm-9 col-md-offset-3 col-md-6 main">
+				<div class="inner">
+					
+					<h2>Save your config in the cloud, securely.</h3>
+					<a href="#" class="btn btn-primary">Try now</a>
+
+				</div><!-- /inner -->
+			</div><!-- /main -->
+
+		</div><!-- /row -->
+	</div><!-- /container -->
+
+	<footer class="col-md-12">
+		<div class="container">
+			<div class="row">
+				Copyright © 2014, Assembly Made, Inc. All rights reserved.
+			</div>
+		</div>
+	</footer>
+
+	<!-- @if tests=false -->
+	<script>
+		window.App = require('confy/app')['default'].create(ENV.APP);
+	</script>
+	<!-- @endif -->
 
 </body>
 </html>
