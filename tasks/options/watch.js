@@ -1,6 +1,4 @@
-var Helpers = require('../helpers'),
-    filterAvailable = Helpers.filterAvailableTasks,
-    LIVERELOAD_PORT = 35729,
+var LIVERELOAD_PORT = 35729,
     liveReloadPort = (parseInt(process.env.PORT || 8000, 10) - 8000) + LIVERELOAD_PORT;
 
 var docs = '{app}/**/*.js',
@@ -24,7 +22,7 @@ module.exports = {
   },
   sprites: {
     files: [sprites],
-    tasks: filterAvailable(['lock', 'sprites:create', 'unlock'])
+    tasks: ['lock', 'sprites:create', 'unlock']
   },
   styles: {
     files: [styles],

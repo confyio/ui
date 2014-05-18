@@ -2,16 +2,8 @@
 
 module.exports = function(grunt) {
 
-  var Helpers = require('./tasks/helpers'),
-      filterAvailable = Helpers.filterAvailableTasks,
-      _ = grunt.util._,
+  var _ = grunt.util._,
       path = require('path');
-
-  Helpers.pkg = require("./package.json");
-
-  if (Helpers.isPackageAvailable("time-grunt")) {
-    require("time-grunt")(grunt);
-  }
 
   // Loads task options from `tasks/options/`
   // and loads tasks defined in `package.json`
@@ -31,22 +23,22 @@ module.exports = function(grunt) {
 
   // Generate the production version
   // ------------------
-  grunt.registerTask('build:dist', "Build a minified & production-ready version of your app.", filterAvailable([
+  grunt.registerTask('build:dist', "Build a minified & production-ready version of your app.", [
     'clean:dist',
     'mktmp', // Create directoy beforehand, fixes race condition
-    'sprites:create',
+    // 'sprites:create',
     'concurrent:dist', // Executed in parallel, see config below
     'copy:assemble',
     'useminPrepare', // Configures concat, cssmin and uglify
     'concat', // Combines css and javascript files
     'cssmin', // Minifies css
     'uglify', // Minifies javascript
-    'imagemin', // Optimizes image compression
+    'copy:imageminFallback', // Use `imagemin` to optimize image compression
     'copy:dist', // Copies files not covered by concat and imagemin
     'rev', // Appends 8 char hash value to filenames
     'usemin', // Replaces file references
-    'htmlmin:dist' // Removes comments and whitespace
-  ]));
+    // 'htmlmin:dist' // Removes comments and whitespace
+  ]);
 
   // Default Task
   // ------------------
@@ -69,12 +61,12 @@ module.exports = function(grunt) {
   // Worker tasks
   // =================================
 
-  grunt.registerTask('build:debug', filterAvailable([
+  grunt.registerTask('build:debug', [
     'jshint:tooling',
     'mktmp', // Create directoy beforehand, fixes race condition
-    'sprites:create',
+    // 'sprites:create',
     'concurrent:debug' // Executed in parallel, see config below
-  ]));
+  ]);
 
   // Parallelize most of the build process
   _.merge(config, {
@@ -95,20 +87,20 @@ module.exports = function(grunt) {
   });
 
   // Scripts
-  grunt.registerTask('buildScripts', filterAvailable([
+  grunt.registerTask('buildScripts', [
     'jshint:app',
     'validate-imports',
     'copy:javascript',
     'transpile',
     'concat_sourcemap'
-  ]));
+  ]);
 
   // Styles
-  grunt.registerTask('buildStyles', filterAvailable([
+  grunt.registerTask('buildStyles', [
     'less:compile',
     'copy:css',
-    'autoprefixer:app'
-  ]));
+    // 'autoprefixer:app'
+  ]);
 
   grunt.registerTask('mktmp', function() {
     grunt.file.mkdir('tmp/result');
