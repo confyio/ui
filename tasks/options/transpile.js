@@ -1,7 +1,7 @@
 var grunt = require('grunt');
 
 module.exports = {
-  "app": {
+  app: {
     type: 'amd',
     moduleName: function(path) {
       return grunt.config.process('<%= package.namespace %>/') + path;

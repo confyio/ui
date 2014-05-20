@@ -1,11 +1,7 @@
-import Resolver from 'ember/resolver';
-import loadInitializers from 'ember/load-initializers';
+import Router from 'confy/router';
 
-var App = Ember.Application.extend({
-  modulePrefix: 'confy',
-  Resolver: Resolver
-});
+var App = new Router();
 
-loadInitializers(App, 'confy');
+Backbone.history.start();
 
 export default App;

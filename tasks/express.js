@@ -30,7 +30,6 @@ module.exports = function(grunt) {
       app.use(static({ urlRoot: '/config', directory: 'config' }));
       app.use(static({ urlRoot: '/bower_components', directory: 'bower_components' }));
       app.use(static({ directory: 'public' }));
-      app.use(static({ urlRoot: '/tests', directory: 'tests' })); // For test-helper.js and test-loader.js
       app.use(static({ directory: 'tmp/result' }));
       app.use(static({ file: 'tmp/result/index.html', ignoredFileExtensions: /\.\w{1,5}$/ })); // Gotta catch 'em all
     } else {
@@ -68,6 +67,7 @@ module.exports = function(grunt) {
   function static(options) {
     return function(req, res, next) { // Gotta catch 'em all (and serve index.html)
       var filePath = "";
+
       if (options.directory) {
         var regex = new RegExp('^' + (options.urlRoot || ''));
         // URL must begin with urlRoot's value

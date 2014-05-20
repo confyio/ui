@@ -72,13 +72,11 @@ module.exports = function(grunt) {
   _.merge(config, {
     concurrent: {
       dist: [
-        "emberTemplates:dist",
         "buildScripts",
         "buildStyles",
         "preprocess:dist"
       ],
       debug: [
-        "emberTemplates:debug",
         "buildScripts",
         "buildStyles",
         "preprocess:debug"
@@ -88,6 +86,7 @@ module.exports = function(grunt) {
 
   // Scripts
   grunt.registerTask('buildScripts', [
+    'react:jsx',
     'jshint:app',
     'validate-imports',
     'copy:javascript',

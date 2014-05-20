@@ -2,8 +2,7 @@ var LIVERELOAD_PORT = 35729,
     liveReloadPort = (parseInt(process.env.PORT || 8000, 10) - 8000) + LIVERELOAD_PORT;
 
 var docs = '{app}/**/*.js',
-    scripts = '{app,config}/**/*.js',
-    templates = 'app/templates/**/*.{hbs,handlebars,hjs}',
+    scripts = '{app,config}/**/*.{js,jsx}',
     sprites = 'app/sprites/**/*.{png,jpg,jpeg}',
     styles = 'app/styles/**/*.{css,less}',
     html = 'app/*.html',
@@ -15,10 +14,6 @@ module.exports = {
   scripts: {
     files: [scripts],
     tasks: ['lock', 'buildScripts', 'unlock']
-  },
-  templates: {
-    files: [templates],
-    tasks: ['lock', 'emberTemplates:debug', 'unlock']
   },
   sprites: {
     files: [sprites],
@@ -33,7 +28,7 @@ module.exports = {
     tasks: ['lock', 'preprocess:debug', 'unlock']
   },
   other: {
-    files: [other, '!'+scripts, '!'+templates, '!'+styles, '!'+html, bowerFile, npmFile],
+    files: [other, '!'+scripts, '!'+styles, '!'+html, bowerFile, npmFile],
     tasks: ['lock', 'build:debug', 'unlock']
   },
 

@@ -1,7 +1,10 @@
-var Router = Ember.Router.extend();
-
-Router.map(function() {
-  // Routes
+var Router = Backbone.Router.extend({
+  routes: {
+    "index": "index"
+  },
+  index: function () {
+    console.log('hello');
+  }
 });
 
 export default Router;

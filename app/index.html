@@ -33,30 +33,24 @@
 
 	<!-- build:js(tmp/result) /assets/vendor.min.js -->
 
-		<script src="/bower_components/jquery/jquery.js"></script>
-		<script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+		<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="/bower_components/underscore/underscore.js"></script>
+		<script src="/bower_components/backbone/backbone.js"></script>
 
 		<!-- @if dist=false -->
-		<script src="/bower_components/handlebars/handlebars.js"></script>
-		<script src="/bower_components/ember/ember.js"></script>
+		<script src="/bower_components/react/react.js"></script>
 		<!-- @endif --><!-- @if dist=true -->
-		<script src="/bower_components/handlebars/handlebars.runtime.js"></script>
-		<script src="/bower_components/ember/ember.prod.js"></script>
+		<script src="/bower_components/react/react.min.js"></script>
 		<!-- @endif -->
 
 		<script src="/bower_components/loader.js/loader.js"></script>
-
-		<script src="/bower_components/ember-data/ember-data.js"></script>
-		<script src="/bower_components/ember-model/ember-model.js"></script>
-		<script src="/bower_components/ember-resolver/dist/ember-resolver.js"></script>
-		<script src="/bower_components/ember-load-initializers/ember-load-initializers.js"></script>
 
 	<!-- endbuild -->
 
 	<!-- build:js(tmp/result) /assets/app.min.js -->
 
 		<script src="/assets/app.js"></script>
-		<script src="/assets/templates.js"></script>
 
 	<!-- endbuild -->
 
@@ -105,7 +99,7 @@
 			<div class="col-sm-9 col-md-offset-3 col-md-6 main">
 				<div class="inner">
 					
-					<h2>Save your config in the cloud, securely.</h3>
+					<h2>Save your config in the cloud, securely.</h2>
 					<a href="#" id="trynow" class="btn btn-primary">Try now</a>
 
 				</div><!-- /inner -->
@@ -124,7 +118,8 @@
 
 	<!-- @if tests=false -->
 	<script>
-		window.App = require('confy/app')['default'].create(ENV.APP);
+		window.App = require('confy/app')['default'];
+		require('confy/react/orgswitch');
 	</script>
 	<!-- @endif -->
 

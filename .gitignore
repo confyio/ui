@@ -4,6 +4,7 @@
 /dist
 /tmp
 /tests
+/.module-cache
 
 # dependencies
 /node_modules
