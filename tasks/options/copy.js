@@ -39,7 +39,7 @@ module.exports = {
     ]
   },
 
-  imageminFallback: {
+  image: {
     files: '<%= imagemin.dist.files %>'
   },
 

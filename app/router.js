@@ -1,3 +1,4 @@
+import Orgs from 'confy/routes/orgs/index';
 import Pages from 'confy/routes/pages/index';
 
 export default Backbone.Router.extend({

@@ -1,5 +1,3 @@
-// jshint node:true
-
 module.exports = function(grunt) {
 
   var _ = grunt.util._,
@@ -26,18 +24,17 @@ module.exports = function(grunt) {
   grunt.registerTask('build:dist', "Build a minified & production-ready version of your app.", [
     'clean:dist',
     'mktmp', // Create directoy beforehand, fixes race condition
-    // 'sprites:create',
     'concurrent:dist', // Executed in parallel, see config below
     'copy:assemble',
     'useminPrepare', // Configures concat, cssmin and uglify
     'concat', // Combines css and javascript files
     'cssmin', // Minifies css
     'uglify', // Minifies javascript
-    'copy:imageminFallback', // Use `imagemin` to optimize image compression
+    'copy:image', // Use `imagemin` to optimize image compression
     'copy:dist', // Copies files not covered by concat and imagemin
     'rev', // Appends 8 char hash value to filenames
     'usemin', // Replaces file references
-    // 'htmlmin:dist' // Removes comments and whitespace
+    'htmlmin:dist' // Removes comments and whitespace
   ]);
 
   // Default Task
@@ -62,9 +59,7 @@ module.exports = function(grunt) {
   // =================================
 
   grunt.registerTask('build:debug', [
-    'jshint:tooling',
     'mktmp', // Create directoy beforehand, fixes race condition
-    // 'sprites:create',
     'concurrent:debug' // Executed in parallel, see config below
   ]);
 
@@ -87,7 +82,6 @@ module.exports = function(grunt) {
   // Scripts
   grunt.registerTask('buildScripts', [
     'react:jsx',
-    'jshint:app',
     'validate-imports',
     'copy:javascript',
     'transpile',
@@ -97,8 +91,7 @@ module.exports = function(grunt) {
   // Styles
   grunt.registerTask('buildStyles', [
     'less:compile',
-    'copy:css',
-    // 'autoprefixer:app'
+    'copy:css'
   ]);
 
   grunt.registerTask('mktmp', function() {

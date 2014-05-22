@@ -5,7 +5,9 @@ module.exports = {
         'dist/assets/config.min.js',
         'dist/assets/app.min.js',
         'dist/assets/vendor.min.js',
-        'dist/assets/app.min.css'
+        'dist/assets/app.min.css',
+        'dist/assets/fonts/*',
+        'dist/assets/images/*'
       ]
     }
   }
