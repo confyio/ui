@@ -3,8 +3,8 @@ module.exports = {
     files: [
       {
         expand: true,
-        cwd: 'app/react',
-        dest: 'tmp/javascript/app/react',
+        cwd: 'app',
+        dest: 'tmp/javascript/app',
         src: ['**/*.jsx'],
         ext: '.js'
       }
