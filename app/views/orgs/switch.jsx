@@ -11,7 +11,7 @@ export default React.createClass({
         <ul className="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
           {window.orgs.map(function (org) {
             if (org.name !== window.org.name) {
-              return <li role="presentation" key={org.name}><a role="menuitem" tabindex="-1" href={"#orgs/" + org.name.toLowerCase()}>{org.name}</a></li>
+              return <li role="presentation" key={org.name}><a role="menuitem" tabindex="-1" href={org.link}>{org.name}</a></li>
             }
           })}
         </ul>
