@@ -4,8 +4,8 @@ export default Backbone.Model.extend({
   validate: function (attrs, options) {
     var name = attrs.name;
 
-    if (name === undefined || attrs.email === undefined) {
-      return "Name and/or billing email is empty";
+    if (name === undefined || attrs.description === undefined) {
+      return "Please fill all the fields";
     }
 
     if (typeof name != 'string' || name.match(/[a-z0-9]*/i)[0] != name) {
@@ -15,7 +15,7 @@ export default Backbone.Model.extend({
 
   sync: function (method, model, options) {
     options = options || {};
-    options.url = window.ENV.BASE_URL + '/orgs';
+    options.url = window.ENV.BASE_URL + '/orgs/' + window.ENV.ORG + '/teams';
 
     if (method != 'create' && this.get('name') !== undefined) {
       this.set('id', this.get('name').toLowerCase());

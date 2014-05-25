@@ -16,6 +16,12 @@ export default Backbone.Model.extend({
   sync: function (method, model, options) {
     options = options || {};
     options.url = window.ENV.BASE_URL + '/user';
+
+    if (method != 'create' && this.get('username') !== undefined) {
+      this.set('id', this.get('username'));
+      options.url += '/' + this.get('id');
+    }
+
     return _sync.call(this, method, model, options);
   }
 });
