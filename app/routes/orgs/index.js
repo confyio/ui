@@ -1,7 +1,11 @@
-import Org from 'confy/models/org';
+import OrgsHelper from 'confy/helpers/orgs';
 
-export default {
+var OrgsRoute = {
   index: function () {
-    console.log('index');
+    OrgsHelper.list(function () {
+      $('body').attr('class', 'console');
+    });
   }
 };
+
+export default OrgsRoute;

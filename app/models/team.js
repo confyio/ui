@@ -15,7 +15,7 @@ export default Backbone.Model.extend({
 
   sync: function (method, model, options) {
     options = options || {};
-    options.url = window.ENV.BASE_URL + '/orgs/' + window.ENV.ORG + '/teams';
+    options.url = window.ENV.BASE_URL + '/orgs/' + window.org + '/teams';
 
     if (method != 'create' && this.get('name') !== undefined) {
       this.set('id', this.get('name').toLowerCase());

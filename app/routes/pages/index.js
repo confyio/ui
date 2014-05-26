@@ -1,5 +1,5 @@
-import Landing from 'confy/routes/pages/landing';
+import LandingRoute from 'confy/routes/pages/landing';
 
 export default {
-  landing: Landing
+  landing: LandingRoute
 };
