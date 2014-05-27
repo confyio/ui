@@ -1,6 +1,25 @@
 var _sync = Backbone.Model.prototype.sync;
 
 export default Backbone.Model.extend({
+  initialize: function () {
+    this.computedFields = new Backbone.ComputedFields(this);
+  },
+
+  computed: {
+    id: {
+      depends: ['name'],
+      get: function (fields) {
+        return fields.name.toLowerCase();
+      }
+    },
+    link: {
+      depends: ['name'],
+      get: function (fields) {
+        return 'teams/' + fields.name.toLowerCase();
+      }
+    }
+  },
+
   validate: function (attrs, options) {
     var name = attrs.name;
 
@@ -18,7 +37,6 @@ export default Backbone.Model.extend({
     options.url = window.ENV.BASE_URL + '/orgs/' + window.org + '/teams';
 
     if (method != 'create' && this.get('name') !== undefined) {
-      this.set('id', this.get('name').toLowerCase());
       options.url += '/' + this.get('id');
     }
 
