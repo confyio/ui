@@ -9,7 +9,7 @@ export default function (org, callback) {
     ProjectsHelper.list(function () {
       if (callback) return callback();
 
-      self.navigate(window.org.get('link') + window.projects.at(0).get('link'), {
+      self.navigate(window.projects.at(0).get('link'), {
         trigger: true, replace: true
       });
     });

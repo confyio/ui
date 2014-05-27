@@ -13,9 +13,9 @@ export default Backbone.Model.extend({
       }
     },
     link: {
-      depends: ['name'],
+      depends: ['_id'],
       get: function (fields) {
-        return 'teams/' + fields.name.toLowerCase();
+        return '#' + fields._id;
       }
     }
   },

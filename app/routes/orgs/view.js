@@ -7,7 +7,7 @@ export default function (org, callback) {
 
   OrgsListRoute(function () {
     if (window.org && window.org.get('id') == org) {
-      return callback();
+      if (callback) return callback();
     }
 
     window.org = window.orgs.findWhere({ id: org });
