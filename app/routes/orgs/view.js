@@ -6,15 +6,28 @@ export default function (org, callback) {
   var self = this;
 
   OrgsListRoute(function () {
+    if (window.org && window.org.get('id') == org) {
+      return callback();
+    }
+
     window.org = window.orgs.findWhere({ id: org });
+
+    delete window.projects;
+    delete window.project;
+
+    delete window.teams;
+    delete window.team;
+
+    delete window.envs;
+    delete window.env;
 
     React.renderComponent(OrgsSwitchView(), $('#org-switch')[0]);
     React.renderComponent(OrgsSettingsView(), $('#org-settings')[0]);
 
     if (callback) return callback();
 
-    // self.navigate(window.orgs.at(0).get('link'), {
-    //   trigger: true, replace: true
-    // });
+    self.navigate(Backbone.history.fragment + '/projects', {
+      trigger: true, replace: true
+    });
   });
 };

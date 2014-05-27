@@ -15,7 +15,7 @@ export default Backbone.Model.extend({
     link: {
       depends: ['name'],
       get: function (fields) {
-        return 'projects/' + fields.name.toLowerCase();
+        return '/projects/' + fields.name.toLowerCase();
       }
     }
   },
@@ -34,7 +34,7 @@ export default Backbone.Model.extend({
 
   sync: function (method, model, options) {
     options = options || {};
-    options.url = window.ENV.BASE_URL + '/orgs/' + window.org + '/projects';
+    options.url = window.ENV.BASE_URL + '/orgs/' + window.org.get('id') + '/projects';
 
     if (method != 'create' && this.get('name') !== undefined) {
       options.url += '/' + this.get('id');
