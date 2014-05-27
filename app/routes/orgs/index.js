@@ -1,20 +1,7 @@
-import LoadingHelper from 'confy/helpers/loading';
-import OrgsHelper from 'confy/helpers/orgs';
+import OrgsListRoute from 'confy/routes/orgs/list';
+import OrgsViewRoute from 'confy/routes/orgs/view';
 
-var OrgsRoute = {
-  index: function () {
-    var self = this;
-
-    LoadingHelper();
-
-    OrgsHelper.list(function () {
-      $('body').attr('class', 'console');
-
-      self.navigate(window.orgs.at(0).get('link'), {
-        trigger: true, replace: true
-      });
-    });
-  }
+export default {
+  list: OrgsListRoute,
+  view: OrgsViewRoute
 };
-
-export default OrgsRoute;

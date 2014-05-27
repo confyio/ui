@@ -15,7 +15,7 @@ export default Backbone.Model.extend({
     link: {
       depends: ['name'],
       get: function (fields) {
-        return 'orgs/' + fields.name.toLowerCase();
+        return '#orgs/' + fields.name.toLowerCase();
       }
     }
   },

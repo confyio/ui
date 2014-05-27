@@ -5,6 +5,7 @@ export default Backbone.Router.extend({
   initialize: function (options) {
     this.route('', PagesRoute.landing);
 
-    this.route('orgs', OrgsRoute.index);
+    this.route('orgs', OrgsRoute.list);
+    this.route('orgs/:org', OrgsRoute.view);
   }
 });

@@ -2,10 +2,10 @@
 
 export default React.createClass({
   render: function () {
-    if (window.org.owner === window.user.username) {
+    if (window.org.get('owner') === window.user.get('username')) {
       return (
         <div>
-          <a href={"#orgs/" + window.org.lname + "/admin"}>
+          <a href={window.org.get('link') + "/admin"}>
             <i className="fa fa-cog"></i>
           </a>
         </div>

@@ -122,33 +122,36 @@ body.console {
 	}
 }
 
-.console #org-settings div {
+.console #org-settings {
 	float: left;
-	height: 44px;
-	width: 44px;
-	margin: 3px 0 0 20px;
-	font-size: 21px;
-	font-weight: 200;
-	background: none;
-	line-height: 42px;
-	text-align: center;
-	border: 1px solid #364758;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
-	-webkit-transition: .3s all;
 
-	a {
-		color: #78899a;
-	}
+	div {
+		height: 44px;
+		width: 44px;
+		margin: 3px 0 0 20px;
+		font-size: 21px;
+		font-weight: 200;
+		background: none;
+		line-height: 42px;
+		text-align: center;
+		border: 1px solid #364758;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		border-radius: 5px;
+		-webkit-transition: .3s all;
 
-	&:hover {
 		a {
-			color: #A0B4C9;
+			color: #78899a;
 		}
 
-		border: 1px solid #5A7188;
-		-webkit-transition: .6s all;
+		&:hover {
+			a {
+				color: #A0B4C9;
+			}
+
+			border: 1px solid #5A7188;
+			-webkit-transition: .6s all;
+		}
 	}
 }
 
