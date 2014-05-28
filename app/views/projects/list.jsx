@@ -5,10 +5,10 @@ import Sidebar from 'confy/views/sidebar';
 export default React.createClass({
   render: function () {
     return (
-      <Sidebar head="Projects">
+      <Sidebar type="Projects">
         {window.projects.map(function (project) {
           return (
-            <li>
+            <li key={project.get('id')}>
               <a href={project.get('link')}>
                 {project.get('name')}
               </a>

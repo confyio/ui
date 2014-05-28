@@ -1,5 +1,7 @@
 /** @jsx React.DOM */
 
+import DummyView from 'confy/views/dummy';
+
 export default React.createClass({
   render: function () {
     if (window.org.get('owner') === window.user.get('username')) {
@@ -10,8 +12,8 @@ export default React.createClass({
           </a>
         </div>
       );
+    } else {
+      return <DummyView />;
     }
-
-    return;
   }
 });
