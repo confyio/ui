@@ -4,6 +4,129 @@
 
 // Our own variables
 @icon-font-path: "fonts/";
+@images: "images/";
+
+@white: #ffffff;
+@black: #000000;
+
+@turquoise: #1abc9c;
+@greensea: #16a085;
+@emerald: #2ecc71;
+@nephritis: #27ae60;
+@peter: #3498db;
+@belize: #2980b9;
+@amethyst: #9b59b6;
+@wisteria: #8e44ad;
+@asphalt: #34495e;
+@midnight: #253647;
+@sunflower: #f1c40f;
+@orange: #f39c12;
+@carrot: #e67e22;
+@pumpkin: #d35400;
+@alizarin: #e74c3c;
+@pomegranate: #c0392b;
+@silver: #bdc3c7;
+@asbestos: #7f8c8d;
+
+@gray: #666666;
+@gray-dark: darken(@gray, 13.5%);
+@gray-darker: darken(@gray, 20%);
+@gray-light: lighten(@gray, 26.5%);
+@gray-lighter: lighten(@gray, 60%);
+
+@brand-primary: @pomegranate;
+@brand-success: @emerald;
+@brand-info: @peter;
+@brand-warning: @carrot;
+@brand-danger: @alizarin;
+
+@body-bg: #e3effa;
+
+@border-radius-base: 0;
+@border-radius-small: 0;
+@border-radius-large: 0;
+
+@table-bg-accent: darken(@body-bg, 5%);
+@table-bg-hover: @table-bg-accent;
+
+@table-border-color: @gray-lighter;
+
+@component-active-color: @white;
+@component-active-bg: @asbestos;
+
+@btn-default-color: @white;
+@btn-default-bg: @asbestos;
+
+@btn-default-border: darken(@btn-default-bg, 5%);
+
+@input-bg: lighten(@silver, 26.5%);
+@input-bg-disabled: lighten(@silver, 13.5%);
+
+@input-border: @gray-lighter;
+@input-border-focus: @gray-light;
+
+@legend-border-color: @input-border;
+
+@dropdown-bg: lighten(@body-bg, 13.5%);
+@dropdown-divider-bg: @gray-lighter;
+
+@dropdown-border: @gray-light;
+@dropdown-fallback-border: @dropdown-border;
+
+@dropdown-link-hover-color: @component-active-color;
+@dropdown-link-hover-bg: @component-active-bg;
+
+@dropdown-link-active-color: @component-active-color;
+@dropdown-link-active-bg: @component-active-bg;
+
+@navbar-inverse-color: @gray-light;
+@navbar-inverse-bg: @midnight;
+@navbar-inverse-border: @navbar-inverse-bg;
+
+@navbar-inverse-link-color: rgba(116,129,143,.7);
+@navbar-inverse-link-hover-color: rgba(116,129,143,1);
+@navbar-inverse-link-active-bg: transparent;
+@navbar-inverse-link-disabled-color: @gray-dark;
+
+@navbar-inverse-brand-color: @sunflower;
+@navbar-inverse-brand-hover-color: @sunflower;
+
+@navbar-inverse-toggle-hover-bg: darken(@navbar-inverse-bg, 6.5%);
+@navbar-inverse-toggle-icon-bar-bg: @sunflower;
+@navbar-inverse-toggle-border-color: @navbar-inverse-bg;
+
+@pagination-bg: @gray-lighter;
+@pagination-hover-bg: darken(@pagination-bg, 5%);
+
+@pagination-disabled-color: @gray-dark;
+@pagination-disabled-bg: @gray-light;
+
+@state-success-text: @nephritis;
+@state-success-bg: lighten(@emerald, 30%);
+
+@state-info-text: @belize;
+@state-info-bg: lighten(@peter, 30%);
+
+@state-warning-text: @pumpkin;
+@state-warning-bg: lighten(@carrot, 30%);
+
+@state-danger-text: @pomegranate;
+@state-danger-bg: lighten(@alizarin, 30%);
+
+@popover-bg: @dropdown-bg;
+@modal-content-bg: @dropdown-bg;
+@well-bg: @dropdown-bg;
+@pre-bg: @dropdown-bg;
+
+@list-group-bg: @dropdown-bg;
+@list-group-hover-bg: @list-group-active-bg;
+
+@progress-bg: @dropdown-bg;
+@progress-bar-color: @gray;
+
+@breadcrumb-bg: @dropdown-bg;
+@breadcrumb-color: @gray;
+@breadcrumb-active-color: @gray-dark;
 
 // Reset
 @import "../../bower_components/bootstrap/less/normalize.less";
@@ -85,9 +208,30 @@ body {
 	}
 }
 
-@import "navbar.less";
+.navbar-collapse {
+	border: 0;
+	.box-shadow(none);
+}
+
+.navbar-nav {
+	a {
+		font-size: 16px;
+		-webkit-transition: .6s all;
+	}
+
+	li a:hover {
+		-webkit-transition: .6s all;
+	}
+}
+
 @import "landing.less";
 @import "console.less";
+
+body.console {
+	#org-switch, #org-settings {
+		display: none;
+	}
+}
 
 @media (min-width: 768px) {
 	.main {

@@ -3,7 +3,7 @@ module.exports = {
     files: [{
       expand: true,
       cwd: 'app/styles',
-      src: ['*.less', '**/*.less', '!**/_*.less'],
+      src: ['app.less'],
       dest: 'tmp/result/assets/',
       ext: '.css'
     }]
