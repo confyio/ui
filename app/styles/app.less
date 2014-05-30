@@ -52,7 +52,7 @@
 @table-border-color: @gray-lighter;
 
 @component-active-color: @white;
-@component-active-bg: @asbestos;
+@component-active-bg: @brand-primary;
 
 @btn-default-color: @white;
 @btn-default-bg: @asbestos;
@@ -62,22 +62,10 @@
 @input-bg: lighten(@silver, 26.5%);
 @input-bg-disabled: lighten(@silver, 13.5%);
 
-@input-border: @gray-lighter;
-@input-border-focus: @gray-light;
+@input-border: @gray-dark;
+@input-border-focus: @gray-darker;
 
 @legend-border-color: @input-border;
-
-@dropdown-bg: lighten(@body-bg, 13.5%);
-@dropdown-divider-bg: @gray-lighter;
-
-@dropdown-border: @gray-light;
-@dropdown-fallback-border: @dropdown-border;
-
-@dropdown-link-hover-color: @component-active-color;
-@dropdown-link-hover-bg: @component-active-bg;
-
-@dropdown-link-active-color: @component-active-color;
-@dropdown-link-active-bg: @component-active-bg;
 
 @navbar-inverse-color: @gray-light;
 @navbar-inverse-bg: @midnight;
@@ -95,8 +83,35 @@
 @navbar-inverse-toggle-icon-bar-bg: @sunflower;
 @navbar-inverse-toggle-border-color: @navbar-inverse-bg;
 
-@pagination-bg: @gray-lighter;
-@pagination-hover-bg: darken(@pagination-bg, 5%);
+@dropdown-bg: @gray-lighter;
+@dropdown-divider-bg: @gray-dark;
+
+@dropdown-border: @gray-light;
+@dropdown-fallback-border: @dropdown-border;
+
+@dropdown-link-hover-color: @link-hover-color;
+@dropdown-link-hover-bg: darken(@dropdown-bg, 5%);
+
+@nav-link-hover-bg: @dropdown-link-hover-bg;
+@nav-open-link-hover-color: @dropdown-link-hover-color;
+
+@nav-disabled-link-color: @gray-dark;
+@nav-disabled-link-hover-color: @nav-disabled-link-color;
+
+@nav-tabs-border-color: @dropdown-border;
+@nav-tabs-link-hover-border-color: @dropdown-border;
+@nav-tabs-active-link-hover-border-color: @dropdown-border;
+
+@nav-tabs-justified-link-border-color: @dropdown-border;
+
+@nav-pills-active-link-hover-color: @component-active-color;
+@nav-pills-active-link-hover-bg: @component-active-bg;
+
+@pagination-bg: @dropdown-bg;
+@pagination-hover-bg: @dropdown-link-hover-bg;
+
+@pagination-active-color: @component-active-color;
+@pagination-active-bg: @component-active-bg;
 
 @pagination-disabled-color: @gray-dark;
 @pagination-disabled-bg: @gray-light;
@@ -119,7 +134,7 @@
 @pre-bg: @dropdown-bg;
 
 @list-group-bg: @dropdown-bg;
-@list-group-hover-bg: @list-group-active-bg;
+@list-group-hover-bg: @dropdown-link-hover-bg;
 
 @progress-bg: @dropdown-bg;
 @progress-bar-color: @gray;
@@ -224,17 +239,20 @@ body {
 	}
 }
 
-@import "landing.less";
-@import "console.less";
-
-body.console {
-	#org-switch, #org-settings {
-		display: none;
+@media (max-width: 768px) {
+	.container > {
+		.navbar-header, .navbar-collapse {
+			margin: 0;
+		}
 	}
 }
 
-@media (min-width: 768px) {
-	.main {
+@import "landing.less";
+@import "console.less";
+
+.console {
+	#org-switch, #org-settings {
+		display: none;
 	}
 }
 
