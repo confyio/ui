@@ -4,6 +4,7 @@
 
 // Our own variables
 @icon-font-path: "fonts/";
+@fa-font-path: "fonts";
 @images: "images/";
 
 @white: #ffffff;
@@ -193,8 +194,6 @@
 @import "../../bower_components/fontawesome/less/variables.less";
 @import "../../bower_components/fontawesome/less/mixins.less";
 
-@fa-font-path: "fonts";
-
 @import "../../bower_components/fontawesome/less/path.less";
 @import "../../bower_components/fontawesome/less/core.less";
 @import "../../bower_components/fontawesome/less/larger.less";
@@ -236,6 +235,20 @@ body {
 
 	li a:hover {
 		-webkit-transition: .6s all;
+	}
+}
+
+.navbar-brand {
+	position: relative;
+
+	span.logo {
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: inline-block;
+		width: 44px;
+		height: 44px;
+		background: url("@{images}logo_reverse.png");
 	}
 }
 
