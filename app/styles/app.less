@@ -1,6 +1,8 @@
 // Core variables and mixins
 @import "../../bower_components/bootstrap/less/variables.less";
 @import "../../bower_components/bootstrap/less/mixins.less";
+@import "../../bower_components/fontawesome/less/variables.less";
+@import "../../bower_components/fontawesome/less/mixins.less";
 
 // Our own variables
 @icon-font-path: "fonts/";
@@ -191,9 +193,6 @@
 @import "../../bower_components/bootstrap/less/responsive-utilities.less";
 
 // Font Awesome
-@import "../../bower_components/fontawesome/less/variables.less";
-@import "../../bower_components/fontawesome/less/mixins.less";
-
 @import "../../bower_components/fontawesome/less/path.less";
 @import "../../bower_components/fontawesome/less/core.less";
 @import "../../bower_components/fontawesome/less/larger.less";
@@ -204,6 +203,9 @@
 @import "../../bower_components/fontawesome/less/rotated-flipped.less";
 @import "../../bower_components/fontawesome/less/stacked.less";
 @import "../../bower_components/fontawesome/less/icons.less";
+
+// Our own mixins
+@import "mixins.less";
 
 html, body {
 	height: 100%;
@@ -230,11 +232,11 @@ body {
 .navbar-nav {
 	a {
 		font-size: 16px;
-		-webkit-transition: .6s all;
+		.transition-all(0.6s);
 	}
 
 	li a:hover {
-		-webkit-transition: .6s all;
+		.transition-all(0.6s);
 	}
 }
 
@@ -246,9 +248,9 @@ body {
 		top: 0;
 		left: 0;
 		display: inline-block;
-		width: 44px;
-		height: 44px;
 		background: url("@{images}logo_reverse.png");
+
+		.square(44px);
 	}
 }
 
@@ -264,7 +266,7 @@ body {
 @import "console.less";
 
 .console {
-	#org-switch, #org-settings {
+	#org-switch {
 		display: none;
 	}
 }

@@ -1,5 +1,5 @@
 .console .dummy {
-	display: hidden;
+	display: none;
 }
 
 /*---------------------------------------*/
@@ -13,15 +13,47 @@
 .console .navbar-brand {
 	width: 44px;
 	height: 44px;
+	margin-top: 3px;
 
 	span.brand {
 		display: none;
 	}
 
-	-webkit-transition: all .6s ease-out;
+	.transition-all(0.6s);
 
 	&:hover {
-		-webkit-transform: rotate(-180deg);
+		.rotation(-180deg);
+	}
+}
+
+.console #org-settings {
+	float: left;
+
+	div {
+		margin: 3px 0 0 20px;
+		line-height: 42px;
+		text-align: center;
+		border: 1px solid #364758;
+
+		.square(44px);
+		.rounded(5px);
+		.transition-all(0.3s);
+
+		a {
+			font-size: 21px;
+			font-weight: 200;
+			color: #78899a;
+		}
+
+		&:hover {
+			a {
+				color: #A0B4C9;
+			}
+
+			border: 1px solid #5A7188;
+
+			.transition-all(0.6s);
+		}
 	}
 }
 
