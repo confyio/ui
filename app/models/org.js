@@ -12,6 +12,12 @@ export default Backbone.Model.extend({
         return fields.name.toLowerCase();
       }
     },
+    key: {
+      depends: ['id'],
+      get: function (fields) {
+        return 'org-' + fields.id;
+      }
+    },
     link: {
       depends: ['_id'],
       get: function (fields) {

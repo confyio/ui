@@ -12,7 +12,7 @@ export default React.createClass({
           {window.orgs.map(function (org) {
             if (org.get('name') !== window.org.get('name')) {
               return (
-                <li role="presentation" key={org.get('name')}>
+                <li role="presentation" key={org.get('key')}>
                   <a role="menuitem" tabIndex="-1" href={org.get('link')}>
                     {org.get('name')}
                   </a>

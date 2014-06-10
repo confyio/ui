@@ -8,6 +8,7 @@ var OrgsHelper = {};
 OrgsHelper.list = function (callback) {
   LoadingHelper();
 
+  // Check for auth user
   if (!window.user) {
     window.user = new User();
     window.user.fetch();

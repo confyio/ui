@@ -12,6 +12,12 @@ export default Backbone.Model.extend({
         return fields.name.toLowerCase();
       }
     },
+    key: {
+      depends: ['id'],
+      get: function (fields) {
+        return 'env-' + fields.id;
+      }
+    },
     link: {
       depends: ['_id'],
       get: function (fields) {
@@ -34,7 +40,7 @@ export default Backbone.Model.extend({
 
   sync: function (method, model, options) {
     options = options || {};
-    options.url = window.ENV.BASE_URL + '/orgs/' + window.org + '/projects/' + window.project + '/envs';
+    options.url = window.ENV.BASE_URL + '/orgs/' + window.org.get('id') + '/projects/' + window.project.get('id') + '/envs';
 
     if (method != 'create' && this.get('name') !== undefined) {
       options.url += '/' + this.get('id');
