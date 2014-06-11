@@ -116,4 +116,21 @@
 	}
 }
 
+@console-color: rgb(194, 213, 230);
+
+.console #wrap .btn {
+	margin: 0 -20px 10px -20px;
+	display: block;
+	border: 1px solid fade(@console-color, 50%);
+	background: fade(@console-color, 40%);
+	color: fade(@black, 30%);
+
+	.rounded(5px);
+
+	&:hover {
+		background: fade(@console-color, 20%);
+	}
+}
+
 @import "sidebar.less";
+@import "content.less";

@@ -1,5 +1,5 @@
 import ProjectsListRoute from 'confy/routes/projects/list';
-import ProjectsListView from 'confy/views/projects/list';
+import ProjectsInfoView from 'confy/views/projects/info';
 import EnvsHelper from 'confy/helpers/envs';
 
 export default function (org, project, callback) {
@@ -18,7 +18,7 @@ export default function (org, project, callback) {
     EnvsHelper.list(function () {
       if (callback) return callback();
 
-      React.renderComponent(ProjectsListView({}), $('#wrap .row')[0]);
+      React.renderComponent(ProjectsInfoView({}), $('#wrap .row')[0]);
     });
   });
 };
