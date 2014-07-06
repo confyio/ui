@@ -24,7 +24,9 @@ module.exports = function(grunt) {
   grunt.registerTask('build:dist', "Build a minified & production-ready version of your app.", [
     'clean:dist',
     'mktmp', // Create directoy beforehand, fixes race condition
-    'concurrent:dist', // Executed in parallel, see config below
+    'buildScripts',
+    'buildStyles',
+    'preprocess:dist',
     'copy:assemble',
     'useminPrepare', // Configures concat, cssmin and uglify
     'concat', // Combines css and javascript files
@@ -60,24 +62,10 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build:debug', [
     'mktmp', // Create directoy beforehand, fixes race condition
-    'concurrent:debug' // Executed in parallel, see config below
+    'buildScripts',
+    'buildStyles',
+    'preprocess:debug'
   ]);
-
-  // Parallelize most of the build process
-  _.merge(config, {
-    concurrent: {
-      dist: [
-        "buildScripts",
-        "buildStyles",
-        "preprocess:dist"
-      ],
-      debug: [
-        "buildScripts",
-        "buildStyles",
-        "preprocess:debug"
-      ]
-    }
-  });
 
   // Scripts
   grunt.registerTask('buildScripts', [

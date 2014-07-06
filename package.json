@@ -34,7 +34,6 @@
     "grunt-es6-module-transpiler": "0.6.x",
     "grunt-es6-import-validate": "0.0.x",
     "grunt-concat-sourcemap": "0.4.x",
-    "grunt-concurrent": "0.5.x",
     "request": "2.36.x"
   }
 }
