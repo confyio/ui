@@ -4,7 +4,7 @@ import DummyView from 'confy/views/dummy';
 
 export default React.createClass({
   render: function () {
-    if (this.props.type == 'Project') {
+    if (this.props.type == 'Project' && window.project) {
       return (
         <a className="btn btn-edit" href={window.project.get('link') + '/_edit'}>
           <i className="fa fa-edit"></i>
