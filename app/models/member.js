@@ -15,7 +15,7 @@ export default Backbone.Model.extend({
 
   sync: function (method, model, options) {
     options = options || {};
-    options.url = window.ENV.BASE_URL + '/orgs/' + window.org + '/teams/' + this.get('name').toLowerCase() + '/member';
+    options.url = window.ENV.BASE_URL + '/orgs/' + window.org.get('id') + '/teams/' + window.team.get('id') + '/member';
 
     if (method === 'destroy') {
       options.data = JSON.stringify(model.toJSON());
