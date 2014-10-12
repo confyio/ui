@@ -10,24 +10,14 @@ export default React.createClass({
     return (
       <SidebarView type="Projects">
         {window.projects.map(function (project) {
-          if (project.get('id') != id) {
-            return (
-              <li role="presentation" key={project.get('key')}>
-                <a href={project.get('link')}>
-                  {project.get('name')}
-                </a>
-              </li>
-            );
-          } else {
-            return (
-              <li role="presentation" key={project.get('key')} className="active">
-                <a href={project.get('link')}>
-                  {project.get('name')}
-                </a>
-                <EnvsListView />
-              </li>
-            );
-          }
+          return (
+            <li role="presentation" key={project.get('key')} className={project.get('id') == id ? 'active' : ''}>
+              <a href={project.get('link')}>
+                {project.get('name')}
+              </a>
+              <EnvsListView exist={project.get('id') == id} />
+            </li>
+          );
         })}
       </SidebarView>
     );

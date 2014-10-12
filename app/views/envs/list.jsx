@@ -1,10 +1,16 @@
 /** @jsx React.DOM */
 
-import Sidebar from 'confy/views/sidebar';
+import DummyView from 'confy/views/dummy';
 
 export default React.createClass({
   render: function () {
     var id = window.env && window.env.get('id');
+
+    if (!this.props.exist) {
+      return (
+        <DummyView />
+      );
+    }
 
     return (
       <ul>
