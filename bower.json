@@ -1,11 +1,11 @@
 {
   "name": "confy",
   "dependencies": {
-    "bootstrap": "3.1.x",
-    "fontawesome": "4.1.x",
+    "bootstrap": "3.2.x",
+    "fontawesome": "4.2.x",
     "backbone": "1.1.x",
-    "backbone-computedfields": "master",
-    "react": "0.10.x",
+    "backbone-computedfields": "0.0.8",
+    "react": "0.11.x",
     "loader.js": "1.x.x"
   }
 }
