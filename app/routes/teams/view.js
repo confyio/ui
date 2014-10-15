@@ -12,9 +12,12 @@ export default function (org, team, callback) {
 
     window.team = window.teams.findWhere({ id: team });
 
-    TeamsHelper.projects(function () {
-      if (callback) return callback();
+    delete window.members;
+    delete window.team_projects;
 
+    if (callback) return callback();
+
+    TeamsHelper.users(function () {
       React.renderComponent(TeamsInfoView({}), $('#wrap .row')[0]);
     });
   });

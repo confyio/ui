@@ -1,6 +1,7 @@
 import ProjectsListRoute from 'confy/routes/projects/list';
 import ProjectsInfoView from 'confy/views/projects/info';
 import EnvsHelper from 'confy/helpers/envs';
+import ProjectsHelper from 'confy/helpers/projects';
 
 export default function (org, project, callback) {
   var self = this;
@@ -14,11 +15,14 @@ export default function (org, project, callback) {
 
     delete window.envs;
     delete window.env;
+    delete window.access;
 
     EnvsHelper.list(function () {
       if (callback) return callback();
 
-      React.renderComponent(ProjectsInfoView({}), $('#wrap .row')[0]);
+      ProjectsHelper.teams(function () {
+        React.renderComponent(ProjectsInfoView({}), $('#wrap .row')[0]);
+      });
     });
   });
 };
