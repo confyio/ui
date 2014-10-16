@@ -1,6 +1,19 @@
 var _sync = Backbone.Model.prototype.sync;
 
 export default Backbone.Model.extend({
+  initialize: function () {
+    this.computedFields = new Backbone.ComputedFields(this);
+  },
+
+  computed: {
+    link: {
+      depends: ['_id'],
+      get: function (fields) {
+        return '#' + fields._id;
+      }
+    }
+  },
+
   validate: function (attrs, options) {
     var username = attrs.username;
 

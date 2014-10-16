@@ -5,6 +5,8 @@ import ProjectsListView from 'confy/views/projects/list';
 
 export default React.createClass({
   render: function () {
+    var notOwner = window.user.get('username') != window.org.get('owner');
+
     return (
       <div>
         <ProjectsListView />
@@ -24,17 +26,17 @@ export default React.createClass({
                       <a href={team.get('link')}>{team.get('name')}</a>
                     </td>
                     <td>
-                      <button type="button" className="btn btn-danger" disabled={team.get('id') == 'owners' ? 'disabled' : ''}>Revoke Access</button>
+                      <button type="button" className="btn btn-danger" disabled={team.get('id') == 'owners' || notOwner ? 'disabled' : ''}>Revoke Access</button>
                     </td>
                   </tr>
                 );
               })}
               <tr>
                 <td>
-                  <input id="grant-access" />
+                  <input id="grant-access" placeholder="Enter team name"/>
                 </td>
                 <td>
-                  <button type="button" className="btn btn-success">Grant Access</button>
+                  <button type="button" className="btn btn-success" disabled={notOwner ? 'disabled' : ''}>Grant Access</button>
                 </td>
               </tr>
             </tbody>
