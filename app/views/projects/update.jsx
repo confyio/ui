@@ -25,6 +25,7 @@ export default React.createClass({
                 <button className="btn btn-danger pull-right">Delete</button>
               </p>
               <p>Once you delete a project, there is no going back. Please be certain.</p>
+              <p>All the environments under this project will be deleted.</p>
             </div>
           </div>
         </MainView>

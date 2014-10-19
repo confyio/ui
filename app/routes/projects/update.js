@@ -6,7 +6,6 @@ export default function (org, project, callback) {
 
   ProjectsViewRoute(org, project, function () {
     if (window.user.get('username') != window.org.get('owner')) {
-
       self.navigate(window.project.get('link'), {
         trigger: true, replace: true
       });

@@ -18,6 +18,7 @@ export default Backbone.Router.extend({
 
     this.route('orgs/:org/teams', TeamsRoute.list);
     this.route('orgs/:org/teams/:team', TeamsRoute.view);
+    this.route('orgs/:org/teams/:team/_update', TeamsRoute.update);
     this.route('orgs/:org/teams/_create', TeamsRoute.create);
   }
 });
