@@ -26,7 +26,7 @@ export default React.createClass({
                       <a href={team.get('link')}>{team.get('name')}</a>
                     </td>
                     <td>
-                      <button type="button" className="btn btn-danger" disabled={team.get('id') == 'owners' || notOwner ? 'disabled' : ''}>Revoke Access</button>
+                      <button className="btn btn-danger" disabled={team.get('id') == 'owners' || notOwner ? 'disabled' : ''}>Revoke Access</button>
                     </td>
                   </tr>
                 );
@@ -36,7 +36,7 @@ export default React.createClass({
                   <input id="grant-access" placeholder="Enter team name"/>
                 </td>
                 <td>
-                  <button type="button" className="btn btn-success" disabled={notOwner ? 'disabled' : ''}>Grant Access</button>
+                  <button className="btn btn-success" disabled={notOwner ? 'disabled' : ''}>Grant Access</button>
                 </td>
               </tr>
             </tbody>

@@ -26,7 +26,7 @@ export default React.createClass({
                       <a href={user.get('link')}>{user.get('username')}</a>
                     </td>
                     <td>
-                      <button type="button" className="btn btn-danger" disabled={user.get('username') == window.org.get('owner') || notOwner ? 'disabled' : ''}>Remove Member</button>
+                      <button className="btn btn-danger" disabled={user.get('username') == window.org.get('owner') || notOwner ? 'disabled' : ''}>Remove Member</button>
                     </td>
                   </tr>
                 );
@@ -36,7 +36,7 @@ export default React.createClass({
                   <input id="add-member" placeholder="Enter user name" />
                 </td>
                 <td>
-                  <button type="button" className="btn btn-success" disabled={notOwner ? 'disabled' : ''}>Add Member</button>
+                  <button className="btn btn-success" disabled={notOwner ? 'disabled' : ''}>Add Member</button>
                 </td>
               </tr>
             </tbody>

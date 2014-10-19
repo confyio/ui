@@ -21,7 +21,7 @@ export default React.createClass({
             }
           })}
           <li role="presentation" key="_add">
-            <a role="menuitem" tabIndex="-1" href="#orgs/_add">
+            <a role="menuitem" tabIndex="-1" href="#orgs/_create">
               <i className="fa fa-plus-square-o"></i>
               &nbsp;New Organization
             </a>

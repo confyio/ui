@@ -12,6 +12,7 @@ export default Backbone.Router.extend({
 
     this.route('orgs/:org/projects', ProjectsRoute.list);
     this.route('orgs/:org/projects/:project', ProjectsRoute.view);
+    this.route('orgs/:org/projects/_create', ProjectsRoute.create);
 
     this.route('orgs/:org/teams', TeamsRoute.list);
     this.route('orgs/:org/teams/:team', TeamsRoute.view);
