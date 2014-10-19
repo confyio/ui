@@ -4,7 +4,9 @@ import DummyView from 'confy/views/dummy';
 
 export default React.createClass({
   render: function () {
-    if (this.props.type == 'Team' && window.team) {
+    var isOwner = (window.user.get('username') == window.org.get('owner'));
+
+    if (this.props.type == 'Team' && window.team && isOwner) {
       return (
         <a className="btn btn-edit" href={window.team.get('link') + '/_update'}>
           <i className="fa fa-edit"></i>

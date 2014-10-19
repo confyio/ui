@@ -5,8 +5,18 @@ export default function (org, callback) {
   var self = this;
 
   TeamsListRoute(org, function () {
-    delete window.team;
+    if (window.user.get('username') != window.org.get('owner')) {
+      if (!window.team) {
+        window.team = window.teams.at(0);
+      }
 
-    React.renderComponent(TeamsCreateView({}), $('#wrap .row')[0]);
+      self.navigate(window.team.get('link'), {
+        trigger: true, replace: true
+      });
+    } else {
+      delete window.team;
+
+      React.renderComponent(TeamsCreateView({}), $('#wrap .row')[0]);
+    }
   });
 };

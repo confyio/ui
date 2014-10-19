@@ -5,8 +5,22 @@ export default function (org, callback) {
   var self = this;
 
   ProjectsListRoute(org, function () {
-    delete window.project;
+    if (window.user.get('username') != window.org.get('owner')) {
+      if (window.projects.length == 0) {
+        React.renderComponent(ProjectsEmptyView({}), $('#wrap .row')[0]);
+      } else {
+        if (!window.project) {
+          window.project = window.projects.at(0);
+        }
 
-    React.renderComponent(ProjectsCreateView({}), $('#wrap .row')[0]);
+        self.navigate(window.project.get('link'), {
+          trigger: true, replace: true
+        });
+      }
+    } else {
+      delete window.project;
+
+      React.renderComponent(ProjectsCreateView({}), $('#wrap .row')[0]);
+    }
   });
 };
