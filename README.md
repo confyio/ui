@@ -16,7 +16,7 @@ Prerequisites are:
 $ git clone git://github.com/asm-products/confy-web && cd confy-web
 
 # Install dependencies
-$ npm install -g grunt-cli bower
+$ npm install -g grunt-cli
 $ npm install
 
 # Run static server with auto-compiling

@@ -9,14 +9,20 @@
     "url": "git://github.com/asm-products/confy-web"
   },
   "license": "BSD",
-  "scripts": {
-    "postinstall": "bower install"
-  },
   "devDependencies": {
-    "express": "~3.4.8",
-    "connect-livereload": "~0.3.1",
-    "lockfile": "0.4.x",
+    "jquery": "2.1.x",
+    "bootstrap": "3.3.x",
+    "font-awesome": "4.2.x",
+    "underscore": "1.7.x",
+    "backbone": "1.1.x",
+    "backbone-computedfields": "0.0.8",
+    "react": "0.11.x",
+    "almond": "0.3.x",
     "grunt": "0.4.x",
+    "express": "3.4.x",
+    "request": "2.36.x",
+    "lockfile": "0.4.x",
+    "connect-livereload": "0.3.x",
     "load-grunt-config": "0.9.x",
     "grunt-contrib-watch": "0.6.x",
     "grunt-contrib-copy": "0.5.x",
@@ -33,7 +39,6 @@
     "grunt-preprocess": "4.0.x",
     "grunt-es6-module-transpiler": "0.6.x",
     "grunt-es6-import-validate": "0.0.x",
-    "grunt-concat-sourcemap": "0.4.x",
-    "request": "2.36.x"
+    "grunt-concat-sourcemap": "0.4.x"
   }
 }

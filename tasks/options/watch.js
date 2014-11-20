@@ -7,7 +7,6 @@ var docs = '{app}/**/*.js',
     styles = 'app/styles/**/*.{css,less}',
     html = 'app/*.html',
     other = '{app,public}/**/*',
-    bowerFile = 'bower.json',
     npmFile = 'package.json';
 
 module.exports = {
@@ -28,7 +27,7 @@ module.exports = {
     tasks: ['lock', 'preprocess:debug', 'unlock']
   },
   other: {
-    files: [other, '!'+scripts, '!'+styles, '!'+html, bowerFile, npmFile],
+    files: [other, '!'+scripts, '!'+styles, '!'+html, npmFile],
     tasks: ['lock', 'build:debug', 'unlock']
   },
 

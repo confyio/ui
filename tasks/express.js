@@ -28,7 +28,7 @@ module.exports = function(grunt) {
 
       // These three lines simulate what the `copy:assemble` task does
       app.use(static({ urlRoot: '/config', directory: 'config' }));
-      app.use(static({ urlRoot: '/bower_components', directory: 'bower_components' }));
+      app.use(static({ urlRoot: '/node_modules', directory: 'node_modules' }));
       app.use(static({ directory: 'public' }));
       app.use(static({ directory: 'tmp/result' }));
       app.use(static({ file: 'tmp/result/index.html', ignoredFileExtensions: /\.\w{1,5}$/ })); // Gotta catch 'em all
