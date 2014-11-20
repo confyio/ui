@@ -4,20 +4,28 @@ import MainView from 'confy/views/main';
 import TeamsListView from 'confy/views/teams/list';
 
 export default React.createClass({
+  getInitialState: function () {
+    return { team: window.team };
+  },
+  handleSubmit: function () {
+    return;
+  },
   render: function () {
     return (
       <div>
         <TeamsListView />
         <MainView header="Update Team">
-          <div className="form-group">
-            <label>Name</label>
-            <input className="form-control" disabled="disabled" defaultValue={window.team.get('name')} />
-          </div>
-          <div className="form-group">
-            <label>Description</label>
-            <input className="form-control" placeholder="Enter team description" defaultValue={window.team.get('description')} />
-          </div>
-          <button className="btn btn-default">Update Team</button>
+          <form role="form" onSubmit={this.handleSubmit}>
+            <div className="form-group">
+              <label>Name</label>
+              <input className="form-control" disabled="disabled" defaultValue={this.state.team.get('name')} />
+            </div>
+            <div className="form-group">
+              <label>Description</label>
+              <input className="form-control" placeholder="Enter team description" defaultValue={this.state.team.get('description')} />
+            </div>
+            <button type="submit" className="btn btn-default">Update Team</button>
+          </form>
           <div className="panel panel-danger">
             <div className="panel-body">
               <p>
