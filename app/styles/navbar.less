@@ -1,0 +1,42 @@
+.navbar {
+	background: @apple;
+	height: 100px;
+	padding: 20px 32px;
+	border: 0;
+	margin: 0;
+
+	.container {
+		margin: auto;
+		height: 60px;
+	}
+}
+
+.navbar-brand {
+	padding: 0;
+	position: relative;
+	line-height: 60px;
+
+	.brand {
+		color: @white;
+		font-size: 30px;
+		letter-spacing: 1px;
+		padding-left: 85px;
+
+		&:hover,
+		&:focus {
+			color: @white;
+		}
+	}
+
+	.logo {
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: inline-block;
+		background: url("@{images}logo.png") @white;
+
+		.square(60px);
+		.rounded(30px);
+		.box-shadow(@shadow);
+	}
+}
