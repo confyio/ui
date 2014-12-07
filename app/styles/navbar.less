@@ -41,7 +41,7 @@
 	}
 }
 
-.navbar-nav li a {
+.navbar-nav li a.link {
 	color: @white;
 	display: inline-block;
 	padding: 0;
@@ -67,16 +67,18 @@
 		content: ']';
 		.translate(-20px);
 	}
+}
 
-	&:hover::before, &:hover::after,
-	&:focus::before, &:focus::after {
+.navbar-nav li.active a.link,
+.navbar-nav li a.link:hover,
+.navbar-nav li a.link:focus {
+
+	&::before, &::after {
 		.opacity(1);
 		.translate();
 	}
 }
 
-.navbar-nav li.active a::before,
-.navbar-nav li.active a::after {
-	.opacity(1);
-	.translate();
+.navbar-nav li:last-child a {
+	margin-right: 0px;
 }

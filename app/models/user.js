@@ -11,6 +11,13 @@ export default Backbone.Model.extend({
       get: function (fields) {
         return '#' + fields._id;
       }
+    },
+    avatar: {
+      depends: ['email'],
+      get: function (fields) {
+        var hash = md5(fields.email.trim().toLowerCase());
+        return 'https://gravatar.com/avatar/' + hash + '.png?s=60';
+      }
     }
   },
 
