@@ -1,16 +1,30 @@
 // Useful mixins
 
-.rounded(@radius:2px) {
+.rounded(@radius: 2px) {
 	-webkit-border-radius: @radius;
 	-moz-border-radius: @radius;
 	border-radius: @radius;
 }
 
-.transition-all(@duration:0.2s, @ease:ease-out) {
+.transition-all(@duration: 0.2s, @ease: ease-out) {
 	-webkit-transition: all @duration @ease;
 	-moz-transition: all @duration @ease;
 	-o-transition: all @duration @ease;
 	transition: all @duration @ease;
+}
+
+.transition(...) {
+	-webkit-transition: @arguments;
+	-moz-transition: @arguments;
+	-o-transition: @arguments;
+	transition: @arguments;
+}
+
+.transition-transform(@duration: 0.2s, @rest...) {
+	-webkit-transition: -webkit-transform @duration, @rest;
+	-moz-transition: -moz-transform @duration, @rest;
+	-o-transition: -o-transform @duration, @rest;
+	transition: transform @duration, @rest;
 }
 
 .transform(...) {
@@ -21,19 +35,19 @@
 	transform: @arguments;
 }
 
-.rotation(@deg:5deg){
+.rotation(@deg: 5deg){
 	.transform(rotate(@deg));
 }
 
-.scale(@ratio:1.5){
+.scale(@ratio: 1.5){
 	.transform(scale(@ratio));
 }
 
-.translate(@x:0, @y:0) {
-  .transform(translate(@x, @y));
+.translate(@x: 0, @y: 0) {
+	.transform(translate(@x, @y));
 }
 
-.opacity(@opacity:0.5) {
+.opacity(@opacity: 0.5) {
 	-moz-opacity: @opacity;
 	-khtml-opacity: @opacity;
 	-webkit-opacity: @opacity;
@@ -41,4 +55,11 @@
 	@opperc: @opacity * 100;
 	-ms-filter: ~"progid:DXImageTransform.Microsoft.Alpha(opacity=@{opperc})";
 	filter: ~"alpha(opacity=@{opperc})";
+}
+
+.wrap() {
+	text-wrap: wrap;
+	white-space: -moz-pre-wrap;
+	white-space: pre-wrap;
+	word-wrap: break-word;
 }

@@ -19,7 +19,11 @@
 
 @navbar-height: 60px;
 @navbar-default-brand-hover-bg: @apple;
+@navbar-default-link-hover-bg: @apple;
+@navbar-default-link-active-bg: @apple;
 @navbar-padding-horizontal: 0;
+
+@nav-link-hover-bg: @apple;
 
 // Reset
 @import "../../node_modules/bootstrap/less/normalize.less";
@@ -92,7 +96,13 @@ html, body {
 .container {
 	width: 960px;
 	padding: 0;
-	margin: 0;
+	margin: auto;
+}
+
+footer {
+	margin-top: 40px;
+	text-align: center;
+	width: 100%;
 }
 
 @import "navbar.less";

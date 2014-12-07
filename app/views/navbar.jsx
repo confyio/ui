@@ -7,8 +7,6 @@ export default React.createClass({
         <ul className="nav navbar-nav navbar-right">
           <li className={this.props.type == 'Projects' ? 'active' : ''}><a href={window.org.get('link') + '/projects'}>Projects</a></li>
           <li className={this.props.type == 'Teams' ? 'active' : ''}><a href={window.org.get('link') + '/teams'}>Teams</a></li>
-          <li className={this.props.type == 'Profile' ? 'active' : ''}><a href="#">Profile</a></li>
-          <li><a href="#">Logout</a></li>
         </ul>
       );
     } else {
