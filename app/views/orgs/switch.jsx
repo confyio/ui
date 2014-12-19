@@ -4,28 +4,22 @@ export default React.createClass({
   render: function () {
     return (
       <span>
-        <button className="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-          {window.org.get('name')}
-          <span className="caret"></span>
-        </button>
-        <ul className="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+        <div className="dropdown-toggle" id="org-dropdown" data-toggle="dropdown">
+          <span>{window.org.get('name')}</span>
+          <i className="fa fa-fw"></i>
+        </div>
+        <ul className="dropdown-menu" role="menu" aria-labelledby="org-dropdown">
           {window.orgs.map(function (org) {
             if (org.get('name') !== window.org.get('name')) {
               return (
                 <li role="presentation" key={org.get('key')}>
                   <a role="menuitem" tabIndex="-1" href={org.get('link')}>
-                    {org.get('name')}
+                    <span>{org.get('name')}</span>
                   </a>
                 </li>
               );
             }
           })}
-          <li role="presentation" key="_add">
-            <a role="menuitem" tabIndex="-1" href="#orgs/_create">
-              <i className="fa fa-plus-square-o"></i>
-              &nbsp;New Organization
-            </a>
-          </li>
         </ul>
       </span>
     );
