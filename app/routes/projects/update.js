@@ -10,7 +10,7 @@ export default function (org, project, callback) {
         trigger: true, replace: true
       });
     } else {
-      React.renderComponent(ProjectsUpdateView({}), $('#wrap .row')[0]);
+      React.renderComponent(ProjectsUpdateView({}), $('#wrap')[0]);
     }
   });
 };

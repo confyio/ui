@@ -13,7 +13,8 @@ export default React.createClass({
           return (
             <li role="presentation" key={project.get('key')} className={project.get('id') == id ? 'active' : ''}>
               <a href={project.get('link')}>
-                {project.get('name')}
+                <span>{project.get('name')}</span>
+                <i className="fa fa-fw"></i>
               </a>
               <EnvsListView exist={project.get('id') == id} />
             </li>

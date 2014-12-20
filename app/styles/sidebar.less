@@ -1,0 +1,72 @@
+body.console .sidebar {
+	float: left;
+	width: 250px;
+	display: inline-block;
+
+	ul.nav {
+		background: @fiord;
+
+		.box-shadow(@shadow);
+
+		li a {
+			min-height: 60px;
+			color: @white;
+			padding: 0;
+			margin: 0;
+
+			span {
+				width: 190px;
+				font-weight: bold;
+				font-size: 16px;
+				line-height: 20px;
+				float: left;
+				padding: 20px 0 20px 30px;
+			}
+
+			i {
+				font-size: 10px;
+				padding: 25px;
+				float: right;
+
+				.square(60px);
+
+				&::before {
+					content: @fa-var-arrow-down;
+				}
+			}
+		}
+
+		&> li.active {
+			a {
+				background: @apple;
+
+				i::before {
+					content: @fa-var-arrow-up;
+				}
+			}
+
+			&> ul.nav {
+				list-style: none;
+
+				.box-shadow(none);
+
+				li a {
+					background: @fiord;
+
+					.transition-all(0.5s);
+
+					span {
+						width: 250px;
+						padding: 20px 0 20px 60px;
+					}
+				}
+
+				li.active a,
+				li a:hover {
+					color: @apple;
+					background: @blueDianne;
+				}
+			}
+		}
+	}
+}

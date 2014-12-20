@@ -7,7 +7,7 @@ import EnvsUpdateButtonView from 'confy/views/envs/button-update';
 export default React.createClass({
   render: function () {
     return (
-      <div className="col-sm-9 col-md-10 main">
+      <div className="content">
         <div className="inner">
           <div className="actions">
             <TeamsUpdateButtonView type={this.props.type} />

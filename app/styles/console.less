@@ -43,7 +43,7 @@ body.console {
 		.dropdown-menu {
 			width: 250px;
 			padding: 0;
-			margin-top: 5px;
+			margin: 0;
 			border: 0;
 			background: none;
 			font-size: 15px;
@@ -57,7 +57,6 @@ body.console {
 				padding: 0;
 				color: @white;
 				background: @fiord;
-				border-bottom: 1px solid @blueDianne;
 
 				.transition-all(0.5s);
 
@@ -87,9 +86,16 @@ body.console {
 		display: inline-block;
 		margin-left: 25px;
 		line-height: 60px;
+		background: @white;
 
 		.square(60px);
 		.rounded(30px);
 		.box-shadow(@shadow);
+	}
+
+	.content {
+		float: right;
+		width: 655px;
+		display: inline-block;
 	}
 }

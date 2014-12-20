@@ -18,7 +18,7 @@ export default function (org, team, callback) {
     if (callback) return callback();
 
     TeamsHelper.users(function () {
-      React.renderComponent(TeamsInfoView({}), $('#wrap .row')[0]);
+      React.renderComponent(TeamsInfoView({}), $('#wrap')[0]);
     });
   });
 };
