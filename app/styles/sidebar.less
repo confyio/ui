@@ -70,3 +70,41 @@ body.console .sidebar {
 		}
 	}
 }
+
+body.console .sidebutton {
+	display: block;
+	width: 250px;
+	height: 60px;
+	color: @white;
+	background: @apple;
+	text-decoration: none;
+	border: 0;
+	margin: 0 0 20px;
+	padding: 0;
+
+	.rounded(0);
+	.box-shadow(@shadow);
+
+	span {
+		display: inline-block;
+		font-size: 24px;
+		line-height: 30px;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		padding: 15px 0;
+	}
+
+	i {
+		display: inline-block;
+		font-size: 20px;
+		padding: 20px;
+		float: left;
+		border-right: 2px solid @white;
+
+		.square(60px);
+
+		&::before {
+			content: @fa-var-plus;
+		}
+	}
+}
