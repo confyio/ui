@@ -3,11 +3,9 @@
 export default React.createClass({
   render: function () {
     return (
-      <div className="col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6 main">
-        <div className="inner">
-          <h2>Save your config in the cloud, securely.</h2>
-          <a href="#orgs" id="trynow" className="btn btn-primary">Try now</a>
-        </div>
+      <div className="content">
+        <h2>Save your credentials in the cloud, securely.</h2>
+        <a href="#orgs" id="trynow" className="btn btn-primary">Try now</a>
       </div>
     );
   }
