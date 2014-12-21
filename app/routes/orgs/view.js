@@ -1,6 +1,5 @@
 import OrgsListRoute from 'confy/routes/orgs/list';
 import OrgsSwitchView from 'confy/views/orgs/switch';
-import OrgsSettingsView from 'confy/views/orgs/settings';
 
 export default function (org, callback) {
   var self = this;
@@ -22,7 +21,6 @@ export default function (org, callback) {
     delete window.env;
 
     React.renderComponent(OrgsSwitchView(), $('#org-switch')[0]);
-    React.renderComponent(OrgsSettingsView(), $('#org-settings')[0]);
 
     if (callback) return callback();
 

@@ -13,12 +13,12 @@ export default React.createClass({
     }
 
     return (
-      <ul>
+      <ul className="nav">
         {window.envs.map(function (env) {
           return (
             <li role="presentation" key={env.get('key')} className={env.get('id') == id ? 'active' : ''}>
               <a href={env.get('link')}>
-                {env.get('name')}
+                <span>{env.get('name')}</span>
               </a>
             </li>
           );

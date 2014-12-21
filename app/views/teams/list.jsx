@@ -12,7 +12,8 @@ export default React.createClass({
           return (
             <li role="presentation" key={team.get('key')} className={team.get('id') == id ? 'active' : ''}>
               <a href={team.get('link')}>
-                {team.get('name')}
+                <span>{team.get('name')}</span>
+                <i className="fa fa-fw"></i>
               </a>
             </li>
           )

@@ -21,7 +21,7 @@ export default function (org, project, callback) {
       if (callback) return callback();
 
       ProjectsHelper.teams(function () {
-        React.renderComponent(ProjectsInfoView({}), $('#wrap .row')[0]);
+        React.renderComponent(ProjectsInfoView({}), $('#wrap')[0]);
       });
     });
   });

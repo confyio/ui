@@ -13,7 +13,7 @@ export default function (org, callback) {
       if (callback) return callback();
 
       if (window.projects.length == 0) {
-        React.renderComponent(ProjectsEmptyView({}), $('#wrap .row')[0]);
+        React.renderComponent(ProjectsEmptyView({}), $('#wrap')[0]);
       } else {
         self.navigate(window.projects.at(0).get('link'), {
           trigger: true, replace: true

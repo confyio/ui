@@ -10,6 +10,7 @@
   },
   "license": "BSD",
   "devDependencies": {
+    "blueimp-md5": "1.1.x",
     "jquery": "2.1.x",
     "bootstrap": "3.3.x",
     "font-awesome": "4.2.x",
