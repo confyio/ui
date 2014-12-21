@@ -4,7 +4,7 @@ export default React.createClass({
   render: function () {
     if (this.props.type) {
       var avatar = {
-        background: 'url(' + window.user.get('avatar') +')'
+        background: 'url(' + window.user.get('avatar') +') #ffffff'
       };
 
       return (

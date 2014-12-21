@@ -11,7 +11,7 @@ export default React.createClass({
     return (
       <div>
         <TeamsListView />
-        <MainView type="Team" header="Create Team">
+        <MainView header="Create Team">
           <form role="form" onSubmit={this.handleSubmit}>
             <div className="form-group">
               <label>Name</label>

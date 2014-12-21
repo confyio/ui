@@ -11,17 +11,17 @@ export default React.createClass({
     return (
       <div>
         <ProjectsListView />
-        <MainView header="Create Project">
+        <MainView header="Create Environment">
           <form role="form" onSubmit={this.handleSubmit}>
             <div className="form-group">
               <label>Name</label>
-              <input className="form-control" placeholder="Enter project name" />
+              <input className="form-control" placeholder="Enter environment name" />
             </div>
             <div className="form-group">
               <label>Description</label>
-              <input className="form-control" placeholder="Enter project description" />
+              <input className="form-control" placeholder="Enter environment description" />
             </div>
-            <button type="submit" className="btn btn-default">Create Project</button>
+            <button type="submit" className="btn btn-default">Create Environment</button>
           </form>
         </MainView>
       </div>

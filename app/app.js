@@ -1,7 +1,7 @@
 import Router from 'confy/router';
 
-var App = new Router();
+window.App = new Router();
 
 Backbone.history.start();
 
-export default App;
+export default window.App;

@@ -2,6 +2,7 @@ import PagesRoute from 'confy/routes/pages/index';
 import OrgsRoute from 'confy/routes/orgs/index';
 import ProjectsRoute from 'confy/routes/projects/index';
 import TeamsRoute from 'confy/routes/teams/index';
+import EnvsRoute from 'confy/routes/envs/index';
 
 export default Backbone.Router.extend({
   initialize: function (options) {
@@ -15,6 +16,10 @@ export default Backbone.Router.extend({
     this.route('orgs/:org/projects/:project', ProjectsRoute.view);
     this.route('orgs/:org/projects/:project/_update', ProjectsRoute.update);
     this.route('orgs/:org/projects/_create', ProjectsRoute.create);
+
+    this.route('orgs/:org/projects/:project/envs/:env', EnvsRoute.view);
+    this.route('orgs/:org/projects/:project/envs/:env/_update', EnvsRoute.update);
+    this.route('orgs/:org/projects/:project/envs/_create', EnvsRoute.create);
 
     this.route('orgs/:org/teams', TeamsRoute.list);
     this.route('orgs/:org/teams/:team', TeamsRoute.view);
