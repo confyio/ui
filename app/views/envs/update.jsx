@@ -18,7 +18,7 @@ export default React.createClass({
           <form role="form" onSubmit={this.handleSubmit}>
             <div className="form-group">
               <label>Name</label>
-              <input className="form-control" disabled="disabled" defaultValue={this.state.env.get('name')} />
+              <p className="form-control-static">{this.state.env.get('name')}</p>
             </div>
             <div className="form-group">
               <label>Description</label>

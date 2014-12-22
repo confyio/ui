@@ -5,6 +5,8 @@ export default Backbone.Model.extend({
     this.computedFields = new Backbone.ComputedFields(this);
   },
 
+  idAttribute: "_id",
+
   computed: {
     link: {
       depends: ['_id'],
