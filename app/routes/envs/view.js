@@ -13,6 +13,6 @@ export default function (org, project, env, callback) {
 
     if (callback) return callback();
 
-    React.renderComponent(EnvsInfoView({}), $('#wrap')[0]);
+    React.render(EnvsInfoView({}), $('#wrap')[0]);
   });
 };

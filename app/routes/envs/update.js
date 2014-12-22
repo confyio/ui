@@ -10,7 +10,7 @@ export default function (org, project, env, callback) {
         trigger: true, replace: true
       });
     } else {
-      React.renderComponent(EnvsUpdateView({}), $('#wrap')[0]);
+      React.render(EnvsUpdateView({}), $('#wrap')[0]);
     }
   });
 };

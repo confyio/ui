@@ -7,7 +7,7 @@ export default function (org, callback) {
   ProjectsListRoute(org, function () {
     if (window.user.get('username') != window.org.get('owner')) {
       if (window.projects.length == 0) {
-        React.renderComponent(ProjectsEmptyView({}), $('#wrap')[0]);
+        React.render(ProjectsEmptyView({}), $('#wrap')[0]);
       } else {
         if (!window.project) {
           window.project = window.projects.at(0);
@@ -20,7 +20,7 @@ export default function (org, callback) {
     } else {
       delete window.project;
 
-      React.renderComponent(ProjectsCreateView({}), $('#wrap')[0]);
+      React.render(ProjectsCreateView({}), $('#wrap')[0]);
     }
   });
 };

@@ -10,7 +10,7 @@ export default function (org, team, callback) {
         trigger: true, replace: true
       });
     } else {
-      React.renderComponent(TeamsUpdateView({}), $('#wrap')[0]);
+      React.render(TeamsUpdateView({}), $('#wrap')[0]);
     }
   });
 };

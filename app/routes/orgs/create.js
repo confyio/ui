@@ -7,6 +7,6 @@ export default function (callback) {
   OrgsListRoute(function () {
     delete window.org;
 
-    React.renderComponent(OrgsCreateView(), $('#wrap')[0]);
+    React.render(OrgsCreateView(), $('#wrap')[0]);
   });
 };

@@ -70,8 +70,8 @@ module.exports = function(grunt) {
   // Scripts
   grunt.registerTask('buildScripts', [
     'react:jsx',
-    'validate-imports',
     'copy:javascript',
+    'validate-imports',
     'transpile',
     'concat_sourcemap'
   ]);

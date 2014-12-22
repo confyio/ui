@@ -16,7 +16,7 @@ export default function (org, callback) {
     } else {
       delete window.team;
 
-      React.renderComponent(TeamsCreateView({}), $('#wrap')[0]);
+      React.render(TeamsCreateView({}), $('#wrap')[0]);
     }
   });
 };

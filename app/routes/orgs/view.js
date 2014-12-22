@@ -20,7 +20,7 @@ export default function (org, callback) {
     delete window.envs;
     delete window.env;
 
-    React.renderComponent(OrgsSwitchView(), $('#org-switch')[0]);
+    React.render(OrgsSwitchView(), $('#org-switch')[0]);
 
     if (callback) return callback();
 

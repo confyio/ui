@@ -16,7 +16,7 @@ export default function (org, project, callback) {
     } else {
       delete window.env;
 
-      React.renderComponent(EnvsCreateView({}), $('#wrap')[0]);
+      React.render(EnvsCreateView({}), $('#wrap')[0]);
     }
   });
 };
