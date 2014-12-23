@@ -20,7 +20,7 @@ export default React.createClass({
     });
 
     env.on('invalid', function (model, errs) {
-      self.setState(ValidationHelper(self.state, errs, model, 'Environment'));
+      self.setState(ValidationHelper(self.state, model, errs, 'Environment'));
     });
 
     env.save({}, {
@@ -33,7 +33,7 @@ export default React.createClass({
       },
       error: function (model, response) {
         if (response.status == 422) {
-          self.setState(ValidationHelper(self.state, response.responseJSON.errors, model, 'Environment'));
+          self.setState(ValidationHelper(self.state, model, response.responseJSON.errors, 'Environment'));
         }
       }
     });

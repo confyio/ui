@@ -1,4 +1,4 @@
-export default function (state, errs, model, type) {
+export default function (state, model, errs, type) {
   var keys;
 
   var dummyModel = {

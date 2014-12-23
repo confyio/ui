@@ -20,7 +20,7 @@ export default React.createClass({
     });
 
     team.on('invalid', function (model, errs) {
-      self.setState(ValidationHelper(self.state, errs, model, 'Team'));
+      self.setState(ValidationHelper(self.state, model, errs, 'Team'));
     });
 
     team.save({}, {
@@ -33,7 +33,7 @@ export default React.createClass({
       },
       error: function (model, response) {
         if (response.status == 422) {
-          self.setState(ValidationHelper(self.state, response.responseJSON.errors, model, 'Team'));
+          self.setState(ValidationHelper(self.state, model, response.responseJSON.errors, 'Team'));
         }
       }
     });

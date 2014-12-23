@@ -20,7 +20,7 @@ export default React.createClass({
     });
 
     project.on('invalid', function (model, errs) {
-      self.setState(ValidationHelper(self.state, errs, model, 'Project'));
+      self.setState(ValidationHelper(self.state, model, errs, 'Project'));
     });
 
     project.save({}, {
@@ -33,7 +33,7 @@ export default React.createClass({
       },
       error: function (model, response) {
         if (response.status == 422) {
-          self.setState(ValidationHelper(self.state, response.responseJSON.errors, model, 'Project'));
+          self.setState(ValidationHelper(self.state, model, response.responseJSON.errors, 'Project'));
         }
       }
     });

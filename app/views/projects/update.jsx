@@ -2,12 +2,39 @@
 
 import MainView from 'confy/views/main';
 import ProjectsListView from 'confy/views/projects/list';
+import ValidationHelper from 'confy/helpers/validation';
+import ValidationView from 'confy/views/validation';
 
 export default React.createClass({
   getInitialState: function () {
-    return { project: window.project };
+    return ValidationHelper(['name', 'description'], window.project);
   },
-  handleSubmit: function () {
+  handleSubmit: function (e) {
+    var self = this;
+    e.preventDefault();
+
+    window.project.on('invalid', function (model, errs) {
+      self.setState(ValidationHelper(self.state, model, errs, 'Project'));
+    });
+
+    window.project.save({
+      description: this.refs.description.getDOMNode().value.trim()
+    }, {
+      patch: true,
+      success: function (model, response) {
+        delete window.project;
+
+        window.App.navigate(model.get('link'), {
+          trigger: true
+        });
+      },
+      error: function (model, response) {
+        if (response.status == 422) {
+          self.setState(ValidationHelper(self.state, model, response.responseJSON.errors, 'Project'));
+        }
+      }
+    });
+
     return;
   },
   render: function () {
@@ -18,11 +45,12 @@ export default React.createClass({
           <form role="form" onSubmit={this.handleSubmit}>
             <div className="form-group">
               <label>Name</label>
-              <p className="form-control-static">{this.state.project.get('name')}</p>
+              <p className="form-control-static">{this.state.name.value}</p>
             </div>
-            <div className="form-group">
+            <div className={this.state.description.className}>
               <label>Description</label>
-              <input className="form-control" placeholder="Enter project description" defaultValue={this.state.project.get('description')} />
+              <input className="form-control" placeholder="Enter project description" ref="description" defaultValue={this.state.description.value} />
+              <ValidationView message={this.state.description.message} />
             </div>
             <button type="submit" className="btn btn-default">Update Project</button>
           </form>
