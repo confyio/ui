@@ -25,7 +25,11 @@ export default React.createClass({
 
     project.save({}, {
       success: function (model, response) {
-        alert('success!');
+        delete window.projects;
+
+        window.App.navigate(model.get('link'), {
+          trigger: true
+        });
       },
       error: function (model, response) {
         if (response.status == 422) {
