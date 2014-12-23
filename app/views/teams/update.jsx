@@ -2,13 +2,38 @@
 
 import MainView from 'confy/views/main';
 import TeamsListView from 'confy/views/teams/list';
+import ValidationHelper from 'confy/helpers/validation';
+import ValidationView from 'confy/views/validation';
 
 export default React.createClass({
   getInitialState: function () {
-    return { team: window.team };
+    return ValidationHelper(['description'], window.team);
   },
-  handleSubmit: function () {
-    return;
+  handleSubmit: function (e) {
+    var self = this;
+    e.preventDefault();
+
+    window.team.on('invalid', function (model, errs) {
+      self.setState(ValidationHelper(self.state, model, errs, 'Team'));
+    });
+
+    window.team.save({
+      description: this.refs.description.getDOMNode().value.trim()
+    }, {
+      patch: true,
+      success: function (model, response) {
+        delete window.team;
+
+        window.App.navigate(model.get('link'), {
+          trigger: true
+        });
+      },
+      error: function (model, response) {
+        if (response.status == 422) {
+          self.setState(ValidationHelper(self.state, model, response.responseJSON.errors, 'Team'));
+        }
+      }
+    });
   },
   render: function () {
     return (
@@ -18,11 +43,12 @@ export default React.createClass({
           <form role="form" onSubmit={this.handleSubmit}>
             <div className="form-group">
               <label>Name</label>
-              <p className="form-control-static">{this.state.team.get('name')}</p>
+              <p className="form-control-static">{window.team.get('name')}</p>
             </div>
-            <div className="form-group">
+            <div className={this.state.description.className}>
               <label>Description</label>
-              <input className="form-control" placeholder="Enter team description" defaultValue={this.state.team.get('description')} />
+              <input className="form-control" placeholder="Enter team description" ref="description" defaultValue={this.state.description.value} />
+              <ValidationView message={this.state.description.message} />
             </div>
             <button type="submit" className="btn btn-default">Update Team</button>
           </form>
