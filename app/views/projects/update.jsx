@@ -34,8 +34,6 @@ export default React.createClass({
         }
       }
     });
-
-    return;
   },
   render: function () {
     return (
