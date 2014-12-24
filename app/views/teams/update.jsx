@@ -2,6 +2,7 @@
 
 import MainView from 'confy/views/main';
 import TeamsListView from 'confy/views/teams/list';
+import DeleteConfirmationView from 'confy/views/delete';
 import ValidationHelper from 'confy/helpers/validation';
 import ValidationView from 'confy/views/validation';
 
@@ -51,16 +52,10 @@ export default React.createClass({
               <ValidationView message={this.state.description.message} />
             </div>
             <button type="submit" className="btn btn-default">Update Team</button>
-          </form>
-          <div className="panel panel-danger">
-            <div className="panel-body">
-              <p>
-                <h4>Delete this team</h4>
-                <button className="btn btn-danger pull-right">Delete</button>
-              </p>
+            <DeleteConfirmationView type="team">
               <p>Once you delete a team, there is no going back. Please be certain.</p>
-            </div>
-          </div>
+            </DeleteConfirmationView>
+          </form>
         </MainView>
       </div>
     );

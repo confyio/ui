@@ -2,6 +2,7 @@
 
 import MainView from 'confy/views/main';
 import ProjectsListView from 'confy/views/projects/list';
+import DeleteConfirmationView from 'confy/views/delete';
 import ValidationHelper from 'confy/helpers/validation';
 import ValidationView from 'confy/views/validation';
 
@@ -52,16 +53,10 @@ export default React.createClass({
             </div>
             <button type="submit" className="btn btn-default">Update Project</button>
           </form>
-          <div className="panel panel-danger">
-            <div className="panel-body">
-              <p>
-                <h4>Delete this project</h4>
-                <button className="btn btn-danger pull-right">Delete</button>
-              </p>
-              <p>Once you delete a project, there is no going back. Please be certain.</p>
-              <p>All the environments under this project will be deleted.</p>
-            </div>
-          </div>
+          <DeleteConfirmationView type="project">
+            <p>Once you delete a project, there is no going back. Please be certain.</p>
+            <p>All the environments under this project will be deleted.</p>
+          </DeleteConfirmationView>
         </MainView>
       </div>
     );
