@@ -52,10 +52,9 @@ export default React.createClass({
               <ValidationView message={this.state.description.message} />
             </div>
             <button type="submit" className="btn btn-default">Update Team</button>
-            <DeleteConfirmationView type="team">
-              <p>Once you delete a team, there is no going back. Please be certain.</p>
-            </DeleteConfirmationView>
           </form>
+          <DeleteConfirmationView type="team" model={window.team}>
+          </DeleteConfirmationView>
         </MainView>
       </div>
     );

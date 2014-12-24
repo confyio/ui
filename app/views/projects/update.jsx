@@ -53,8 +53,7 @@ export default React.createClass({
             </div>
             <button type="submit" className="btn btn-default">Update Project</button>
           </form>
-          <DeleteConfirmationView type="project">
-            <p>Once you delete a project, there is no going back. Please be certain.</p>
+          <DeleteConfirmationView type="project" model={window.project}>
             <p>All the environments under this project will be deleted.</p>
           </DeleteConfirmationView>
         </MainView>

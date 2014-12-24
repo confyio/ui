@@ -53,8 +53,7 @@ export default React.createClass({
             </div>
             <button type="submit" className="btn btn-default">Update Environment</button>
           </form>
-          <DeleteConfirmationView type="environment">
-            <p>Once you delete an environment, there is no going back. Please be certain.</p>
+          <DeleteConfirmationView type="environment" model={window.env}>
           </DeleteConfirmationView>
         </MainView>
       </div>
