@@ -2,10 +2,11 @@
 
 import MainView from 'confy/views/main';
 import TeamsListView from 'confy/views/teams/list';
+import TeamsMemberView from 'confy/views/teams/member';
 
 export default React.createClass({
   render: function () {
-    var notOwner = window.user.get('username') != window.org.get('owner');
+    var notOwner = (window.user.get('username') != window.org.get('owner'));
 
     return (
       <div>
@@ -21,14 +22,7 @@ export default React.createClass({
             <tbody>
               {window.members.map(function (user) {
                 return (
-                  <tr>
-                    <td>
-                      <a href={user.get('link')}>{user.get('username')}</a>
-                    </td>
-                    <td>
-                      <button className="btn btn-danger" disabled={user.get('username') == window.org.get('owner') || notOwner ? 'disabled' : ''}>Remove Member</button>
-                    </td>
-                  </tr>
+                  <TeamsMemberView user={user} notOwner={notOwner} />
                 );
               })}
               <tr>

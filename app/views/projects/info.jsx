@@ -2,10 +2,11 @@
 
 import MainView from 'confy/views/main';
 import ProjectsListView from 'confy/views/projects/list';
+import ProjectAccessView from 'confy/views/projects/access';
 
 export default React.createClass({
   render: function () {
-    var notOwner = window.user.get('username') != window.org.get('owner');
+    var notOwner = (window.user.get('username') != window.org.get('owner'));
 
     return (
       <div>
@@ -21,14 +22,7 @@ export default React.createClass({
             <tbody>
               {window.access.map(function (team) {
                 return (
-                  <tr>
-                    <td>
-                      <a href={team.get('link')}>{team.get('name')}</a>
-                    </td>
-                    <td>
-                      <button className="btn btn-danger" disabled={team.get('id') == 'owners' || notOwner ? 'disabled' : ''}>Revoke Access</button>
-                    </td>
-                  </tr>
+                  <ProjectAccessView team={team} notOwner={notOwner} />
                 );
               })}
               <tr>
