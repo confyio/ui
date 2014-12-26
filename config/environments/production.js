@@ -6,3 +6,4 @@
 // window.ENV.public_key = '123456'
 
 window.ENV.BASE_URL = "https://api.confy.io";
+window.ENV.COOKIE_SECURE = true;

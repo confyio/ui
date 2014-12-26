@@ -5,15 +5,7 @@ import LoadingHelper from 'confy/helpers/loading';
 
 var OrgsHelper = {};
 
-OrgsHelper.list = function (callback) {
-  LoadingHelper();
-
-  // Check for auth user
-  if (!window.user) {
-    window.user = new User();
-    window.user.fetch();
-  }
-
+OrgsHelper.load = function (callback) {
   if (window.orgs) return callback();
 
   new Org().fetch({
@@ -22,6 +14,30 @@ OrgsHelper.list = function (callback) {
       return callback();
     }
   });
+}
+
+OrgsHelper.list = function (callback) {
+  LoadingHelper();
+
+  // Check for auth user
+  if (!window.user) {
+    window.user = new User();
+
+    window.user.fetch({
+      noLogout: true,
+      complete: function (response) {
+        if (window.user.isNew()) {
+          window.App.navigate('#logout', {
+            trigger: true
+          });
+        } else {
+          OrgsHelper.load(callback);
+        }
+      }
+    });
+  } else {
+    OrgsHelper.load(callback);
+  }
 };
 
 export default OrgsHelper;

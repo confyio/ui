@@ -1,4 +1,4 @@
-var _sync = Backbone.Model.prototype.sync;
+import SyncHelper from 'confy/helpers/sync';
 
 export default Backbone.Model.extend({
   initialize: function () {
@@ -48,6 +48,6 @@ export default Backbone.Model.extend({
       options.url += '/' + this.get('id');
     }
 
-    return _sync.call(this, method, model, options);
+    return SyncHelper.call(this, method, model, options);
   }
 });

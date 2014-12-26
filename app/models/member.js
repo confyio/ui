@@ -1,4 +1,4 @@
-var _sync = Backbone.Model.prototype.sync;
+import SyncHelper from 'confy/helpers/sync';
 
 export default Backbone.Model.extend({
   validate: function (attrs, options) {
@@ -21,6 +21,6 @@ export default Backbone.Model.extend({
       options.data = JSON.stringify(model.toJSON());
     }
 
-    return _sync.call(this, method, model, options);
+    return SyncHelper.call(this, method, model, options);
   }
 });

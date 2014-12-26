@@ -6,3 +6,4 @@
 // window.ENV.public_key = '123456'
 
 window.ENV.BASE_URL = "http://localhost:5000";
+window.ENV.COOKIE_SECURE = false;

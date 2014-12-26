@@ -1,4 +1,4 @@
-var _sync = Backbone.Model.prototype.sync;
+import SyncHelper from 'confy/helpers/sync';
 
 export default Backbone.Model.extend({
   initialize: function () {
@@ -8,6 +8,12 @@ export default Backbone.Model.extend({
   idAttribute: "_id",
 
   computed: {
+    id: {
+      depends: ['username'],
+      get: function (fields) {
+        return fields.username.toLowerCase();
+      }
+    },
     link: {
       depends: ['_id'],
       get: function (fields) {
@@ -24,14 +30,22 @@ export default Backbone.Model.extend({
   },
 
   validate: function (attrs, options) {
-    var username = attrs.username;
+    var username = attrs.username, errs = [];
 
-    if (username === undefined || attrs.email === undefined || attrs.password === undefined) {
-      return "Please fill the fields";
+    if (username === undefined || username === '') {
+      errs.push({ field: 'username', code: 'missing'});
+    }
+
+    if (attrs.email === undefined || attrs.email === '') {
+      errs.push({ field: 'email', code: 'missing'});
     }
 
     if (typeof username != 'string' || username.match(/[a-z0-9]*/i)[0] != username) {
-      return "Name should be alphanumeric";
+      errs.push({ field: 'username', code: 'invalid'});
+    }
+
+    if (errs.length > 0) {
+      return errs;
     }
   },
 
@@ -39,11 +53,6 @@ export default Backbone.Model.extend({
     options = options || {};
     options.url = window.ENV.BASE_URL + '/user';
 
-    if (method != 'create' && this.get('username') !== undefined) {
-      this.set('id', this.get('username'));
-      options.url += '/' + this.get('id');
-    }
-
-    return _sync.call(this, method, model, options);
+    return SyncHelper.call(this, method, model, options);
   }
 });

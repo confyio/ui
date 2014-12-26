@@ -2,10 +2,12 @@
 
 export default React.createClass({
   render: function () {
-    if (this.props.type) {
+    if (this.props.type == 'Projects' || this.props.type == 'Teams') {
       var avatar = {
         background: 'url(' + window.user.get('avatar') +') #ffffff'
       };
+
+      $('body').attr('class', 'console');
 
       return (
         <ul className="nav navbar-nav navbar-right">
@@ -19,11 +21,15 @@ export default React.createClass({
         </ul>
       );
     } else {
+      $('body').attr('class', 'landing');
+
       return (
         <ul className="nav navbar-nav navbar-right">
           <li><a href="#" className="link">Benefits</a></li>
-          <li><a href="#" className="link">Login</a></li>
-          <li><a href="#" className="link">Signup</a></li>
+          <li><a href="#" className="link">Pricing</a></li>
+          <li className={this.props.type == 'Login' ? 'active' : ''}>
+            <a href="#login" className="link">Login</a>
+          </li>
         </ul>
       );
     };

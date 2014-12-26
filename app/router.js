@@ -7,6 +7,8 @@ import EnvsRoute from 'confy/routes/envs/index';
 export default Backbone.Router.extend({
   initialize: function (options) {
     this.route('', PagesRoute.landing);
+    this.route('login', PagesRoute.login);
+    this.route('logout', PagesRoute.logout);
 
     this.route('orgs', OrgsRoute.list);
     this.route('orgs/:org', OrgsRoute.view);
