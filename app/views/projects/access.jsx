@@ -3,6 +3,17 @@
 export default React.createClass({
   handleClick: function (e) {
     e.preventDefault();
+
+    this.props.team.destroy({
+      wait: true,
+      success: function (model, response) {
+        Backbone.history.loadUrl();
+      },
+      error: function (model, response) {
+        //TODO: Set notification
+        console.log(model, response);
+      }
+    });
   },
   render: function () {
     var disabled = (this.props.team.get('id') == 'owners' || this.props.notOwner);
