@@ -6,6 +6,10 @@ export default React.createClass({
   render: function () {
     var id = window.team && window.team.get('id');
 
+    if (this.props.noActive === 'true') {
+      id = '';
+    }
+
     return (
       <SidebarView type="Teams">
         {window.teams.map(function (team) {

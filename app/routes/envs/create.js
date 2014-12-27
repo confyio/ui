@@ -14,8 +14,6 @@ export default function (org, project, callback) {
         trigger: true, replace: true
       });
     } else {
-      delete window.env;
-
       React.render(EnvsCreateView({}), $('#wrap')[0]);
     }
   });

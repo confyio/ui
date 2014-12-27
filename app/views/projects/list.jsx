@@ -5,7 +5,12 @@ import EnvsListView from 'confy/views/envs/list';
 
 export default React.createClass({
   render: function () {
-    var id = window.project && window.project.get('id');
+    var self = this
+      , id = window.project && window.project.get('id');
+
+    if (this.props.noActive === 'true') {
+      id = '';
+    }
 
     return (
       <SidebarView type="Projects">
@@ -16,7 +21,7 @@ export default React.createClass({
                 <span>{project.get('name')}</span>
                 <i className="fa fa-fw"></i>
               </a>
-              <EnvsListView exist={project.get('id') == id} />
+              <EnvsListView exist={project.get('id') == id} noActive={self.props.noEnvActive} />
             </li>
           );
         })}

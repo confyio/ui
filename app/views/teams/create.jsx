@@ -25,7 +25,7 @@ export default React.createClass({
 
     team.save({}, {
       success: function (model, response) {
-        delete window.teams;
+        window.teams.add(model);
 
         window.App.navigate(model.get('link'), {
           trigger: true
@@ -41,7 +41,7 @@ export default React.createClass({
   render: function () {
     return (
       <div>
-        <TeamsListView />
+        <TeamsListView noActive="true" />
         <MainView header="Create Team">
           <form role="form" onSubmit={this.handleSubmit}>
             <div className={this.state.name.className}>

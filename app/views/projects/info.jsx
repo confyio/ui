@@ -10,7 +10,7 @@ export default React.createClass({
 
     return (
       <div>
-        <ProjectsListView />
+        <ProjectsListView noEnvActive="true" />
         <MainView type="Project" header={window.project.get('name')}>
           <table className="table table-bordered">
             <thead>

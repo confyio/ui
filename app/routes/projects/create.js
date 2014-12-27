@@ -18,8 +18,6 @@ export default function (org, callback) {
         });
       }
     } else {
-      delete window.project;
-
       React.render(ProjectsCreateView({}), $('#wrap')[0]);
     }
   });

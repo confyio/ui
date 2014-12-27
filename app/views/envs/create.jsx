@@ -25,7 +25,7 @@ export default React.createClass({
 
     env.save({}, {
       success: function (model, response) {
-        delete window.envs;
+        window.envs.add(model);
 
         window.App.navigate(model.get('link'), {
           trigger: true
@@ -41,7 +41,7 @@ export default React.createClass({
   render: function () {
     return (
       <div>
-        <ProjectsListView />
+        <ProjectsListView noEnvActive="true" />
         <MainView header="Create Environment">
           <form role="form" onSubmit={this.handleSubmit}>
             <div className={this.state.name.className}>

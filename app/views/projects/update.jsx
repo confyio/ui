@@ -23,11 +23,7 @@ export default React.createClass({
     }, {
       patch: true,
       success: function (model, response) {
-        delete window.project;
-
-        window.App.navigate(model.get('link'), {
-          trigger: true
-        });
+        Backbone.history.loadUrl();
       },
       error: function (model, response) {
         if (response.status == 422) {

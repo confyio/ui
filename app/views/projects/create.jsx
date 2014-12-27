@@ -25,7 +25,7 @@ export default React.createClass({
 
     project.save({}, {
       success: function (model, response) {
-        delete window.projects;
+        window.projects.add(model);
 
         window.App.navigate(model.get('link'), {
           trigger: true
@@ -41,7 +41,7 @@ export default React.createClass({
   render: function () {
     return (
       <div>
-        <ProjectsListView />
+        <ProjectsListView noActive="true" />
         <MainView header="Create Project">
           <form role="form" onSubmit={this.handleSubmit}>
             <div className={this.state.name.className}>

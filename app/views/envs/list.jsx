@@ -12,6 +12,10 @@ export default React.createClass({
       );
     }
 
+    if (this.props.noActive === 'true') {
+      id = '';
+    }
+
     return (
       <ul className="nav">
         {window.envs.map(function (env) {
