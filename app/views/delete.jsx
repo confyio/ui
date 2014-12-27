@@ -22,9 +22,10 @@ export default React.createClass({
           });
         },
         error: function (model, response) {
+          //TODO: Set notification
           console.log(model, response);
         }
-      })
+      });
     } else {
       $('#delete-confirm').modal('toggle');
     }

@@ -8,12 +8,12 @@ export default function (org, team, callback) {
   TeamsListRoute(org, function () {
     if (window.team && window.team.get('id') == team) {
       if (callback) return callback();
+    } else {
+      window.team = window.teams.findWhere({ id: team });
+
+      delete window.members;
+      delete window.team_projects;
     }
-
-    window.team = window.teams.findWhere({ id: team });
-
-    delete window.members;
-    delete window.team_projects;
 
     if (callback) return callback();
 

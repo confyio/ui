@@ -9,13 +9,13 @@ export default function (org, project, callback) {
   ProjectsListRoute(org, function () {
     if (window.project && window.project.get('id') == project) {
       if (callback) return callback();
+    } else {
+      window.project = window.projects.findWhere({ id: project });
+
+      delete window.envs;
+      delete window.env;
+      delete window.access;
     }
-
-    window.project = window.projects.findWhere({ id: project });
-
-    delete window.envs;
-    delete window.env;
-    delete window.access;
 
     EnvsHelper.list(function () {
       if (callback) return callback();

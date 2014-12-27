@@ -1,24 +1,16 @@
 import SyncHelper from 'confy/helpers/sync';
+import Team from 'confy/models/team';
 
-export default Backbone.Model.extend({
-  validate: function (attrs, options) {
-    var team = attrs.team;
-
-    if (team === undefined) {
-      return "Please fill all the fields";
-    }
-
-    if (typeof team != 'string' || team.match(/[a-z0-9]*/i)[0] != team) {
-      return "Name should be alphanumeric";
-    }
-  },
-
+export default Team.extend({
   sync: function (method, model, options) {
     options = options || {};
     options.url = window.ENV.BASE_URL + '/orgs/' + window.org.get('id') + '/projects/' + window.project.get('id') + '/access';
 
-    if (method === 'destroy') {
-      options.data = JSON.stringify(model.toJSON());
+    if (method === 'delete') {
+      options.contentType = 'application/json; charset=UTF-8';
+      options.data = JSON.stringify({
+        team: model.get('id')
+      });
     }
 
     return SyncHelper.call(this, method, model, options);

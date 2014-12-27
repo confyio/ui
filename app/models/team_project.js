@@ -1,6 +1,7 @@
 import SyncHelper from 'confy/helpers/sync';
+import Project from 'confy/models/project';
 
-export default Backbone.Model.extend({
+export default Project.extend({
   sync: function (method, model, options) {
     if (method != 'read') {
       return;

@@ -7,18 +7,18 @@ export default function (org, callback) {
   OrgsListRoute(function () {
     if (window.org && window.org.get('id') == org) {
       if (callback) return callback();
+    } else {
+      window.org = window.orgs.findWhere({ id: org });
+
+      delete window.projects;
+      delete window.project;
+
+      delete window.teams;
+      delete window.team;
+
+      delete window.envs;
+      delete window.env;
     }
-
-    window.org = window.orgs.findWhere({ id: org });
-
-    delete window.projects;
-    delete window.project;
-
-    delete window.teams;
-    delete window.team;
-
-    delete window.envs;
-    delete window.env;
 
     React.render(OrgsSwitchView(), $('#org-switch')[0]);
 
