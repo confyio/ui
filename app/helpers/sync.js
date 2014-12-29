@@ -1,9 +1,7 @@
 var sync = Backbone.Model.prototype.sync;
 
 export default function (method, model, options) {
-  options.headers = options.headers || {};
-
-  options.headers['Authorization'] = 'Token ' + $.cookie('access_token');
+  options.url += '?access_token=' + $.cookie('access_token');
 
   if (!options.noLogout) {
     options.error = function (response, error, status) {
