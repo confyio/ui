@@ -17,6 +17,10 @@ export default React.createClass({
             link = link.slice(0, -5);
           }
 
+          notif({
+            msg: 'Successfully deleted the ' + this.props.type
+          });
+
           window.App.navigate(link, {
             trigger: true
           });

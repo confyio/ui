@@ -29,7 +29,11 @@ export default React.createClass({
       },
       error: function (response, error, status) {
         if (status == 'Unauthorized' && response.responseJSON.message == 'Bad credentials') {
-          //TODO: Set notification
+          notif({
+            type: 'error',
+            msg: 'Unable to log in. Incorrect credentials or unverified user.'
+          });
+
           self.setState(response.responseJSON);
         }
       }

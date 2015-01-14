@@ -6,7 +6,11 @@ export default function (method, model, options) {
   if (!options.noLogout) {
     options.error = function (response, error, status) {
       if (status == 'Unauthorized' && response.responseJSON.message == 'Bad credentials') {
-        //TODO: Set notification
+        notif({
+          type: 'error',
+          msg: 'Session timed out. Please login again.'
+        });
+
         window.App.navigate('#logout', {
           trigger: true
         });

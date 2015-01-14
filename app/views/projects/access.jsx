@@ -7,6 +7,10 @@ export default React.createClass({
     this.props.team.destroy({
       wait: true,
       success: function (model, response) {
+        notif({
+          msg: 'Successfully revoked access to the team <b>' + model.get('name') + '</b>'
+        });
+
         Backbone.history.loadUrl();
       },
       error: function (model, response) {

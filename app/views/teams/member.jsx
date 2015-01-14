@@ -7,6 +7,10 @@ export default React.createClass({
     this.props.user.destroy({
       wait: true,
       success: function (model, response) {
+        notif({
+          msg: 'Successfully remove member <b>' + model.get('name') + '</b> from the team'
+        });
+
         Backbone.history.loadUrl();
       },
       error: function (model, response) {
