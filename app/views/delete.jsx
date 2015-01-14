@@ -26,8 +26,10 @@ export default React.createClass({
           });
         },
         error: function (model, response) {
-          //TODO: Set notification
-          console.log(model, response);
+          notif({
+            type: 'error',
+            msg: 'Unable to delete the ' + this.props.type + '. Please reload the page and try again.'
+          });
         }
       });
     } else {

@@ -14,8 +14,10 @@ export default React.createClass({
         Backbone.history.loadUrl();
       },
       error: function (model, response) {
-        //TODO: Set notification
-        console.log(model, response);
+        notif({
+          type: 'error',
+          msg: 'Unable to revoke access. Please reload the page and try again.'
+        });
       }
     });
   },
