@@ -29,14 +29,22 @@ export default Backbone.Model.extend({
   },
 
   validate: function (attrs, options) {
-    var name = attrs.name;
+    var name = attrs.name, errs = [];
 
-    if (name === undefined || attrs.email === undefined) {
-      return "Name and/or billing email is empty";
+    if (name === undefined || name === '') {
+      errs.push({ field: 'name', code: 'missing'});
+    }
+
+    if (attrs.email === undefined || attrs.email === '') {
+      errs.push({ field: 'email', code: 'missing'});
     }
 
     if (typeof name != 'string' || name.match(/[a-z0-9]*/i)[0] != name) {
-      return "Name should be alphanumeric";
+      errs.push({ field: 'name', code: 'invalid'});
+    }
+
+    if (errs.length > 0) {
+      return errs;
     }
   },
 
