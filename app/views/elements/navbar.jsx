@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 
-import ProfileView from 'confy/views/profile';
+import ProfileView from 'confy/views/elements/profile';
 
 export default React.createClass({
   render: function () {

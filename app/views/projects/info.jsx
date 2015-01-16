@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 
-import MainView from 'confy/views/main';
+import MainView from 'confy/views/elements/main';
 import ProjectsListView from 'confy/views/projects/list';
 import ProjectAccessView from 'confy/views/projects/access';
 

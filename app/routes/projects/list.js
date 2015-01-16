@@ -1,6 +1,6 @@
 import OrgsViewRoute from 'confy/routes/orgs/view';
 import ProjectsHelper from 'confy/helpers/projects';
-import NavbarView from 'confy/views/navbar';
+import NavbarView from 'confy/views/elements/navbar';
 import ProjectsEmptyView from 'confy/views/projects/empty';
 
 export default function (org, callback) {

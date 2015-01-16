@@ -1,10 +1,10 @@
 /** @jsx React.DOM */
 
-import MainView from 'confy/views/main';
+import MainView from 'confy/views/elements/main';
 import ProjectsListView from 'confy/views/projects/list';
 import Project from 'confy/models/project';
 import ValidationHelper from 'confy/helpers/validation';
-import ValidationView from 'confy/views/validation';
+import ValidationView from 'confy/views/elements/validation';
 
 export default React.createClass({
   getInitialState: function () {

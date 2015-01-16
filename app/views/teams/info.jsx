@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 
-import MainView from 'confy/views/main';
+import MainView from 'confy/views/elements/main';
 import TeamsListView from 'confy/views/teams/list';
 import TeamsMemberView from 'confy/views/teams/member';
 

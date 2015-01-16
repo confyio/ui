@@ -1,6 +1,6 @@
 import OrgsViewRoute from 'confy/routes/orgs/view';
 import TeamsHelper from 'confy/helpers/teams';
-import NavbarView from 'confy/views/navbar';
+import NavbarView from 'confy/views/elements/navbar';
 
 export default function (org, callback) {
   var self = this;

@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 
-import SideButtonView from 'confy/views/sidebutton';
+import SideButtonView from 'confy/views/elements/sidebutton';
 
 export default React.createClass({
   render: function () {

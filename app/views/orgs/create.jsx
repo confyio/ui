@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 
-import MainView from 'confy/views/main';
+import MainView from 'confy/views/elements/main';
 
 export default React.createClass({
   handleSubmit: function () {

@@ -36,6 +36,12 @@ export default React.createClass({
 
           self.setState(response.responseJSON);
         }
+        else {
+          notif({
+            type: 'error',
+            msg: 'Unable to log in. Please reload the page and try again.'
+          });
+        }
       }
     });
   },

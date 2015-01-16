@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 
-import SidebarView from 'confy/views/sidebar';
+import SidebarView from 'confy/views/elements/sidebar';
 import EnvsListView from 'confy/views/envs/list';
 
 export default React.createClass({

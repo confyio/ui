@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 
-import DummyView from 'confy/views/dummy';
+import DummyView from 'confy/views/elements/dummy';
 
 export default React.createClass({
   render: function () {

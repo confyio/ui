@@ -1,5 +1,5 @@
 import PagesLoginView from 'confy/views/pages/login';
-import NavbarView from 'confy/views/navbar';
+import NavbarView from 'confy/views/elements/navbar';
 import UserHelper from 'confy/helpers/user';
 
 export default function () {
