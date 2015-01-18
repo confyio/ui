@@ -16,7 +16,7 @@
     "font-awesome": "4.2.x",
     "underscore": "1.7.x",
     "backbone": "1.1.x",
-    "backbone-computedfields": "0.0.8",
+    "backbone-computedfields": "0.0.10",
     "react": "0.12.x",
     "almond": "0.3.x",
     "jquery.cookie": "1.4.x",

@@ -1,6 +1,7 @@
 var sync = Backbone.Model.prototype.sync;
 
 export default function (method, model, options) {
+  var callback = options.error;
   options.url += '?access_token=' + $.cookie('access_token');
 
   if (!options.noLogout) {
@@ -15,6 +16,8 @@ export default function (method, model, options) {
           trigger: true
         });
       }
+
+      return callback(response, error, status);
     }
   }
 
