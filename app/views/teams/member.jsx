@@ -8,7 +8,7 @@ export default React.createClass({
       wait: true,
       success: function (model, response) {
         notif({
-          msg: 'Successfully remove member <b>' + model.get('name') + '</b> from the team'
+          msg: 'Successfully removed member <b>' + model.get('username') + '</b> from the team'
         });
 
         Backbone.history.loadUrl();

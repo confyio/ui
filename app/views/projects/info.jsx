@@ -59,7 +59,7 @@ export default React.createClass({
               })}
               <tr>
                 <td>
-                  <input id="grant-access" placeholder="Enter team name" ref="name" />
+                  <input placeholder="Enter team name" ref="name" />
                 </td>
                 <td>
                   <button className="btn btn-success" disabled={notOwner ? 'disabled' : ''} onClick={this.handleClick}>Grant Access</button>
