@@ -40,23 +40,23 @@ export default Backbone.Model.extend({
     var username = attrs.username, errs = [];
 
     if (username === undefined || username === '') {
-      errs.push({ field: 'username', code: 'missing'});
+      errs.push({ field: 'username', code: 'missing' });
     }
 
     if (attrs.email === undefined || attrs.email === '') {
-      errs.push({ field: 'email', code: 'missing'});
+      errs.push({ field: 'email', code: 'missing' });
     }
 
     if (attrs.password === undefined || attrs.password === '') {
-      errs.push({ field: 'password', code: 'missing'});
+      errs.push({ field: 'password', code: 'missing' });
     }
 
     if (typeof username != 'string' || username.match(/[a-z0-9]*/i)[0] != username) {
-      errs.push({ field: 'username', code: 'invalid'});
+      errs.push({ field: 'username', code: 'invalid' });
     }
 
     if (typeof attrs.password != 'string' || attrs.password.length < 6) {
-      errs.push({ field: 'password', code: 'insecure'});
+      errs.push({ field: 'password', code: 'insecure' });
     }
 
     if (errs.length > 0) {
