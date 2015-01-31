@@ -8,3 +8,5 @@
 // window.ENV = {FEATURES: {'with-controller': true}};
 
 window.ENV = window.ENV || {};
+
+window.ENV.GRAVATAR = "7d96c775c0b73a349528b5f9aa1e1b91";
