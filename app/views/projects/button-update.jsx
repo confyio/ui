@@ -8,10 +8,7 @@ export default React.createClass({
 
     if (this.props.type == 'Project' && window.project && isOwner) {
       return (
-        <a className="btn btn-edit" href={window.project.get('link') + '/_update'}>
-          <i className="fa fa-edit"></i>
-          &nbsp;Edit Project
-        </a>
+        <a className="btn btn-edit" href={window.project.get('link') + '/_update'}>Edit Project</a>
       );
     } else {
       return <DummyView />;

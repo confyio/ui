@@ -92,4 +92,34 @@ body.console {
 	.panel {
 		margin-top: 40px;
 	}
+
+	.actions {
+		float: right;
+		display: inline-block;
+		margin: 0 0 30px;
+
+		a.btn {
+			margin-left: 5px;
+			margin-right: 5px;
+			color: @white;
+			background: @apple;
+			padding: 15px;
+
+			.box-shadow(@shadow);
+			.rounded(0);
+		}
+	}
+
+	.page-header {
+		float: left;
+		display: inline-block;
+		line-height: 34px;
+		border: 0;
+		padding: 10px 0;
+		margin: 0 0 30px;
+	}
+
+	.seperator {
+		clear: both;
+	}
 }

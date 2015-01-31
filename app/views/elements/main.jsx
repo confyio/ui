@@ -25,6 +25,7 @@ export default React.createClass({
           <h3 className="page-header">
             {this.props.header}
           </h3>
+          <div className="seperator"></div>
           {this.props.children}
         </div>
       </div>

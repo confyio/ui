@@ -8,10 +8,7 @@ export default React.createClass({
 
     if (this.props.type == 'Environment' && window.env && window.env.get('id') != 'production' && isOwner) {
       return (
-        <a className="btn btn-edit" href={window.env.get('link') + '/_update'}>
-          <i className="fa fa-edit"></i>
-          &nbsp;Edit Environment
-        </a>
+        <a className="btn btn-edit" href={window.env.get('link') + '/_update'}>Edit Environment</a>
       );
     } else {
       return <DummyView />;
