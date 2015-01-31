@@ -8,15 +8,19 @@ export default function (org, project, env, callback) {
   ProjectsViewRoute(org, project, function () {
     EnvsHelper.list(function () {
 
-      if (window.env && window.env.get('id') == env) {
+      if (window.env && window.env.get('id') == env && window.env.config) {
         if (callback) return callback();
       }
 
       window.env = window.envs.findWhere({ id: env });
 
-      if (callback) return callback();
+      if (window.env.config) {
+        if (callback) return callback();
+      }
 
-      React.render(EnvsInfoView({}), $('#wrap')[0]);
+      EnvsHelper.config(function () {
+        React.render(EnvsInfoView({}), $('#wrap')[0]);
+      });
     });
   });
 };
