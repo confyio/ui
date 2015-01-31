@@ -12,6 +12,9 @@ export default function (method, model, options) {
           msg: 'Session timed out. Please login again.'
         });
 
+        delete window.orgs;
+        delete window.org;
+
         window.App.navigate('#logout', {
           trigger: true
         });

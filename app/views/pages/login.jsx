@@ -1,9 +1,6 @@
 /** @jsx React.DOM */
 
 export default React.createClass({
-  getInitialState: function () {
-    return {message: ''};
-  },
   handleSubmit: function (e) {
     var self = this;
     e.preventDefault();
@@ -28,20 +25,18 @@ export default React.createClass({
         });
       },
       error: function (response, error, status) {
-        if (status == 'Unauthorized' && response.responseJSON.message == 'Bad credentials') {
-          notif({
-            type: 'error',
-            msg: 'Unable to log in. Incorrect credentials or unverified user.'
-          });
+        var message;
 
-          self.setState(response.responseJSON);
+        if (status == 'Unauthorized' && response.responseJSON.message == 'Bad credentials') {
+          message = 'Unable to log in. Incorrect credentials or unverified user.';
+        } else {
+          message = 'Unable to log in. Please reload the page and try again.';
         }
-        else {
-          notif({
-            type: 'error',
-            msg: 'Unable to log in. Please reload the page and try again.'
-          });
-        }
+
+        notif({
+          type: 'error',
+          msg: message
+        });
       }
     });
   },

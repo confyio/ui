@@ -19,6 +19,9 @@ export default function (state, model, errs, type) {
   }
 
   var messages = {
+    insecure: function (key) {
+      return 'The given ' + key + ' is not secure enough. Use atleast 6 characters';
+    },
     invalid: function (key) {
       return 'The given ' + key + ' should be alphanumeric';
     },

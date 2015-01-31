@@ -9,6 +9,7 @@ export default Backbone.Router.extend({
     this.route('', PagesRoute.landing);
     this.route('login', PagesRoute.login);
     this.route('logout', PagesRoute.logout);
+    this.route('register', PagesRoute.register);
 
     this.route('orgs', OrgsRoute.list);
     this.route('orgs/:org', OrgsRoute.view);
