@@ -4,9 +4,11 @@ import DummyView from 'confy/views/elements/dummy';
 
 export default React.createClass({
   render: function () {
-    if (this.props.type == 'Projects' && window.project) {
+    var isOwner = (window.user.get('username') == window.org.get('owner'));
+
+    if (this.props.type == 'Project' && window.project && isOwner) {
       return (
-        <a className="btn btn-new" href={window.project.get('link') + '/envs/_create'}>Add new Environment</a>
+        <a className="btn" href={window.project.get('link') + '/envs/_create'}>Create Environment</a>
       );
     } else {
       return <DummyView />;
