@@ -12,6 +12,12 @@ export default function (org, project, callback) {
     } else {
       window.project = window.projects.findWhere({ id: project });
 
+      if (!window.project) {
+        return window.App.navigate(window.org.get('link') + '/projects', {
+          trigger: true, replace: true
+        });
+      }
+
       delete window.envs;
       delete window.env;
       delete window.access;

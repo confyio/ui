@@ -11,6 +11,12 @@ export default function (org, team, callback) {
     } else {
       window.team = window.teams.findWhere({ id: team });
 
+      if (!window.team) {
+        return window.App.navigate(window.org.get('link') + '/teams', {
+          trigger: true, replace: true
+        });
+      }
+
       delete window.members;
       delete window.team_projects;
     }

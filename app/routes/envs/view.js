@@ -14,6 +14,12 @@ export default function (org, project, env, callback) {
 
       window.env = window.envs.findWhere({ id: env });
 
+      if (!window.env) {
+        return window.App.navigate(window.project.get('link') + '/envs', {
+          trigger: true, replace: true
+        });
+      }
+
       if (window.env.config) {
         if (callback) return callback();
       }

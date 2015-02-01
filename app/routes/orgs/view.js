@@ -10,6 +10,12 @@ export default function (org, callback) {
     } else {
       window.org = window.orgs.findWhere({ id: org });
 
+      if (!window.org) {
+        return window.App.navigate('#orgs', {
+          trigger: true, replace: true
+        });
+      }
+
       delete window.projects;
       delete window.project;
 
