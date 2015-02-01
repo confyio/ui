@@ -16,6 +16,7 @@
 @apple: #2ac56c;
 @fiord: #3e5c6e;
 @blueDianne: #254355;
+@outrageousOrange: #ff6037;
 
 @navbar-height: 60px;
 @navbar-default-brand-hover-bg: @apple;
@@ -24,6 +25,15 @@
 @navbar-padding-horizontal: 0;
 
 @nav-link-hover-bg: @apple;
+
+@notif-color: @white;
+@notif-color-bg: @blueDianne;
+@notif-color-bg-danger: @outrageousOrange;
+@notif-shadow: @shadow;
+
+@btn-default-color: @white;
+@btn-default-bg: @apple;
+@btn-danger-bg: @outrageousOrange;
 
 // Reset
 @import "../../node_modules/bootstrap/less/normalize.less";
@@ -112,7 +122,10 @@ html, body {
 }
 
 .btn {
+	border: 0;
+
 	.rounded(0);
+	.box-shadow(@shadow);
 }
 
 footer {
