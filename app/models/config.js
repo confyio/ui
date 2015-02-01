@@ -1,19 +1,13 @@
 import SyncHelper from 'confy/helpers/sync';
 
 export default Backbone.Model.extend({
-  initialize: function () {
-    this.computedFields = new Backbone.ComputedFields(this);
-  },
-
   idAttribute: "_id",
 
-  computed: {
-    link: {
-      depends: ['_id'],
-      get: function (fields) {
-        return '#' + fields._id;
-      }
-    }
+  getJSON: function () {
+    var ret = this.toJSON();
+    delete ret._id;
+
+    return ret;
   },
 
   sync: function (method, model, options) {

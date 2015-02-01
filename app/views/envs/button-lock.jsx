@@ -15,11 +15,41 @@ export default React.createClass({
     this.setState({icon: 'lock'});
   },
   clickedLock: function (e) {
+    var config = null, self = this;
     e.preventDefault();
 
-    window.editor.setMode('view');
-    window.editor.expandAll();
-    this.setState({icon: 'unlock'});
+    try {
+      config = window.editor.get();
+    } catch (e) {
+      notif({
+        type: 'error',
+        msg: 'The credentials document is not a valid JSON'
+      });
+    } finally {
+      if (config) {
+        window.env.config.save(config, {
+          patch: true,
+          wait: true,
+          success: function (model, response) {
+            window.editor.setMode('view');
+            window.editor.set(window.env.config.getJSON());
+            window.editor.expandAll();
+
+            self.setState({icon: 'unlock'});
+
+            notif({
+              msg: 'Successfully saved your credentials'
+            });
+          },
+          error: function (model, response) {
+            notif({
+              type: 'error',
+              msg: 'Unable to save credentials. Please reload the page and try again'
+            });
+          }
+        })
+      }
+    }
   },
   render: function () {
     if (this.props.type == 'Environment' && window.env && window.env.config) {

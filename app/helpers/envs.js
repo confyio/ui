@@ -18,10 +18,11 @@ EnvsHelper.list = function (callback) {
 EnvsHelper.config = function (callback) {
   if (window.env.config) return callback();
 
-  window.env.config = new Config();
-
-  window.env.config.fetch({
+  new Config().fetch({
     success: function (child, data) {
+      child.set('_id', window.env.get('_id') + '/config');
+      window.env.config = child;
+
       return callback();
     }
   });
