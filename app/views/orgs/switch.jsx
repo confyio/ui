@@ -15,9 +15,9 @@ export default React.createClass({
     }
 
     return (
-      <span>
+      <div className="dropdown">
         <div className="dropdown-toggle" id="org-dropdown" data-toggle="dropdown">
-          <span>{windowOrg.get('name')}</span>
+          <div>{windowOrg.get('name')}</div>
           <i className="fa fa-fw"></i>
         </div>
         <ul className="dropdown-menu" role="menu" aria-labelledby="org-dropdown">
@@ -26,14 +26,14 @@ export default React.createClass({
               return (
                 <li role="presentation" key={org.get('key')}>
                   <a role="menuitem" tabIndex="-1" href={org.get('link')}>
-                    <span>{org.get('name')}</span>
+                    <div>{org.get('name')}</div>
                   </a>
                 </li>
               );
             }
           })}
         </ul>
-      </span>
+      </div>
     );
   }
 });

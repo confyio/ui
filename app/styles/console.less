@@ -4,7 +4,7 @@ body.console {
 		display: none;
 	}
 
-	#org-switch {
+	#org-switch .dropdown {
 		display: inline-block;
 		margin-left: 85px;
 		color: @apple;
@@ -13,7 +13,7 @@ body.console {
 
 		.box-shadow(@shadow);
 
-		span.open .dropdown-toggle i::before {
+		&.open .dropdown-toggle > i::before {
 			content: @fa-var-arrow-up;
 		}
 
@@ -22,7 +22,11 @@ body.console {
 			height: 60px;
 			font-size: 17px;
 
-			i {
+			> div {
+				width: 150px;
+			}
+
+			> i {
 				font-size: 10px;
 				padding: 25px;
 				float: right;
@@ -60,6 +64,10 @@ body.console {
 					color: @white;
 					background: @blueDianne;
 				}
+
+				> div {
+					width: 190px;
+				}
 			}
 
 			li:last-child a {
@@ -67,11 +75,13 @@ body.console {
 			}
 		}
 
-		.dropdown-toggle span,
-		.dropdown-menu li a span {
+		.dropdown-toggle > div,
+		.dropdown-menu li a > div {
+			display: inline-block;
 			position: relative;
 			font-weight: bold;
 			line-height: 20px;
+			overflow: hidden;
 
 			.position(20px, 30px);
 		}
