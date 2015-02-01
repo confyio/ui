@@ -14,6 +14,7 @@ export default Backbone.Router.extend({
 
     this.route('orgs', OrgsRoute.list);
     this.route('orgs/:org', OrgsRoute.view);
+    this.route('orgs/:org/_update', OrgsRoute.update);
     this.route('orgs/_create', OrgsRoute.create);
 
     this.route('orgs/:org/projects', ProjectsRoute.list);

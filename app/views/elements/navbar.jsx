@@ -12,7 +12,7 @@ export default React.createClass({
           <ProfileView type={this.props.type} />
         </ul>
       );
-    } else if (this.props.type == 'Projects' || this.props.type == 'Teams') {
+    } else if (this.props.type == 'Projects' || this.props.type == 'Teams' || this.props.type == 'Org') {
       $('body').attr('class', 'console');
 
       return (

@@ -23,6 +23,10 @@ export default React.createClass({
     }, {
       patch: true,
       success: function (model, response) {
+        notif({
+          msg: 'Successfully updated the environment <b>' + window.env.get('name') + '</b>'
+        });
+
         Backbone.history.loadUrl();
       },
       error: function (model, response) {
