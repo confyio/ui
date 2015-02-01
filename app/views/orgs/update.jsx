@@ -51,8 +51,8 @@ export default React.createClass({
           </div>
           <button type="submit" className="btn btn-default">Update Organization</button>
         </form>
-        <DeleteConfirmationView type="org" model={window.org}>
-          <p>All the projects and team under this organization will be deleted.</p>
+        <DeleteConfirmationView type="organization" model={window.org}>
+          <p>All the projects and teams under this organization will be deleted.</p>
         </DeleteConfirmationView>
       </MainView>
     );

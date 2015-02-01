@@ -2,6 +2,7 @@
 
 export default React.createClass({
   handleClick: function (e) {
+    var self = this;
     e.preventDefault();
 
     if (this.props.model.get('name') == this.refs.name.getDOMNode().value.trim()) {
@@ -11,14 +12,18 @@ export default React.createClass({
           var index = model.get('link').lastIndexOf('/')
             , link = model.get('link').slice(0, index);
 
-          delete window[link.slice(link.lastIndexOf('/') + 1, -1)];
+          if (link == '#orgs') {
+            delete window.org;
+          } else {
+            delete window[link.slice(link.lastIndexOf('/') + 1, -1)];
+          }
 
           if (link.slice(-4) == 'envs') {
             link = link.slice(0, -5);
           }
 
           notif({
-            msg: 'Successfully deleted the ' + this.props.type
+            msg: 'Successfully deleted the ' + self.props.type
           });
 
           window.App.navigate(link, {
@@ -28,7 +33,7 @@ export default React.createClass({
         error: function (model, response) {
           notif({
             type: 'error',
-            msg: 'Unable to delete the ' + this.props.type + '. Please reload the page and try again.'
+            msg: 'Unable to delete the ' + self.props.type + '. Please reload the page and try again.'
           });
         }
       });
