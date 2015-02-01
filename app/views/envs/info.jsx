@@ -10,7 +10,7 @@ export default React.createClass({
       <div>
         <ProjectsListView />
         <MainView type="Environment" header={window.env.get('name')}>
-          <EditorView id="editor" json={window.env.config.toJSON()} />
+          <EditorView json={window.env.config.toJSON()} />
         </MainView>
       </div>
     );
