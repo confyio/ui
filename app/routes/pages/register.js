@@ -7,7 +7,7 @@ export default function () {
 
   UserHelper.load(true, function () {
     if (window.user) {
-      self.navigate('#orgs', {
+      return self.navigate('#orgs', {
         trigger: true, replace: true
       });
     }
