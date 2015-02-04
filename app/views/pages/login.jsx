@@ -29,6 +29,8 @@ export default React.createClass({
 
         if (status == 'Unauthorized' && response.responseJSON.message == 'Bad credentials') {
           message = 'Unable to log in. Incorrect credentials or unverified user.';
+        } else if (status == 'Unauthorized' && response.responseJSON.message == 'Unverified email') {
+          message = 'Please verify your email to be able to login.';
         } else {
           message = 'Unable to log in. Please reload the page and try again.';
         }
