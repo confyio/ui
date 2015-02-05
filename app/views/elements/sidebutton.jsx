@@ -1,5 +1,7 @@
 /** @jsx React.DOM */
 
+import DummyView from 'confy/views/elements/dummy';
+
 export default React.createClass({
   render: function () {
     var title, isOwner = (window.user.get('username') == window.org.get('owner'));
