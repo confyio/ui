@@ -25,6 +25,13 @@ UserHelper.load = function (loginPage, callback) {
             });
           }
         } else {
+          analytics.identify(window.user.get('username'), {
+            username: window.user.get('username'),
+            email: window.user.get('email')
+          });
+
+          analytics.track('Logged on Frontend');
+
           return callback();
         }
       }

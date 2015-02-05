@@ -7,3 +7,4 @@
 
 window.ENV.BASE_URL = "https://api.confy.io";
 window.ENV.COOKIE_SECURE = true;
+window.ENV.SEGMENT_WRITE_KEY = "b9Mrbu2HypzfgFlSgCFxR4w2G7pGAMaA";
