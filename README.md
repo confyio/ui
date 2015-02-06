@@ -16,11 +16,11 @@ Prerequisites are:
 $ git clone git://github.com/asm-products/confy-web && cd confy-web
 
 # Install dependencies
-$ npm install -g grunt-cli
+$ npm install -g gulp
 $ npm install
 
 # Run static server with auto-compiling
-$ grunt
+$ gulp
 ```
 
 ## Idea
