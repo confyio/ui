@@ -1,7 +1,6 @@
 /** @jsx React.DOM */
 
 import MainView from 'confy/views/elements/main';
-import ProjectsListView from 'confy/views/projects/list';
 import DeleteConfirmationView from 'confy/views/elements/delete';
 import ValidationHelper from 'confy/helpers/validation';
 import ValidationView from 'confy/views/elements/validation';
@@ -38,26 +37,23 @@ export default React.createClass({
   },
   render: function () {
     return (
-      <div>
-        <ProjectsListView />
-        <MainView header="Update Project">
-          <form role="form" onSubmit={this.handleSubmit}>
-            <div className="form-group">
-              <label>Name</label>
-              <p className="form-control-static">{window.project.get('name')}</p>
-            </div>
-            <div className={this.state.description.className}>
-              <label>Description</label>
-              <input className="form-control" placeholder="Enter project description" ref="description" defaultValue={this.state.description.value} />
-              <ValidationView message={this.state.description.message} />
-            </div>
-            <button type="submit" className="btn btn-default">Update Project</button>
-          </form>
-          <DeleteConfirmationView type="project" model={window.project}>
-            <p>All the environments under this project will be deleted.</p>
-          </DeleteConfirmationView>
-        </MainView>
-      </div>
+      <MainView header="Update Project">
+        <form role="form" onSubmit={this.handleSubmit}>
+          <div className="form-group">
+            <label>Name</label>
+            <p className="form-control-static">{window.project.get('name')}</p>
+          </div>
+          <div className={this.state.description.className}>
+            <label>Description</label>
+            <input className="form-control" placeholder="Enter project description" ref="description" defaultValue={this.state.description.value} />
+            <ValidationView message={this.state.description.message} />
+          </div>
+          <button type="submit" className="btn btn-default">Update Project</button>
+        </form>
+        <DeleteConfirmationView type="project" model={window.project}>
+          <p>All the environments under this project will be deleted.</p>
+        </DeleteConfirmationView>
+      </MainView>
     );
   }
 });

@@ -68,13 +68,13 @@
 
 	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
-			<div class="row-fluid">
+			<div class="row">
 				<div class="navbar-header col-md-3">
 					<a class="navbar-brand" href="#">
 						<span class="brand"></span>
 					</a>
 				</div>
-				<div class="navbar-collapse collapse">
+				<div class="navbar-collapse">
 					<div id="left-nav" class="nav navbar-nav">
 						<li id="org-switch"></li>
 					</div>
@@ -84,16 +84,15 @@
 		</div>
 	</div>
 
-	<div class="container" id="wrap">
-	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="sidebar col-md-3">
+			</div>
 
-	<footer>
-		<div class="container">
-			<div class="row">
-				Copyright © 2014, Assembly Made, Inc. All rights reserved.
+			<div class="main col-md-9" id="wrap">
 			</div>
 		</div>
-	</footer>
+	</div>
 
 	<script type="text/javascript">
 		!function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.0.1";

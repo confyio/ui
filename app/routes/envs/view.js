@@ -1,6 +1,7 @@
 import ProjectsViewRoute from 'confy/routes/projects/view';
 import EnvsInfoView from 'confy/views/envs/info';
 import EnvsHelper from 'confy/helpers/envs';
+import ProjectsListView from 'confy/views/projects/list';
 
 export default function (org, project, env, callback) {
   var self = this;
@@ -25,6 +26,7 @@ export default function (org, project, env, callback) {
       }
 
       EnvsHelper.config(function () {
+        React.render(ProjectsListView({}), $('.sidebar')[0]);
         React.render(EnvsInfoView({}), $('#wrap')[0]);
       });
     });

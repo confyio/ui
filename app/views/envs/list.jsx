@@ -12,7 +12,7 @@ export default React.createClass({
       );
     }
 
-    if (this.props.noActive === 'true') {
+    if (this.props.noActive) {
       id = '';
     }
 

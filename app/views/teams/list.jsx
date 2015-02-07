@@ -1,17 +1,17 @@
 /** @jsx React.DOM */
 
-import SidebarView from 'confy/views/elements/sidebar';
+import SideButtonView from 'confy/views/elements/sidebutton';
 
 export default React.createClass({
   render: function () {
     var id = window.team && window.team.get('id');
 
-    if (this.props.noActive === 'true') {
+    if (this.props.noActive) {
       id = '';
     }
 
     return (
-      <SidebarView type="Teams">
+      <ul className="nav nav-sidebar">
         {window.teams.map(function (team) {
           return (
             <li role="presentation" key={team.get('key')} className={team.get('id') == id ? 'active' : ''}>
@@ -21,7 +21,8 @@ export default React.createClass({
             </li>
           )
         })}
-      </SidebarView>
+        <SideButtonView type="Teams" />
+      </ul>
     );
   }
 });

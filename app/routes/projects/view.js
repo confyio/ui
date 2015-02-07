@@ -2,6 +2,7 @@ import ProjectsListRoute from 'confy/routes/projects/list';
 import ProjectsInfoView from 'confy/views/projects/info';
 import EnvsHelper from 'confy/helpers/envs';
 import ProjectsHelper from 'confy/helpers/projects';
+import ProjectsListView from 'confy/views/projects/list';
 
 export default function (org, project, callback) {
   var self = this;
@@ -27,6 +28,7 @@ export default function (org, project, callback) {
       if (callback) return callback();
 
       ProjectsHelper.teams(function () {
+        React.render(ProjectsListView({noEnvActive: true}), $('.sidebar')[0]);
         React.render(ProjectsInfoView({}), $('#wrap')[0]);
       });
     });

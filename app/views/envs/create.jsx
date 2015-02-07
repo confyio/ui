@@ -1,7 +1,6 @@
 /** @jsx React.DOM */
 
 import MainView from 'confy/views/elements/main';
-import ProjectsListView from 'confy/views/projects/list';
 import Env from 'confy/models/env';
 import ValidationHelper from 'confy/helpers/validation';
 import ValidationView from 'confy/views/elements/validation';
@@ -40,24 +39,21 @@ export default React.createClass({
   },
   render: function () {
     return (
-      <div>
-        <ProjectsListView noEnvActive="true" />
-        <MainView header="Create Environment">
-          <form role="form" onSubmit={this.handleSubmit}>
-            <div className={this.state.name.className}>
-              <label>Name</label>
-              <input className="form-control" placeholder="Enter environment name" ref="name" defaultValue={this.state.name.value} />
-              <ValidationView message={this.state.name.message} />
-            </div>
-            <div className={this.state.description.className}>
-              <label>Description</label>
-              <input className="form-control" placeholder="Enter environment description" ref="description" defaultValue={this.state.description.value} />
-              <ValidationView message={this.state.description.message} />
-            </div>
-            <button type="submit" className="btn btn-default">Create Environment</button>
-          </form>
-        </MainView>
-      </div>
+      <MainView header="Create Environment">
+        <form role="form" onSubmit={this.handleSubmit}>
+          <div className={this.state.name.className}>
+            <label>Name</label>
+            <input className="form-control" placeholder="Enter environment name" ref="name" defaultValue={this.state.name.value} />
+            <ValidationView message={this.state.name.message} />
+          </div>
+          <div className={this.state.description.className}>
+            <label>Description</label>
+            <input className="form-control" placeholder="Enter environment description" ref="description" defaultValue={this.state.description.value} />
+            <ValidationView message={this.state.description.message} />
+          </div>
+          <button type="submit" className="btn btn-default">Create Environment</button>
+        </form>
+      </MainView>
     );
   }
 });

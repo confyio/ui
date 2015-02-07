@@ -1,7 +1,6 @@
 /** @jsx React.DOM */
 
 import MainView from 'confy/views/elements/main';
-import ProjectsListView from 'confy/views/projects/list';
 import ProjectAccessView from 'confy/views/projects/access';
 import Access from 'confy/models/access';
 
@@ -41,34 +40,31 @@ export default React.createClass({
     var notOwner = (window.user.get('username') != window.org.get('owner'));
 
     return (
-      <div>
-        <ProjectsListView noEnvActive="true" />
-        <MainView type="Project" header={window.project.get('name')}>
-          <table className="table table-bordered">
-            <thead>
-              <tr>
-                <td>Team Name</td>
-                <td>Actions</td>
-              </tr>
-            </thead>
-            <tbody>
-              {window.access.map(function (team) {
-                return (
-                  <ProjectAccessView team={team} notOwner={notOwner} />
-                );
-              })}
-              <tr>
-                <td>
-                  <input placeholder="Enter team name" ref="name" />
-                </td>
-                <td>
-                  <button className="btn btn-success" disabled={notOwner ? 'disabled' : ''} onClick={this.handleClick}>Grant Access</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </MainView>
-      </div>
+      <MainView type="Project" header={window.project.get('name')}>
+        <table className="table table-bordered">
+          <thead>
+            <tr>
+              <td>Team Name</td>
+              <td>Actions</td>
+            </tr>
+          </thead>
+          <tbody>
+            {window.access.map(function (team) {
+              return (
+                <ProjectAccessView team={team} notOwner={notOwner} />
+              );
+            })}
+            <tr>
+              <td>
+                <input placeholder="Enter team name" ref="name" />
+              </td>
+              <td>
+                <button className="btn btn-success" disabled={notOwner ? 'disabled' : ''} onClick={this.handleClick}>Grant Access</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </MainView>
     );
   }
 });

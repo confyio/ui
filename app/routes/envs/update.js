@@ -1,5 +1,6 @@
 import EnvsViewRoute from 'confy/routes/envs/view';
 import EnvsUpdateView from 'confy/views/envs/update';
+import ProjectsListView from 'confy/views/projects/list';
 
 export default function (org, project, env, callback) {
   var self = this;
@@ -10,6 +11,7 @@ export default function (org, project, env, callback) {
         trigger: true, replace: true
       });
     } else {
+      React.render(ProjectsListView({}), $('.sidebar')[0]);
       React.render(EnvsUpdateView({}), $('#wrap')[0]);
     }
   });

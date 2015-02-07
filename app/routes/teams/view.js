@@ -1,6 +1,7 @@
 import TeamsListRoute from 'confy/routes/teams/list';
 import TeamsInfoView from 'confy/views/teams/info';
 import TeamsHelper from 'confy/helpers/teams';
+import TeamsListView from 'confy/views/teams/list';
 
 export default function (org, team, callback) {
   var self = this;
@@ -24,6 +25,7 @@ export default function (org, team, callback) {
     if (callback) return callback();
 
     TeamsHelper.users(function () {
+      React.render(TeamsListView({}), $('.sidebar')[0]);
       React.render(TeamsInfoView({}), $('#wrap')[0]);
     });
   });

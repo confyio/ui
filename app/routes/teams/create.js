@@ -1,5 +1,6 @@
 import TeamsListRoute from 'confy/routes/teams/list';
 import TeamsCreateView from 'confy/views/teams/create';
+import TeamsListView from 'confy/views/teams/list';
 
 export default function (org, callback) {
   var self = this;
@@ -14,6 +15,7 @@ export default function (org, callback) {
         trigger: true, replace: true
       });
     } else {
+      React.render(TeamsListView({noActive: true}), $('.sidebar')[0]);
       React.render(TeamsCreateView({}), $('#wrap')[0]);
     }
   });

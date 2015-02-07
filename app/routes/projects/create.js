@@ -1,5 +1,6 @@
 import ProjectsListRoute from 'confy/routes/projects/list';
 import ProjectsCreateView from 'confy/views/projects/create';
+import ProjectsListView from 'confy/views/projects/list';
 
 export default function (org, callback) {
   var self = this;
@@ -18,6 +19,7 @@ export default function (org, callback) {
         });
       }
     } else {
+      React.render(ProjectsListView({noActive: true}), $('.sidebar')[0]);
       React.render(ProjectsCreateView({}), $('#wrap')[0]);
     }
   });
