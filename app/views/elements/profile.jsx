@@ -13,7 +13,7 @@ export default React.createClass({
     } else {
       return (
         <li className={this.props.type == 'Login' ? 'active' : ''}>
-          <a href="#login" className="link">Login</a>
+          <a href="#login">Login</a>
         </li>
       );
     }

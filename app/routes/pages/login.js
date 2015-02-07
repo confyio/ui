@@ -12,7 +12,7 @@ export default function () {
       });
     }
 
-    React.render(NavbarView({type: 'Login'}), $('.navbar-collapse')[0]);
+    React.render(NavbarView({type: 'Login'}), $('#right-nav')[0]);
     React.render(PagesLoginView(), $('#wrap')[0]);
   });
 };

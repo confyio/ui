@@ -31,7 +31,7 @@ export default Backbone.Model.extend({
           hash = window.ENV.GRAVATAR;
         }
 
-        return 'https://gravatar.com/avatar/' + hash + '.png?s=60';
+        return 'https://gravatar.com/avatar/' + hash + '.png?s=40';
       }
     }
   },

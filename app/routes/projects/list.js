@@ -7,7 +7,7 @@ export default function (org, callback) {
   var self = this;
 
   OrgsViewRoute(org, function () {
-    React.render(NavbarView({type: 'Projects'}), $('.navbar-collapse')[0]);
+    React.render(NavbarView({type: 'Projects'}), $('#right-nav')[0]);
 
     ProjectsHelper.list(function () {
       if (callback) return callback();

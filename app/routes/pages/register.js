@@ -12,7 +12,7 @@ export default function () {
       });
     }
 
-    React.render(NavbarView({type: 'Register'}), $('.navbar-collapse')[0]);
+    React.render(NavbarView({type: 'Register'}), $('#right-nav')[0]);
     React.render(PagesRegisterView(), $('#wrap')[0]);
   });
 };

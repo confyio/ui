@@ -38,6 +38,6 @@ export default function (user, token) {
       }
     });
 
-    React.render(NavbarView({type: 'Verify'}), $('.navbar-collapse')[0]);
+    React.render(NavbarView({type: 'Verify'}), $('#right-nav')[0]);
   });
 };

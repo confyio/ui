@@ -9,7 +9,7 @@
 @fa-font-path: "fonts";
 @images: "images/";
 
-@white: white;
+@white: #ffffff;
 @black: black;
 @gray: gray;
 @shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
@@ -19,13 +19,28 @@
 @blueDianne: #254355;
 @outrageousOrange: #ff6037;
 
-@navbar-height: 60px;
-@navbar-default-brand-hover-bg: @apple;
-@navbar-default-link-hover-bg: @apple;
-@navbar-default-link-active-bg: @apple;
+@shark: #1c1e1e;
+@shark1: #242627;
+@shark2: #323436;
+@shark3: #2b2d2e;
+
+@mercury: #e9e9e9;
+@silver1: #bfbfbf;
+@silver2: #b8b8b8;
+
+@navbar-height: 40px;
+@navbar-default-bg: @shark1;
 @navbar-padding-horizontal: 0;
 
-@nav-link-hover-bg: @apple;
+@navbar-default-link-color: @white;
+@navbar-default-link-hover-color: @white;
+@navbar-default-link-active-color: @white;
+@navbar-default-link-active-bg: @shark1;
+
+@navbar-default-brand-hover-bg: @shark1;
+
+@dropdown-bg: @shark2;
+@dropdown-link-color: @silver2;
 
 @notif-color: @white;
 @notif-color-bg: @blueDianne;
@@ -39,6 +54,7 @@
 // Reset
 @import "../../node_modules/bootstrap/less/normalize.less";
 @import "../../node_modules/bootstrap/less/print.less";
+@import "../../node_modules/bootstrap/less/glyphicons.less";
 
 // Core CSS
 @import "../../node_modules/bootstrap/less/scaffolding.less";
@@ -51,7 +67,6 @@
 
 // Components
 @import "../../node_modules/bootstrap/less/component-animations.less";
-@import "../../node_modules/bootstrap/less/glyphicons.less";
 @import "../../node_modules/bootstrap/less/dropdowns.less";
 @import "../../node_modules/bootstrap/less/button-groups.less";
 @import "../../node_modules/bootstrap/less/input-groups.less";
@@ -69,6 +84,7 @@
 @import "../../node_modules/bootstrap/less/media.less";
 @import "../../node_modules/bootstrap/less/list-group.less";
 @import "../../node_modules/bootstrap/less/panels.less";
+@import "../../node_modules/bootstrap/less/responsive-embed.less";
 @import "../../node_modules/bootstrap/less/wells.less";
 @import "../../node_modules/bootstrap/less/close.less";
 
@@ -100,8 +116,6 @@
 // NotifIt
 @import "../../node_modules/notif-it/notif-it.less";
 
-@import url(https://fonts.googleapis.com/css?family=Raleway);
-
 html, body {
 	height: 100%;
 	font-family: 'Raleway', sans-serif;
@@ -109,12 +123,6 @@ html, body {
 
 .dummy {
 	display: none;
-}
-
-.container {
-	width: 960px;
-	padding: 0;
-	margin: auto;
 }
 
 #wrap {
@@ -125,7 +133,6 @@ html, body {
 	border: 0;
 
 	.rounded(0);
-	.box-shadow(@shadow);
 }
 
 footer {

@@ -13,7 +13,7 @@ export default function (org, callback) {
         trigger: true, replace: true
       });
     } else {
-      React.render(NavbarView({type: 'Org'}), $('.navbar-collapse')[0]);
+      React.render(NavbarView({type: 'Org'}), $('#right-nav')[0]);
       React.render(OrgsUpdateView({}), $('#wrap')[0]);
     }
   });

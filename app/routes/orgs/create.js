@@ -10,7 +10,7 @@ export default function (callback) {
     delete window.org;
 
     React.render(OrgsSwitchView({empty: true}), $('#org-switch')[0]);
-    React.render(NavbarView({console: true}), $('.navbar-collapse')[0]);
+    React.render(NavbarView({console: true}), $('#right-nav')[0]);
     React.render(OrgsCreateView(), $('#wrap')[0]);
   });
 };

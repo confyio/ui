@@ -6,7 +6,7 @@ export default function (org, callback) {
   var self = this;
 
   OrgsViewRoute(org, function () {
-    React.render(NavbarView({type: 'Teams'}), $('.navbar-collapse')[0]);
+    React.render(NavbarView({type: 'Teams'}), $('#right-nav')[0]);
 
     TeamsHelper.list(function () {
       if (callback) return callback();

@@ -1,104 +1,37 @@
 .navbar {
-	background: @apple;
-	height: 100px;
-	padding: 20px 32px;
+	padding: 35px 45px;
 	border: 0;
 	margin: 0;
 
-	.container {
-		height: 60px;
+	.container-fluid {
+		height: 40px;
+		padding: 0;
 	}
 }
 
 .navbar-brand {
 	padding: 0;
 	position: relative;
-	line-height: 60px;
-
-	.brand {
-		color: @white;
-		font-size: 30px;
-		letter-spacing: 1px;
-		margin-left: 85px;
-
-		&:hover,
-		&:focus {
-			color: @white;
-		}
-	}
-
-	.logo-outer,
-	.logo {
-		position: absolute;
-		display: inline-block;
-
-		.position();
-		.square(60px);
-		.rounded(30px);
-	}
-
-	.logo-outer {
-		.box-shadow(@shadow);
-	}
-
-	.logo {
-		background: url("@{images}logo.png");
-		background-size: 60px 60px;
-
-		.transition-all(0.6s);
-
-		&:hover {
-			.rotation(-180deg);
-		}
-	}
-}
-
-.navbar-nav li a.link {
-	color: @white;
-	display: inline-block;
-	padding: 0;
-	margin: 10px 25px;
-	text-transform: uppercase;
-	font-size: 22px;
 	line-height: 40px;
-
-	&::before, &::after {
-		display: inline-block;
-		.opacity(0);
-		.transition-transform(0.3s, opacity 0.2s);
-	}
-
-	&::before {
-		margin-right: 10px;
-		content: '[';
-		.translate(20px);
-	}
-
-	&::after {
-		margin-left: 10px;
-		content: ']';
-		.translate(-20px);
-	}
 }
 
-.navbar-nav li.active a.link,
-.navbar-nav li a.link:hover,
-.navbar-nav li a.link:focus {
+.navbar-nav > li {
+	height: 40px;
 
-	&::before, &::after {
-		.opacity(1);
-		.translate();
+	> a {
+		display: inline-block;
+		padding: 0;
+		margin: 0 20px;
+		text-transform: uppercase;
+		font-size: 18px;
+		line-height: 40px;
 	}
 }
 
 #avatar {
 	position: relative;
-	display: inline-block;
-	margin-left: 25px;
-	margin-right: 0px;
-	line-height: 60px;
+	line-height: 40px;
 
-	.square(60px);
-	.rounded(30px);
-	.box-shadow(@shadow);
+	.square(40px);
+	.rounded(20px);
 }
