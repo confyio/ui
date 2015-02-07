@@ -10,9 +10,10 @@ export default React.createClass({
 
     if (this.props.type == 'Team' && window.team && window.team.get('id') != 'owners' && isOwner) {
       return (
-        <a className="btn tooltipper" href={window.team.get('link') + '/_update'} data-placement="top" title="Edit Team">
+        <div className="settings">
           <i className="fa fa-fw fa-gear"></i>
-        </a>
+          <a href={window.team.get('link') + '/_update'}>Settings</a>
+        </div>
       );
     } else {
       return <DummyView />;

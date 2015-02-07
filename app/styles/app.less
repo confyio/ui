@@ -26,6 +26,8 @@
 
 @mercury: #e9e9e9;
 @nevada: #6e7174;
+@alabaster: #f9f9f9;
+@concrete: #f3f3f3;
 
 @silver1: #bfbfbf;
 @silver2: #b8b8b8;
@@ -123,18 +125,36 @@
 html, body {
 	height: 100%;
 	font-family: 'Raleway', sans-serif;
-
-	> .container-fluid {
-		margin-top: 110px;
-	}
+	background: @mercury;
 }
 
 .dummy {
 	display: none;
 }
 
+a {
+	text-decoration: none!important;
+}
+
 .btn {
+	height: 20px;
 	.rounded(0);
+}
+
+::-webkit-input-placeholder {
+	color: @shark1;
+}
+
+::-moz-placeholder {
+	color: @shark1;
+}
+
+:-moz-placeholder {
+	color: @shark1;
+}
+
+:-ms-input-placeholder {
+	color: @shark1;
 }
 
 @import "navbar.less";

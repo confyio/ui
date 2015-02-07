@@ -38,15 +38,31 @@ export default React.createClass({
     });
   },
   render: function () {
-    var notOwner = (window.user.get('username') != window.org.get('owner'));
+    var grant, notOwner = (window.user.get('username') != window.org.get('owner'));
+
+    if (!notOwner) {
+      grant = (
+        <table className="table">
+          <tbody>
+            <tr>
+              <td>
+                <input placeholder="Enter user name" ref="name" />
+              </td>
+              <td>
+                <button className="btn btn-success" onClick={this.handleClick}>Add Member</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      );
+    }
 
     return (
       <MainView type="Team" header={window.team.get('name')}>
-        <table className="table table-bordered">
+        <table className="table">
           <thead>
             <tr>
-              <td>User Name</td>
-              <td>Actions</td>
+              <td colSpan="2">User Name</td>
             </tr>
           </thead>
           <tbody>
@@ -55,16 +71,9 @@ export default React.createClass({
                 <TeamsMemberView user={user} notOwner={notOwner} />
               );
             })}
-            <tr>
-              <td>
-                <input placeholder="Enter user name" ref="name" />
-              </td>
-              <td>
-                <button className="btn btn-success" disabled={notOwner ? 'disabled' : ''} onClick={this.handleClick}>Add Member</button>
-              </td>
-            </tr>
           </tbody>
         </table>
+        {grant}
       </MainView>
     );
   }

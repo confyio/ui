@@ -1,7 +1,7 @@
 body.console {
+	text-transform: uppercase;
 
 	#org-switch .dropdown {
-		text-transform: uppercase;
 
 		&.open .dropdown-toggle > i::before {
 			content: @fa-var-angle-up;
@@ -77,61 +77,87 @@ body.console {
 	}
 
 	#wrap {
-		background: @mercury;
-	}
+		margin: 170px 0 0 250px;
+		padding: 0;
+		font-size: 14px;
 
-	.content {
-		float: right;
-		width: 655px;
-		display: inline-block;
-	}
-
-	.content-single {
-		width: 655px;
-		display: inline-block;
-		margin-left: 150px;
+		.content {
+			margin: auto;
+			width: 655px;
+		}
 	}
 
 	.panel {
 		margin-top: 40px;
 	}
 
-	.actions {
-		float: right;
-		display: inline-block;
-		margin: 0 0 20px;
-
-		a.btn {
-			margin: 10px 5px;
-			color: @white;
-			background: @apple;
-			padding: 10px;
-
-			.rounded(20px);
-			.box-shadow(none);
-
-			i {
-				width: 20px;
-				height: 20px;
-				line-height: 20px;
-			}
-
-			&.btn-danger {
-				background: @outrageousOrange;
-			}
-		}
-	}
-
 	.page-header {
-		float: left;
-		display: inline-block;
+		font-size: 36px;
+		padding: 0;
 		border: 0;
-		line-height: 30px;
-		padding: 15px 0;
 		margin: 0 0 20px;
+		color: @shark;
 	}
 
 	.seperator {
 		clear: both;
+		margin-bottom: 40px;
+	}
+
+	.admin {
+		float: left;
+		display: inline-block;
+		color: @shark;
+	}
+
+	.actions {
+		float: right;
+		display: inline-block;
+
+		.settings i {
+			margin-right: 15px;
+
+			.square(20px);
+		}
+	}
+
+	.table {
+		thead tr {
+			color: @white;
+			background: @chinnabar!important;
+		}
+
+		tr {
+			height: 60px;
+
+			&:nth-child(odd) {
+				background: @alabaster;
+			}
+
+			&:nth-child(even) {
+				background: @concrete;
+			}
+		}
+
+		td {
+			line-height: 20px;
+			padding: 20px 60px;
+			border: 0;
+
+			&:first-child {
+				width: 65%;
+			}
+
+			a {
+				color: @shark1;
+			}
+		}
+	}
+
+	input {
+		color: @shark1;
+		background: transparent;
+		border: 0;
+		padding: 0;
 	}
 }

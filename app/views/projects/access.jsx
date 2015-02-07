@@ -22,17 +22,25 @@ export default React.createClass({
     });
   },
   render: function () {
-    var disabled = (this.props.team.get('id') == 'owners' || this.props.notOwner);
-
-    return (
-      <tr>
-        <td>
-          <a href={this.props.team.get('link')}>{this.props.team.get('name')}</a>
-        </td>
-        <td>
-          <button className="btn btn-danger" disabled={disabled ? 'disabled' : ''} onClick={this.handleClick}>Revoke Access</button>
-        </td>
-      </tr>
-    );
+    if (this.props.team.get('id') == 'owners' || this.props.notOwner) {
+      return (
+        <tr>
+          <td colSpan="2">
+            <a href={this.props.team.get('link')}>{this.props.team.get('name')}</a>
+          </td>
+        </tr>
+      );
+    } else {
+      return (
+        <tr>
+          <td>
+            <a href={this.props.team.get('link')}>{this.props.team.get('name')}</a>
+          </td>
+          <td>
+            <button className="btn btn-danger" onClick={this.handleClick}>Revoke Access</button>
+          </td>
+        </tr>
+      );
+    }
   }
 });

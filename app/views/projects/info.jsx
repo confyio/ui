@@ -37,15 +37,31 @@ export default React.createClass({
     });
   },
   render: function () {
-    var notOwner = (window.user.get('username') != window.org.get('owner'));
+    var grant, notOwner = (window.user.get('username') != window.org.get('owner'));
+
+    if (!notOwner) {
+      grant = (
+        <table className="table">
+          <tbody>
+            <tr>
+              <td>
+                <input placeholder="Enter team name" ref="name" />
+              </td>
+              <td>
+                <button className="btn btn-success" onClick={this.handleClick}>Grant Access</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      );
+    }
 
     return (
       <MainView type="Project" header={window.project.get('name')}>
-        <table className="table table-bordered">
+        <table className="table">
           <thead>
             <tr>
-              <td>Team Name</td>
-              <td>Actions</td>
+              <td colSpan="2">Team Name</td>
             </tr>
           </thead>
           <tbody>
@@ -54,16 +70,9 @@ export default React.createClass({
                 <ProjectAccessView team={team} notOwner={notOwner} />
               );
             })}
-            <tr>
-              <td>
-                <input placeholder="Enter team name" ref="name" />
-              </td>
-              <td>
-                <button className="btn btn-success" disabled={notOwner ? 'disabled' : ''} onClick={this.handleClick}>Grant Access</button>
-              </td>
-            </tr>
           </tbody>
         </table>
+        {grant}
       </MainView>
     );
   }
