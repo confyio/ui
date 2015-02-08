@@ -11,8 +11,10 @@ export default React.createClass({
     if (this.props.type == 'Project' && window.project && isOwner) {
       return (
         <div className="settings">
-          <i className="fa fa-fw fa-gear"></i>
-          <a href={window.project.get('link') + '/_update'}>Settings</a>
+          <a href={window.project.get('link') + '/_update'}>
+            <i className="fa fa-fw fa-gear"></i>
+            Settings
+          </a>
         </div>
       );
     } else {

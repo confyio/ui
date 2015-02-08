@@ -11,8 +11,10 @@ export default React.createClass({
     if (this.props.type == 'Environment' && window.env && window.env.get('id') != 'production' && isOwner) {
       return (
         <div className="settings">
-          <i className="fa fa-fw fa-gear"></i>
-          <a href={window.env.get('link') + '/_update'}>Settings</a>
+          <a href={window.env.get('link') + '/_update'}>
+            <i className="fa fa-fw fa-gear"></i>
+            Settings
+          </a>
         </div>
       );
     } else {

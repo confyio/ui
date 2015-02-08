@@ -16,7 +16,7 @@ export default React.createClass({
       return (
         <li className="sidebutton">
           <a className="btn" href={window.org.get('link') + '/' + this.props.type.toLowerCase() + '/_create'}>
-            <i className="fa fa-fw fa-plus"></i>
+            <i className="fa fa-fw"></i>
             <div>{title}</div>
           </a>
         </li>

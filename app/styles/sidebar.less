@@ -1,7 +1,7 @@
 body.console .sidebar {
 	margin: 0;
 	padding: 0;
-	width: 250px;
+	width: 300px;
 	height: 100%;
 	position: absolute;
 	top: 110px;
@@ -12,11 +12,12 @@ body.console .sidebar {
 		display: inline;
 
 		a {
-			width: 250px;
+			width: 300px;
 			min-height: 80px;
 			padding: 0;
 			margin: 0;
 			border: 0;
+			font-size: 16px;
 			color: @white;
 			background: @shark2;
 			border-bottom: 1px solid @shark3;
@@ -28,26 +29,44 @@ body.console .sidebar {
 			}
 		}
 
+		&.active {
+			border: 0;
+
+			> a {
+				background: @shark;
+
+				&:first-child {
+					border-left: 5px solid @chinnabar;
+
+					> div {
+						padding-left: 35px;
+					}
+				}
+			}
+		}
+
 		&> ul {
 			list-style: none;
 			display: inline-block;
 
-			.box-shadow(none);
-
 			li a {
 				color: @silver1;
-				background: @shark1;
-				border: 0;
+				background: @shark1 !important;
+				border: 0 !important;
 
 				> div {
 					padding: 30px 40px 30px 60px !important;
 				}
 			}
+
+			li.active a {
+				color: @flamePea;
+			}
 		}
 	}
 
 	.sidebar-projects > li > a {
-		width: 190px !important;
+		width: 240px !important;
 		float: left;
 
 		&:nth-child(2) {
@@ -57,25 +76,19 @@ body.console .sidebar {
 			padding: 30px 20px !important;
 
 			i {
-				height: 20px;
-				line-height: 20px;
+				.square(15px);
+				line-height: 15px;
 				color: @nevada;
+				background: url('@{images}/plus.svg');
+				background-size: 15px 15px;
 			}
-		}
-	}
-
-	ul > li[role="presentation"].active {
-		border: 0;
-
-		> a {
-			background: @shark;
 		}
 	}
 }
 
 body.console .sidebutton {
 	display: block;
-	width: 250px;
+	width: 300px;
 	height: 120px;
 	padding: 40px 30px;
 	border-bottom: 1px solid @shark3;
@@ -84,20 +97,22 @@ body.console .sidebutton {
 		color: @silver1;
 		background: @shark;
 		margin: auto;
-		padding: 10px 30px 10px 20px;
+		padding: 10px 30px;
 		height: 40px;
+		border: 0;
 
 		i {
 			float: left;
-			line-height: 20px;
-			.square(20px);
+			.square(14px);
+			margin: 3px 0 3px 10px;
+			background: url('@{images}/plus_white.svg');
+			background-size: 14px 14px;
 		}
 
 		div {
 			display: inline-block;
 			line-height: 20px;
 			height: 20px;
-			margin-left: 10px;
 		}
 	}
 }

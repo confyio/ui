@@ -11,8 +11,10 @@ export default React.createClass({
     if (this.props.type == 'Team' && window.team && window.team.get('id') != 'owners' && isOwner) {
       return (
         <div className="settings">
-          <i className="fa fa-fw fa-gear"></i>
-          <a href={window.team.get('link') + '/_update'}>Settings</a>
+          <a href={window.team.get('link') + '/_update'}>
+            <i className="fa fa-fw fa-gear"></i>
+            Settings
+          </a>
         </div>
       );
     } else {

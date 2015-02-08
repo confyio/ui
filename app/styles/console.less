@@ -14,23 +14,21 @@ body.console {
 			color: @silver1;
 			background: @shark;
 			cursor: pointer;
-			width: 290px;
+			width: 260px;
 			height: 40px;
 			font-size: 18px;
 
 			> div {
-				width: 230px;
+				width: 200px;
 				display: inline-block;
 				position: relative;
 				overflow: hidden;
-
 				.position(0, 20px);
 			}
 
 			> i {
 				float: right;
 				line-height: 20px;
-
 				.square(20px);
 
 				&::before {
@@ -40,12 +38,11 @@ body.console {
 		}
 
 		.dropdown-menu {
-			width: 290px;
+			width: 260px;
 			padding: 0;
 			margin: 10px 0 0;
 			border: 0;
 			font-size: 16px;
-
 			.box-shadow(none);
 			.rounded(0);
 
@@ -62,7 +59,7 @@ body.console {
 				}
 
 				> div {
-					width: 230px;
+					width: 200px;
 					height: 20px;
 					line-height: 20px;
 					padding: 0;
@@ -76,13 +73,13 @@ body.console {
 	}
 
 	#wrap {
-		margin: 170px 0 0 250px;
+		margin: 170px 0 0 300px;
 		padding: 0;
 		font-size: 14px;
 
 		.content {
 			margin: auto;
-			width: 655px;
+			width: 605px;
 		}
 	}
 
@@ -100,30 +97,39 @@ body.console {
 
 	.seperator {
 		clear: both;
-		margin-bottom: 40px;
+		margin-bottom: 30px;
 	}
 
 	.admin {
 		float: left;
 		display: inline-block;
 		color: @shark;
+
+		a {
+			color: @flamePea;
+			margin-left: 5px;
+		}
 	}
 
 	.actions {
 		float: right;
 		display: inline-block;
 
-		.settings i {
-			margin-right: 15px;
+		.settings a {
+			color: @doveGray;
 
-			.square(20px);
+			i {
+				padding-right: 5px;
+				width: 25px;
+				height: 20px;
+			}
 		}
 	}
 
 	.table {
 		thead tr {
 			color: @white;
-			background: @chinnabar!important;
+			background: @chinnabar !important;
 			font-family: 'Gotham Rounded Medium', sans-serif;
 		}
 

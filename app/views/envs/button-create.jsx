@@ -11,7 +11,7 @@ export default React.createClass({
     if (this.props.project && isOwner) {
       return (
         <a href={project.get('link') + '/envs/_create'}>
-          <i className="fa fa-fw fa-plus tooltipper" data-placement="bottom" title="New Environment"></i>
+          <i className="fa fa-fw tooltipper" data-placement="bottom" title="New Environment"></i>
         </a>
       );
     } else {
