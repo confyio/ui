@@ -5,18 +5,16 @@
 @import "../../node_modules/font-awesome/less/mixins.less";
 
 // Our own variables
+@fonts: "fonts";
+@images: "images";
+
 @icon-font-path: "fonts/";
-@fa-font-path: "fonts";
-@images: "images/";
+@fa-font-path: @fonts;
 
 @white: #ffffff;
-@black: black;
-@gray: gray;
-@shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+@black: #000000;
 
 @apple: #2ac56c;
-@fiord: #3e5c6e;
-@blueDianne: #254355;
 @outrageousOrange: #ff6037;
 
 @shark: #1c1e1e;
@@ -53,9 +51,9 @@
 @tooltip-bg: @shark;
 
 @notif-color: @white;
-@notif-color-bg: @blueDianne;
+@notif-color-bg: @shark;
 @notif-color-bg-danger: @outrageousOrange;
-@notif-shadow: @shadow;
+@notif-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 
 @btn-default-color: @white;
 @btn-default-bg: @apple;
@@ -126,9 +124,11 @@
 // NotifIt
 @import "../../node_modules/notif-it/notif-it.less";
 
+@import "fonts.less";
+
 html, body {
 	height: 100%;
-	font-family: 'Raleway', sans-serif;
+	font-family: 'Gotham Rounded Light', sans-serif;
 	background: @mercury;
 }
 
@@ -154,19 +154,19 @@ a {
 }
 
 ::-webkit-input-placeholder {
-	color: @shark1;
+	color: @silver2;
 }
 
 ::-moz-placeholder {
-	color: @shark1;
+	color: @silver2;
 }
 
 :-moz-placeholder {
-	color: @shark1;
+	color: @silver2;
 }
 
 :-ms-input-placeholder {
-	color: @shark1;
+	color: @silver2;
 }
 
 @import "navbar.less";
