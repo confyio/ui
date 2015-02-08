@@ -7,17 +7,19 @@ export default React.createClass({
     var title, isOwner = (window.user.get('username') == window.org.get('owner'));
 
     if (this.props.type == 'Teams') {
-      title = 'Team';
+      title = 'New Team';
     } else if (this.props.type == 'Projects') {
-      title = 'Project';
+      title = 'New Project';
     }
 
     if (window.org && isOwner) {
       return (
-        <a className="sidebutton btn" href={window.org.get('link') + '/' + this.props.type.toLowerCase() + '/_create'}>
-          <i className="fa fa-fw"></i>
-          <span>{title}</span>
-        </a>
+        <li className="sidebutton">
+          <a className="btn" href={window.org.get('link') + '/' + this.props.type.toLowerCase() + '/_create'}>
+            <i className="fa fa-fw fa-plus"></i>
+            <div>{title}</div>
+          </a>
+        </li>
       );
     } else {
       return <DummyView />;

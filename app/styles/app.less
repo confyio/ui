@@ -48,6 +48,10 @@
 @dropdown-bg: @shark2;
 @dropdown-link-color: @silver2;
 
+@tooltip-opacity: 0.6;
+@tooltip-color: @white;
+@tooltip-bg: @shark;
+
 @notif-color: @white;
 @notif-color-bg: @blueDianne;
 @notif-color-bg-danger: @outrageousOrange;
@@ -137,8 +141,16 @@ a {
 }
 
 .btn {
-	height: 20px;
+	height: 30px;
 	.rounded(0);
+}
+
+.tooltip-inner {
+	padding: 10px;
+	font-size: 12px;
+	width: 150px;
+
+	.rounded(4px);
 }
 
 ::-webkit-input-placeholder {

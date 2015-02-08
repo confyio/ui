@@ -12,16 +12,16 @@ export default React.createClass({
 
     return (
       <ul className="nav nav-sidebar">
+        <SideButtonView type="Teams" />
         {window.teams.map(function (team) {
           return (
             <li role="presentation" key={team.get('key')} className={team.get('id') == id ? 'active' : ''}>
               <a href={team.get('link')}>
-                <span>{team.get('name')}</span>
+                <div>{team.get('name')}</div>
               </a>
             </li>
           )
         })}
-        <SideButtonView type="Teams" />
       </ul>
     );
   }

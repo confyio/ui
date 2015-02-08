@@ -1,59 +1,103 @@
 body.console .sidebar {
-	display: inline-block;
 	margin: 0;
 	padding: 0;
 	width: 250px;
 	height: 100%;
-	position: fixed;
+	position: absolute;
 	top: 110px;
 	left: 0;
 	background: @shark2;
 
-	ul.nav {
-		li a {
+	ul li[role="presentation"] {
+		display: inline;
+
+		a {
+			width: 250px;
 			min-height: 80px;
 			padding: 0;
 			margin: 0;
 			border: 0;
 			color: @white;
 			background: @shark2;
+			border-bottom: 1px solid @shark3;
+
+			&:first-child > div {
+				line-height: 20px;
+				height: 80px;
+				padding: 30px 40px;
+			}
+		}
+
+		&> ul {
+			list-style: none;
+			display: inline-block;
+
+			.box-shadow(none);
+
+			li a {
+				color: @silver1;
+				background: @shark1;
+				border: 0;
+
+				> div {
+					padding: 30px 40px 30px 60px !important;
+				}
+			}
+		}
+	}
+
+	.sidebar-projects > li > a {
+		width: 190px !important;
+		float: left;
+
+		&:nth-child(2) {
+			width: 60px !important;
+			float: right;
+			height: 81px;
+			padding: 30px 20px !important;
+
+			i {
+				height: 20px;
+				line-height: 20px;
+				color: @nevada;
+			}
+		}
+	}
+
+	ul > li[role="presentation"].active {
+		border: 0;
+
+		> a {
+			background: @shark;
 		}
 	}
 }
 
 body.console .sidebutton {
-	display: none!important;
 	display: block;
 	width: 250px;
-	height: 60px;
-	color: @white;
-	background: @apple;
-	text-decoration: none;
-	border: 0;
-	margin: 0 0 20px;
-	padding: 0;
+	height: 120px;
+	padding: 40px 30px;
+	border-bottom: 1px solid @shark3;
 
-	.rounded(0);
+	a {
+		color: @silver1;
+		background: @shark;
+		margin: auto;
+		padding: 10px 30px 10px 20px;
+		height: 40px;
 
-	span {
-		display: inline-block;
-		font-size: 24px;
-		line-height: 30px;
-		letter-spacing: 1px;
-		padding: 15px 0;
-	}
+		i {
+			float: left;
+			line-height: 20px;
+			.square(20px);
+		}
 
-	i {
-		display: inline-block;
-		font-size: 20px;
-		padding: 20px;
-		float: left;
-		border-right: 2px solid @white;
-
-		.square(60px);
-
-		&::before {
-			content: @fa-var-plus;
+		div {
+			display: inline-block;
+			line-height: 20px;
+			height: 20px;
+			margin-left: 10px;
 		}
 	}
 }

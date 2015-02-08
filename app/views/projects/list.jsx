@@ -14,18 +14,19 @@ export default React.createClass({
     }
 
     return (
-      <ul className="nav nav-sidebar">
+      <ul className="nav nav-sidebar sidebar-projects">
+        <SideButtonView type="Projects" />
         {window.projects.map(function (project) {
           return (
             <li role="presentation" key={project.get('key')} className={project.get('id') == id ? 'active' : ''}>
               <a href={project.get('link')}>
-                <span>{project.get('name')}</span>
+                <div>{project.get('name')}</div>
               </a>
+              <EnvsCreateButtonView project={project} />
               <EnvsListView exist={project.get('id') == id} noActive={self.props.noEnvActive} />
             </li>
           );
         })}
-        <SideButtonView type="Projects" />
       </ul>
     );
   }
