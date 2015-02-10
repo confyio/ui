@@ -39,7 +39,7 @@ export default React.createClass({
   },
   render: function () {
     return (
-      <MainView noActions="true" singleColumn="true" header="Create Organization">
+      <MainView noActions="true" noAdmin="true" header="Create Organization">
         <form role="form" onSubmit={this.handleSubmit}>
           <div className={this.state.name.className}>
             <label>Name</label>

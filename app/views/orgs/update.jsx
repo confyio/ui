@@ -38,7 +38,7 @@ export default React.createClass({
   },
   render: function () {
     return (
-      <MainView singleColumn="true" header="Update Organization">
+      <MainView header="Update Organization">
         <form role="form" onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label>Name</label>

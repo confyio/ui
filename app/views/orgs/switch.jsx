@@ -1,5 +1,7 @@
 /** @jsx React.DOM */
 
+import OrgsUpdateButtonView from 'confy/views/orgs/button-update';
+
 export default React.createClass({
   render: function () {
     var windowOrg;
@@ -22,16 +24,21 @@ export default React.createClass({
         </div>
         <ul className="dropdown-menu" role="menu" aria-labelledby="org-dropdown">
           {window.orgs.map(function (org) {
-            if (org.get('name') !== windowOrg.get('name')) {
-              return (
-                <li role="presentation" key={org.get('key')}>
-                  <a role="menuitem" tabIndex="-1" href={org.get('link')}>
-                    <div>{org.get('name')}</div>
-                  </a>
-                </li>
-              );
-            }
+            return (
+              <li className={org.get('name') !== windowOrg.get('name') ? '' : 'active'} role="presentation" key={org.get('key')}>
+                <a className="org-name" role="menuitem" tabIndex="-1" href={org.get('link')}>
+                  <div>{org.get('name')}</div>
+                </a>
+                <OrgsUpdateButtonView org={org} />
+              </li>
+            );
           })}
+          <li className="create-button">
+            <a className="btn" href="#orgs/_create">
+              <i className="fa fa-fw"></i>
+              <div>New Organization</div>
+            </a>
+          </li>
         </ul>
       </div>
     );

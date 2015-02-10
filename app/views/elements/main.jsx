@@ -7,7 +7,7 @@ import EnvsLockButtonView from 'confy/views/envs/button-lock';
 
 export default React.createClass({
   render: function () {
-    var actions;
+    var actions, admin;
 
     if (!this.props.noActions) {
       actions = (
@@ -18,17 +18,23 @@ export default React.createClass({
           <EnvsLockButtonView type={this.props.type} />
         </div>
       );
-    };
+    }
+
+    if (!this.props.noAdmin) {
+      admin = (
+        <div className="admin">
+          ADMIN: <a href="#">{window.org.get('owner')}</a>
+        </div>
+      );
+    }
 
     return (
-      <div className={this.props.singleColumn ? "content-single" : "content"}>
+      <div className="content">
         <h3 className="page-header">
           {this.props.header}
         </h3>
         <div>
-          <div className="admin">
-            ADMIN: <a href="#">{window.org.get('owner')}</a>
-          </div>
+          {admin}
           {actions}
         </div>
         <div className="seperator"></div>

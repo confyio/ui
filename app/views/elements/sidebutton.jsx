@@ -14,7 +14,7 @@ export default React.createClass({
 
     if (window.org && isOwner) {
       return (
-        <li className="sidebutton">
+        <li className="sidebutton create-button">
           <a className="btn" href={window.org.get('link') + '/' + this.props.type.toLowerCase() + '/_create'}>
             <i className="fa fa-fw"></i>
             <div>{title}</div>

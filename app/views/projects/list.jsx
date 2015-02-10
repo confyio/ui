@@ -19,7 +19,7 @@ export default React.createClass({
         {window.projects.map(function (project) {
           return (
             <li role="presentation" key={project.get('key')} className={project.get('id') == id ? 'active' : ''}>
-              <a href={project.get('link')}>
+              <a className="project-name" href={project.get('link')}>
                 <div>{project.get('name')}</div>
               </a>
               <EnvsCreateButtonView project={project} />

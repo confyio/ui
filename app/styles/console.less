@@ -38,7 +38,7 @@ body.console {
 		}
 
 		.dropdown-menu {
-			width: 260px;
+			width: 320px;
 			padding: 0;
 			margin: 10px 0 0;
 			border: 0;
@@ -48,14 +48,31 @@ body.console {
 
 			li > a {
 				height: 60px;
-				color: @silver1;
 				background: @shark2;
-				padding: 20px 30px;
 				margin: 0;
-				border: 1px solid @shark3;
+				border-bottom: 1px solid @shark3;
+				display: inline-block;
 
-				&:hover {
-					background: @shark1;
+				&.org-name {
+					color: @silver1;
+					width: 260px;
+					padding: 20px 30px;
+
+					&:hover {
+						background: @shark1;
+					}
+				}
+
+				&.edit-org {
+					color: @doveGray;
+					width: 60px;
+					padding: 20px;
+					float: right;
+
+					i {
+						line-height: 20px;
+						.square(20px);
+					}
 				}
 
 				> div {
@@ -66,8 +83,22 @@ body.console {
 				}
 			}
 
-			li:last-child {
+			li:last-child > a {
 				border: 0;
+			}
+
+			li.create-button {
+				height: 80px;
+				padding: 20px 30px;
+			}
+
+			li.active > a {
+				background: @shark !important;
+
+				&.org-name {
+					padding-left: 25px;
+					border-left: 5px solid @chinnabar;
+				}
 			}
 		}
 	}
