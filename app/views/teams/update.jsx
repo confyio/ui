@@ -40,7 +40,7 @@ export default React.createClass({
       <MainView header="Update Team">
         <form role="form" onSubmit={this.handleSubmit}>
           <div className="form-group">
-            <label>Name</label>
+            <label>Team Name</label>
             <p className="form-control-static">{window.team.get('name')}</p>
           </div>
           <div className={this.state.description.className}>

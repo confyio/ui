@@ -11,7 +11,7 @@ body.console {
 			display: inline-block;
 			border: 0;
 			padding: 10px;
-			color: @silver1;
+			color: @silver;
 			background: @shark;
 			cursor: pointer;
 			width: 260px;
@@ -54,7 +54,6 @@ body.console {
 				display: inline-block;
 
 				&.org-name {
-					color: @silver1;
 					width: 260px;
 					padding: 20px 30px;
 
@@ -137,7 +136,7 @@ body.console {
 		color: @shark;
 
 		a {
-			color: @flamePea;
+			color: @punch;
 			margin-left: 5px;
 		}
 	}
@@ -192,13 +191,24 @@ body.console {
 			a {
 				color: @shark1;
 			}
+
+			input {
+				background: transparent;
+			}
 		}
 	}
 
-	input {
-		color: @shark1;
-		background: transparent;
-		border: 0;
+	form {
+		margin-top: 50px;
+
+		.form-group {
+			margin-bottom: 30px;
+		}
+	}
+
+	.grant {
+		border: none !important;
 		padding: 0;
+		height: 20px;
 	}
 }

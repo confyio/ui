@@ -50,17 +50,21 @@ body.console .sidebar {
 			display: inline-block;
 
 			li a {
-				color: @silver1;
+				color: @silver;
 				background: @shark1 !important;
 				border: 0 !important;
 
 				> div {
 					padding: 30px 40px 30px 60px !important;
 				}
+
+				&:hover {
+					color: @punch;
+				}
 			}
 
 			li.active a {
-				color: @flamePea;
+				color: @punch;
 			}
 		}
 	}
@@ -95,7 +99,7 @@ body.console .sidebutton {
 }
 
 body.console .create-button a {
-	color: @silver1;
+	color: @silver;
 	background: @shark !important;
 	margin: auto;
 	padding: 10px 30px !important;

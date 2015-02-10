@@ -40,7 +40,7 @@ export default React.createClass({
       <MainView header="Update Environment">
         <form role="form" onSubmit={this.handleSubmit}>
           <div className="form-group">
-            <label>Name</label>
+            <label>Environment Name</label>
             <p className="form-control-static">{window.env.get('name')}</p>
           </div>
           <div className={this.state.description.className}>

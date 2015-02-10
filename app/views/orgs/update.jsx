@@ -41,7 +41,7 @@ export default React.createClass({
       <MainView header="Update Organization">
         <form role="form" onSubmit={this.handleSubmit}>
           <div className="form-group">
-            <label>Name</label>
+            <label>Organization Name</label>
             <p className="form-control-static">{window.org.get('name')}</p>
           </div>
           <div className={this.state.email.className}>
