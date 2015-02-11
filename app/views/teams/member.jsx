@@ -37,7 +37,10 @@ export default React.createClass({
             <a href={this.props.user.get('link')}>{this.props.user.get('username')}</a>
           </td>
           <td>
-            <button className="btn btn-danger" onClick={this.handleClick}>Remove Member</button>
+            <button className="btn delete" onClick={this.handleClick}>
+              <i className="fa fa-fw"></i>
+              <span>Remove Member</span>
+            </button>
           </td>
         </tr>
       );

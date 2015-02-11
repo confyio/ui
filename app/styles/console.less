@@ -186,6 +186,7 @@ body.console {
 
 			&:nth-child(even) {
 				padding: 15px 60px;
+				min-width: 270px;
 			}
 
 			a {
@@ -199,9 +200,54 @@ body.console {
 			.btn {
 				height: 30px;
 				min-width: 150px;
+				line-height: 20px;
 				font-size: 10px;
 				font-family: 'Gotham Rounded Medium', sans-serif;
-				padding: @padding-base-vertical @padding-base-horizontal;
+				padding: 5px 30px;
+
+				&.delete {
+					background: transparent;
+					border: 1px solid @silver;
+					color: @silver;
+					min-width: 30px;
+					padding: 9px 9px;
+					float: right;
+					.transition(all 0.5s linear);
+
+					i {
+						line-height: 10px;
+						display: block;
+						.square(10px);
+						background: url('@{images}/cross.svg');
+						background-size: 10px 10px;
+					}
+
+					span {
+						display: none;
+					}
+
+					&:hover {
+						color: @punch;
+						border-color: @punch;
+						min-width: 150px;
+						padding: 4px 29px;
+					}
+
+					&:focus {
+						color: @mojo;
+						border-color: @mojo;
+					}
+
+					&:hover, &:focus {
+						i {
+							display: none;
+						}
+
+						span {
+							display: inline-block;
+						}
+					}
+				}
 			}
 		}
 	}

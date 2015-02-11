@@ -37,7 +37,10 @@ export default React.createClass({
             <a href={this.props.team.get('link')}>{this.props.team.get('name')}</a>
           </td>
           <td>
-            <button className="btn btn-danger" onClick={this.handleClick}>Revoke Access</button>
+            <button className="btn delete" onClick={this.handleClick}>
+              <i className="fa fa-fw"></i>
+              <span>Revoke Access</span>
+            </button>
           </td>
         </tr>
       );
