@@ -118,16 +118,45 @@ body.console {
 	}
 
 	.page-header {
+		width: 520px;
 		font-size: 36px;
 		padding: 0;
 		border: 0;
 		margin: 0 0 20px;
 		color: @shark;
+		display: inline-block;
+		float: left;
+	}
+
+	.content > div:first-child > a {
+		float: right;
 	}
 
 	.seperator {
-		clear: both;
 		margin-bottom: 30px;
+	}
+
+	.btn-round {
+		padding: 13px 15px;
+		.square(40px);
+		.rounded(20px);
+		border: 0;
+
+		i {
+			width: 10px;
+			height: 14px;
+			line-height: 14px;
+			background-size: 10px 14px;
+
+			&.lock {
+				background: url("@{images}/lock.svg");
+				height: 12px;
+			}
+
+			&.unlock {
+				background: url("@{images}/unlock.svg");
+			}
+		}
 	}
 
 	.admin {
@@ -156,13 +185,16 @@ body.console {
 		}
 	}
 
-	.table {
-		thead tr {
-			color: @white;
-			background: @chinnabar !important;
-			font-family: 'Gotham Rounded Medium', sans-serif;
-		}
+	.table thead tr, .table-head-like {
+		height: 60px;
+		line-height: 20px;
+		padding: 20px 40px;
+		color: @white;
+		background: @chinnabar !important;
+		font-family: 'Gotham Rounded Medium', sans-serif;
+	}
 
+	.table {
 		tr {
 			height: 60px;
 

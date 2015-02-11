@@ -48,7 +48,7 @@ export default React.createClass({
             <input className="form-control" placeholder="Enter environment description" ref="description" defaultValue={this.state.description.value} />
             <ValidationView message={this.state.description.message} />
           </div>
-          <button type="submit" className="btn btn-primary">Update Environment</button>
+          <button type="submit" className="btn btn-primary">Update</button>
         </form>
         <DeleteConfirmationView type="environment" model={window.env}>
         </DeleteConfirmationView>

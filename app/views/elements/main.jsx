@@ -15,7 +15,6 @@ export default React.createClass({
           <EnvsUpdateButtonView type={this.props.type} />
           <TeamsUpdateButtonView type={this.props.type} />
           <ProjectsUpdateButtonView type={this.props.type} />
-          <EnvsLockButtonView type={this.props.type} />
         </div>
       );
     }
@@ -30,14 +29,17 @@ export default React.createClass({
 
     return (
       <div className="content">
-        <h3 className="page-header">
-          {this.props.header}
-        </h3>
         <div>
+          <h3 className="page-header">
+            {this.props.header}
+          </h3>
+          <EnvsLockButtonView type={this.props.type} />
+        </div>
+        <div className="cleared">
           {admin}
           {actions}
         </div>
-        <div className="seperator"></div>
+        <div className="seperator cleared"></div>
         {this.props.children}
       </div>
     );

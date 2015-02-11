@@ -48,7 +48,7 @@ export default React.createClass({
             <input className="form-control" placeholder="Enter project description" ref="description" defaultValue={this.state.description.value} />
             <ValidationView message={this.state.description.message} />
           </div>
-          <button type="submit" className="btn btn-primary">Update Project</button>
+          <button type="submit" className="btn btn-primary">Update</button>
         </form>
         <DeleteConfirmationView type="project" model={window.project}>
           <p>All the environments under this project will be deleted.</p>

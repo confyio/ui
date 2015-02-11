@@ -12,7 +12,10 @@ export default React.createClass({
   },
   render: function () {
     return (
-      <div id="config-editor"></div>
+      <div>
+        <div className="table-head-like">Console</div>
+        <div id="config-editor"></div>
+      </div>
     );
   }
 });
