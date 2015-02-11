@@ -5,6 +5,15 @@ import ProjectAccessView from 'confy/views/projects/access';
 import Access from 'confy/models/access';
 
 export default React.createClass({
+  handleChange: function (e) {
+    var team = this.refs.name.getDOMNode().value.trim();
+
+    if (team) {
+      this.refs.button.getDOMNode().className = "btn btn-success";
+    } else {
+      this.refs.button.getDOMNode().className = "btn btn-success disabled";
+    }
+  },
   handleClick: function (e) {
     var message, team = this.refs.name.getDOMNode().value.trim();
     e.preventDefault();
@@ -45,10 +54,10 @@ export default React.createClass({
           <tbody>
             <tr>
               <td>
-                <input className="form-control grant" placeholder="Enter team name" ref="name" />
+                <input className="form-control grant" placeholder="Enter team name" ref="name" onChange={this.handleChange} />
               </td>
               <td>
-                <button className="btn btn-success" onClick={this.handleClick}>Grant Access</button>
+                <button className="btn btn-success disabled" ref="button" onClick={this.handleClick}>Grant Access</button>
               </td>
             </tr>
           </tbody>

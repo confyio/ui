@@ -6,6 +6,15 @@ import TeamsMemberView from 'confy/views/teams/member';
 import Member from 'confy/models/member';
 
 export default React.createClass({
+  handleChange: function (e) {
+    var user = this.refs.name.getDOMNode().value.trim();
+
+    if (user) {
+      this.refs.button.getDOMNode().className = "btn btn-success";
+    } else {
+      this.refs.button.getDOMNode().className = "btn btn-success disabled";
+    }
+  },
   handleClick: function (e) {
     var message, user = this.refs.name.getDOMNode().value.trim();
     e.preventDefault();
@@ -46,10 +55,10 @@ export default React.createClass({
           <tbody>
             <tr>
               <td>
-                <input className="form-control grant" placeholder="Enter user name" ref="name" />
+                <input className="form-control grant" placeholder="Enter user name" ref="name" onChange={this.handleChange} />
               </td>
               <td>
-                <button className="btn btn-success" onClick={this.handleClick}>Add Member</button>
+                <button className="btn btn-success disabled" ref="button" onClick={this.handleClick}>Add Member</button>
               </td>
             </tr>
           </tbody>

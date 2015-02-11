@@ -42,7 +42,7 @@ export default React.createClass({
       <MainView noActions="true" noAdmin="true" header="Create Organization">
         <form role="form" onSubmit={this.handleSubmit}>
           <div className={this.state.name.className}>
-            <label>Name</label>
+            <label>Organization Name</label>
             <input className="form-control" placeholder="Enter organization name" ref="name" defaultValue={this.state.name.value} />
             <ValidationView message={this.state.name.message} />
           </div>
@@ -51,7 +51,7 @@ export default React.createClass({
             <input className="form-control" placeholder="Enter organization's billing email" ref="email" defaultValue={this.state.email.value} />
             <ValidationView message={this.state.email.message} />
           </div>
-          <button type="submit" className="btn btn-default">Create Organization</button>
+          <button type="submit" className="btn btn-primary">Create</button>
         </form>
       </MainView>
     );

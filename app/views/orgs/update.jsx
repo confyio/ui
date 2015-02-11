@@ -49,7 +49,7 @@ export default React.createClass({
             <input className="form-control" placeholder="Enter organization's billing email" ref="email" defaultValue={this.state.email.value} />
             <ValidationView message={this.state.email.message} />
           </div>
-          <button type="submit" className="btn btn-default">Update Organization</button>
+          <button type="submit" className="btn btn-primary">Update Organization</button>
         </form>
         <DeleteConfirmationView type="organization" model={window.org}>
           <p>All the projects and teams under this organization will be deleted.</p>

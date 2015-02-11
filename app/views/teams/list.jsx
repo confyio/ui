@@ -16,7 +16,7 @@ export default React.createClass({
         {window.teams.map(function (team) {
           return (
             <li role="presentation" key={team.get('key')} className={team.get('id') == id ? 'active' : ''}>
-              <a href={team.get('link')}>
+              <a className="team-name" href={team.get('link')}>
                 <div>{team.get('name')}</div>
               </a>
             </li>

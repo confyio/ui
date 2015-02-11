@@ -48,7 +48,7 @@ export default React.createClass({
             <input className="form-control" placeholder="Enter team description" ref="description" defaultValue={this.state.description.value} />
             <ValidationView message={this.state.description.message} />
           </div>
-          <button type="submit" className="btn btn-default">Update Team</button>
+          <button type="submit" className="btn btn-primary">Update Team</button>
         </form>
         <DeleteConfirmationView type="team" model={window.team}>
         </DeleteConfirmationView>

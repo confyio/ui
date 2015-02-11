@@ -43,7 +43,7 @@ export default React.createClass({
       <MainView header="Create Team">
         <form role="form" onSubmit={this.handleSubmit}>
           <div className={this.state.name.className}>
-            <label>Name</label>
+            <label>Team Name</label>
             <input className="form-control" placeholder="Enter team name" ref="name" defaultValue={this.state.name.value} />
             <ValidationView message={this.state.name.message} />
           </div>
@@ -52,7 +52,7 @@ export default React.createClass({
             <input className="form-control" placeholder="Enter team description" ref="description" defaultValue={this.state.description.value} />
             <ValidationView message={this.state.description.message} />
           </div>
-          <button type="submit" className="btn btn-default">Create Team</button>
+          <button type="submit" className="btn btn-primary">Create</button>
         </form>
       </MainView>
     );

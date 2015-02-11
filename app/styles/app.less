@@ -30,6 +30,8 @@
 
 @chinnabar: #e14c38;
 @punch: #e04e38;
+@mojo: #c24235;
+@wellRead: #b33b2f;
 
 @navbar-height: 40px;
 @navbar-default-bg: @shark1;
@@ -63,6 +65,8 @@
 @btn-default-color: @white;
 @btn-default-bg: @shark;
 @btn-danger-bg: @punch;
+@btn-primary-color: @punch;
+@btn-primary-bg: transparent;
 
 // Reset
 @import "../../node_modules/bootstrap/less/normalize.less";
@@ -145,12 +149,43 @@ a {
 	text-decoration: none!important;
 }
 
-.btn {
-	height: 30px;
-	.rounded(0);
-}
+button.btn {
+	height: 40px;
+	min-width: 100px;
+	line-height: 20px;
+	border: 0;
+	font-size: 16px;
+	text-transform: uppercase;
+	padding: 10px 30px;
+	.rounded(2px);
+	.box-shadow-important(none);
 
-.tooltip {
+	&.disabled {
+		.opacity(1);
+		background: @silver;
+	}
+
+	&.btn-primary {
+		border: 1px solid @punch;
+	}
+
+	&.btn-danger:hover,
+	&.btn-primary:hover {
+		background: @mojo;
+		color: @white;
+		border: 0;
+	}
+
+	&.btn-danger:focus,
+	&.btn-primary:focus {
+		background: @wellRead;
+		color: @white;
+		border: 0;
+	}
+
+	&[type="submit"] {
+		float: right;
+	}
 }
 
 .tooltip-inner {
@@ -160,7 +195,6 @@ a {
 	line-height: 15px;
 	width: 180px;
 	height: 35px;
-
 	.opacity(1);
 	.rounded(4px);
 }
