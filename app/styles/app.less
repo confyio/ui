@@ -133,7 +133,12 @@
 
 @import "fonts.less";
 
-html, body {
+html {
+	min-height: 100%;
+	position: relative;
+}
+
+body {
 	height: 100%;
 	font-family: 'Gotham Rounded Light', sans-serif;
 	background: @mercury;
