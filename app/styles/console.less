@@ -116,10 +116,44 @@ body.console {
 	#delete-wrap {
 		background: @concrete;
 		margin-top: 40px;
+		padding: 60px 0 80px;
+
+		> div {
+			width: 724px;
+			margin: auto;
+		}
+
+		.trash-bin {
+			width: 200px;
+			height: 200px;
+			display: inline-block;
+			background: url("@{images}/trashbin.svg");
+			background-size: 200px 200px;
+			float: left;
+			position: relative;
+			top: 45px;
+		}
 
 		.delete-panel {
-			margin: auto;
-			width: 80%;
+			float: left;
+			margin-left: 50px;
+
+			h3 {
+				margin-top: 60px;
+				line-height: 40px;
+			}
+
+			p {
+				text-transform: none;
+				font-size: 16px;
+				color: @nevada;
+				margin-bottom: 20px;
+				line-height: 20px;
+			}
+
+			button {
+				min-width: 150px;
+			}
 		}
 	}
 
@@ -247,7 +281,7 @@ body.console {
 					border: 1px solid @silver;
 					color: @silver;
 					min-width: 30px;
-					padding: 9px 9px;
+					padding: 4px 9px;
 					float: right;
 					.transition(all 0.5s linear);
 
@@ -257,6 +291,7 @@ body.console {
 						.square(10px);
 						background: url('@{images}/cross.svg');
 						background-size: 10px 10px;
+						margin: 5px auto;
 					}
 
 					span {

@@ -50,11 +50,13 @@ export default React.createClass({
   render: function () {
     return (
       <div>
+        <div className="trash-bin"></div>
         <div className="delete-panel">
-          <h3>Delete this {this.props.type}</h3>
-          <p>Once you delete a {this.props.type}, there is no going back. Please be certain.</p>
+          <h3>Delete {this.props.type}</h3>
+          <p>Once you delete a {this.props.type}, there is no going back.</p>
           <button className="btn btn-danger" data-toggle="modal" data-target="#delete-confirm">Delete</button>
         </div>
+        <div className="cleared"></div>
         <div id="delete-confirm" className="modal">
           <div className="modal-dialog">
             <div className="modal-content">
