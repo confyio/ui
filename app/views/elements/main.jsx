@@ -30,7 +30,7 @@ export default React.createClass({
     return (
       <div className="content">
         <div>
-          <h3 className="page-header">
+          <h3 className="pageheader">
             {this.props.header}
           </h3>
           <EnvsLockButtonView type={this.props.type} />

@@ -1,7 +1,6 @@
 /** @jsx React.DOM */
 
 import MainView from 'confy/views/elements/main';
-import DeleteConfirmationView from 'confy/views/elements/delete';
 import ValidationHelper from 'confy/helpers/validation';
 import ValidationView from 'confy/views/elements/validation';
 
@@ -50,9 +49,6 @@ export default React.createClass({
           </div>
           <button type="submit" className="btn btn-primary">Update</button>
         </form>
-        <DeleteConfirmationView type="project" model={window.project}>
-          <p>All the environments under this project will be deleted.</p>
-        </DeleteConfirmationView>
       </MainView>
     );
   }

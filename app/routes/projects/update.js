@@ -1,6 +1,7 @@
 import ProjectsViewRoute from 'confy/routes/projects/view';
 import ProjectsUpdateView from 'confy/views/projects/update';
 import ProjectsListView from 'confy/views/projects/list';
+import ProjectsDeleteView from 'confy/views/projects/delete';
 
 export default function (org, project, callback) {
   var self = this;
@@ -13,6 +14,7 @@ export default function (org, project, callback) {
     } else {
       React.render(ProjectsListView({}), $('.sidebar')[0]);
       React.render(ProjectsUpdateView({}), $('#wrap')[0]);
+      React.render(ProjectsDeleteView({}), $('#delete-wrap')[0]);
     }
   });
 };

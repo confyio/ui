@@ -1,6 +1,12 @@
 /** @jsx React.DOM */
 
 export default React.createClass({
+  componentDidMount: function () {
+    jQuery('#delete-wrap').show();
+  },
+  componentDidUpdate: function () {
+    jQuery('#delete-wrap').show();
+  },
   handleClick: function (e) {
     var self = this;
     e.preventDefault();
@@ -44,14 +50,10 @@ export default React.createClass({
   render: function () {
     return (
       <div>
-        <div className="panel panel-danger">
-          <div className="panel-body">
-            <p>
-              <h4>Delete this {this.props.type}</h4>
-              <button className="btn btn-danger pull-right" data-toggle="modal" data-target="#delete-confirm">Delete</button>
-            </p>
-            <p>Once you delete a {this.props.type}, there is no going back. Please be certain.</p>
-          </div>
+        <div className="delete-panel">
+          <h3>Delete this {this.props.type}</h3>
+          <p>Once you delete a {this.props.type}, there is no going back. Please be certain.</p>
+          <button className="btn btn-danger" data-toggle="modal" data-target="#delete-confirm">Delete</button>
         </div>
         <div id="delete-confirm" className="modal">
           <div className="modal-dialog">

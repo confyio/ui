@@ -4,7 +4,6 @@ import MainView from 'confy/views/elements/main';
 import Org from 'confy/models/org';
 import ValidationHelper from 'confy/helpers/validation';
 import ValidationView from 'confy/views/elements/validation';
-import DeleteConfirmationView from 'confy/views/elements/delete';
 
 export default React.createClass({
   getInitialState: function () {
@@ -51,9 +50,6 @@ export default React.createClass({
           </div>
           <button type="submit" className="btn btn-primary">Update</button>
         </form>
-        <DeleteConfirmationView type="organization" model={window.org}>
-          <p>All the projects and teams under this organization will be deleted.</p>
-        </DeleteConfirmationView>
       </MainView>
     );
   }

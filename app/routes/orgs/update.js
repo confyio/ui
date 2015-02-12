@@ -1,6 +1,7 @@
 import OrgsViewRoute from 'confy/routes/orgs/view';
 import OrgsUpdateView from 'confy/views/orgs/update';
 import NavbarView from 'confy/views/elements/navbar';
+import OrgsDeleteView from 'confy/views/orgs/delete';
 
 export default function (org, callback) {
   var self = this;
@@ -15,6 +16,7 @@ export default function (org, callback) {
     } else {
       React.render(NavbarView({type: 'Org'}), $('#right-nav')[0]);
       React.render(OrgsUpdateView({}), $('#wrap')[0]);
+      React.render(OrgsDeleteView({}), $('#delete-wrap')[0]);
     }
   });
 };

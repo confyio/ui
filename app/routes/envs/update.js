@@ -1,6 +1,7 @@
 import EnvsViewRoute from 'confy/routes/envs/view';
 import EnvsUpdateView from 'confy/views/envs/update';
 import ProjectsListView from 'confy/views/projects/list';
+import EnvsDeleteView from 'confy/views/envs/delete';
 
 export default function (org, project, env, callback) {
   var self = this;
@@ -13,6 +14,7 @@ export default function (org, project, env, callback) {
     } else {
       React.render(ProjectsListView({}), $('.sidebar')[0]);
       React.render(EnvsUpdateView({}), $('#wrap')[0]);
+      React.render(EnvsDeleteView({}), $('#delete-wrap')[0]);
     }
   });
 };
