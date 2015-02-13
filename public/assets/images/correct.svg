@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="21px" height="21px" viewBox="0 0 21 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <g id="dashboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="dashboard-delete-final" sketch:type="MSArtboardGroup" transform="translate(-758.000000, -577.000000)">
+            <g id="Group-5" sketch:type="MSLayerGroup" transform="translate(420.000000, 165.000000)">
+                <g id="Rectangle-62-+-buckets-+-Oval-43-+-check" transform="translate(40.000000, 394.000000)" sketch:type="MSShapeGroup">
+                    <g id="Oval-43-+-check" transform="translate(298.000000, 18.000000)">
+                        <circle id="Oval-43" fill="#6DCA63" cx="10.5" cy="10.5" r="10.5"></circle>
+                        <g id="check" transform="translate(5.600000, 6.300000)" fill="#FFFFFF">
+                            <path d="M3.08636372,5.73204562 L0.98159093,3.62727282 L0.28,4.32886375 L3.08636372,7.13522748 L9.10000027,1.12159093 L8.39840934,0.42 L3.08636372,5.73204562 Z" id="Shape"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

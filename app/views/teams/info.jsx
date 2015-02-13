@@ -10,9 +10,9 @@ export default React.createClass({
     var user = this.refs.name.getDOMNode().value.trim();
 
     if (user) {
-      this.refs.button.getDOMNode().className = "btn btn-success";
+      this.refs.button.getDOMNode().className = 'btn btn-success';
     } else {
-      this.refs.button.getDOMNode().className = "btn btn-success disabled";
+      this.refs.button.getDOMNode().className = 'btn btn-success disabled';
     }
   },
   handleClick: function (e) {

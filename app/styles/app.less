@@ -14,11 +14,13 @@
 @white: #ffffff;
 @black: #000000;
 
+@woodsmoke: #131516;
 @tuna: #3B3E41;
 @shark: #1c1e1e;
 @shark1: #242627;
 @shark2: #323436;
 @shark3: #2b2d2e;
+@shark4: #2e2f31;
 
 @silver: #c5c5c5;
 @alto: #dddddd;
@@ -65,6 +67,11 @@
 @btn-default-color: @white;
 @btn-default-bg: @shark;
 @btn-danger-bg: @punch;
+
+@modal-content-bg: @shark4;
+@modal-title-line-height: 26px;
+@modal-inner-padding: 40px;
+@modal-md: 420px;
 
 // Reset
 @import "../../node_modules/bootstrap/less/normalize.less";
@@ -173,6 +180,7 @@ button.btn {
 	font-size: 16px;
 	text-transform: uppercase;
 	padding: 10px 30px;
+	outline: 0 !important;
 	.rounded(2px);
 	.box-shadow-important(none);
 
@@ -211,6 +219,11 @@ button.btn {
 		padding: 10px 30px;
 	}
 
+	&.btn-default:hover,
+	&.btn-default:focus {
+		background: @woodsmoke;
+	}
+
 	&[type="submit"] {
 		float: right;
 	}
@@ -227,7 +240,7 @@ button.btn {
 	.rounded(4px);
 }
 
-form input {
+form input, .modal-dialog input {
 	height: 60px !important;
 	padding: 20px 30px !important;
 	font-size: 16px !important;
@@ -236,7 +249,12 @@ form input {
 
 input.form-control {
 	line-height: 20px;
+	.rounded(2px);
 	.box-shadow-important(none);
+
+	&.correct {
+		background: url("@{images}/correct.svg") no-repeat right 20px center @white;
+	}
 }
 
 label {
@@ -244,6 +262,47 @@ label {
 	font-size: 14px;
 	color: @shark;
 	margin-bottom: 15px;
+}
+
+.modal-content {
+	color: @mercury;
+	border: 0;
+	min-height: 498px;
+	background: url("@{images}/modal.svg") no-repeat @shark4;
+	.rounded(2px);
+	.box-shadow(none);
+}
+
+.modal-header {
+	border: 0;
+	padding: 60px 40px 0;
+
+	.modal-title {
+		font-family: 'Gotham Rounded Medium', sans-serif;
+		font-size: 22px;
+		color: @punch;
+	}
+}
+
+.modal-body {
+	text-transform: none;
+	line-height: 32px;
+
+	strong {
+		color: @white;
+	}
+
+	button {
+		display: inline-block;
+		width: 120px;
+		float: right;
+	}
+}
+
+.modal-footer {
+	border: 0;
+	padding: 30px;
+	background: @woodsmoke;
 }
 
 ::-webkit-input-placeholder {

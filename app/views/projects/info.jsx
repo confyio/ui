@@ -9,9 +9,9 @@ export default React.createClass({
     var team = this.refs.name.getDOMNode().value.trim();
 
     if (team) {
-      this.refs.button.getDOMNode().className = "btn btn-success";
+      this.refs.button.getDOMNode().className = 'btn btn-success';
     } else {
-      this.refs.button.getDOMNode().className = "btn btn-success disabled";
+      this.refs.button.getDOMNode().className = 'btn btn-success disabled';
     }
   },
   handleClick: function (e) {

@@ -6,6 +6,18 @@ export default React.createClass({
   },
   componentDidUpdate: function () {
     jQuery('#delete-wrap').show();
+
+    this.refs.name.getDOMNode().value = '';
+    this.refs.name.getDOMNode().className = 'form-control';
+  },
+  handleChange: function (e) {
+    var name = this.refs.name.getDOMNode().value.trim();
+
+    if (name == this.props.model.get('name')) {
+      this.refs.name.getDOMNode().className = 'form-control correct';
+    } else {
+      this.refs.name.getDOMNode().className = 'form-control';
+    }
   },
   handleClick: function (e) {
     var self = this;
@@ -61,17 +73,16 @@ export default React.createClass({
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
-                <h4 className="modal-title">Are you ABSOLUTELY sure?</h4>
+                <h4 className="modal-title">Are you sure?</h4>
               </div>
               <div className="modal-body">
                 <p>This action <strong>CANNOT</strong> be undone. This will permanently delete the <strong>{this.props.model.get('name')}</strong> {this.props.type}.</p>
                 {this.props.children}
-                <p>Please type in the name of the {this.props.type} to confirm.</p>
-                <input ref="name" />
-              </div>
-              <div className="modal-footer">
+                <p className="modal-second-warn">Please type in the name of the {this.props.type} to confirm.</p>
+                <input className="form-control" onChange={this.handleChange} ref="name" />
+                <button type="button" className="btn btn-danger" onClick={this.handleClick}>Delete</button>
                 <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" className="btn btn-primary" onClick={this.handleClick}>Delete</button>
+                <div className="cleared"></div>
               </div>
             </div>
           </div>
