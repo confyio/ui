@@ -354,4 +354,33 @@ body.console {
 			font-family: 'Gotham Rounded Medium', sans-serif;
 		}
 	}
+
+	.has-error {
+		.tooltip {
+			float: right;
+			position: relative;
+			padding-top: 0;
+			.opacity(1);
+		}
+
+		.tooltip-inner {
+			font-family: 'Gotham Rounded Medium', sans-serif;
+			font-size: 10px;
+			text-transform: none;
+			line-height: 10px;
+			height: 30px;
+			max-width: 400px;
+			background: @punch;
+		}
+
+		.tooltip-arrow {
+			border-top-color: @punch;
+		}
+
+		.form-control {
+			color: @punch;
+			background: #f6d1c9;
+			border: 2px solid @punch !important;
+		}
+	}
 }

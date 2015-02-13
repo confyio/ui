@@ -13,7 +13,7 @@ export default React.createClass({
     e.preventDefault();
 
     window.env.on('invalid', function (model, errs) {
-      self.setState(ValidationHelper(self.state, model, errs, 'Environment'));
+      self.setState(ValidationHelper(self.state, model, errs, 'Environment', self));
     });
 
     window.env.save({
@@ -29,7 +29,7 @@ export default React.createClass({
       },
       error: function (model, response) {
         if (response.status == 422) {
-          self.setState(ValidationHelper(self.state, model, response.responseJSON.errors, 'Environment'));
+          self.setState(ValidationHelper(self.state, model, response.responseJSON.errors, 'Environment', self));
         }
       }
     });
@@ -44,8 +44,8 @@ export default React.createClass({
           </div>
           <div className={this.state.description.className}>
             <label>Description</label>
-            <input className="form-control" placeholder="Enter environment description" ref="description" defaultValue={this.state.description.value} />
             <ValidationView message={this.state.description.message} />
+            <input className="form-control" placeholder="Enter environment description" ref="description" defaultValue={this.state.description.value} />
           </div>
           <button type="submit" className="btn btn-primary">Update</button>
         </form>

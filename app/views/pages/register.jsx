@@ -19,7 +19,7 @@ export default React.createClass({
     });
 
     user.on('invalid', function (model, errs) {
-      self.setState(ValidationHelper(self.state, model, errs, 'User'));
+      self.setState(ValidationHelper(self.state, model, errs, 'User', self));
     });
 
     user.save({}, {
@@ -35,7 +35,7 @@ export default React.createClass({
       },
       error: function (model, response) {
         if (response.status == 422) {
-          self.setState(ValidationHelper(self.state, model, response.responseJSON.errors, 'User'));
+          self.setState(ValidationHelper(self.state, model, response.responseJSON.errors, 'User', self));
         }
       }
     });
@@ -46,18 +46,18 @@ export default React.createClass({
         <form role="form" onSubmit={this.handleSubmit}>
           <div className={this.state.username.className}>
             <label>Username</label>
-            <input className="form-control" placeholder="Enter your username" ref="username" defaultValue={this.state.username.value} />
             <ValidationView message={this.state.username.message} />
+            <input className="form-control" placeholder="Enter your username" ref="username" defaultValue={this.state.username.value} />
           </div>
           <div className={this.state.email.className}>
             <label>Email</label>
-            <input className="form-control" placeholder="Enter your email" ref="email" defaultValue={this.state.email.value} />
             <ValidationView message={this.state.email.message} />
+            <input className="form-control" placeholder="Enter your email" ref="email" defaultValue={this.state.email.value} />
           </div>
           <div className={this.state.password.className}>
             <label>Password</label>
-            <input className="form-control" type="password" placeholder="Enter your password" ref="password" />
             <ValidationView message={this.state.password.message} />
+            <input className="form-control" type="password" placeholder="Enter your password" ref="password" />
           </div>
           <button type="submit" className="btn btn-default">Register</button>
         </form>

@@ -19,7 +19,7 @@ export default React.createClass({
     });
 
     org.on('invalid', function (model, errs) {
-      self.setState(ValidationHelper(self.state, model, errs, 'Org'));
+      self.setState(ValidationHelper(self.state, model, errs, 'Org', self));
     });
 
     org.save({}, {
@@ -32,7 +32,7 @@ export default React.createClass({
       },
       error: function (model, response) {
         if (response.status == 422) {
-          self.setState(ValidationHelper(self.state, model, response.responseJSON.errors, 'Org'));
+          self.setState(ValidationHelper(self.state, model, response.responseJSON.errors, 'Org', self));
         }
       }
     });
@@ -43,13 +43,13 @@ export default React.createClass({
         <form role="form" onSubmit={this.handleSubmit}>
           <div className={this.state.name.className}>
             <label>Organization Name</label>
-            <input className="form-control" placeholder="Enter organization name" ref="name" defaultValue={this.state.name.value} />
             <ValidationView message={this.state.name.message} />
+            <input className="form-control" placeholder="Enter organization name" ref="name" defaultValue={this.state.name.value} />
           </div>
           <div className={this.state.email.className}>
             <label>Billing Email</label>
-            <input className="form-control" placeholder="Enter organization's billing email" ref="email" defaultValue={this.state.email.value} />
             <ValidationView message={this.state.email.message} />
+            <input className="form-control" placeholder="Enter organization's billing email" ref="email" defaultValue={this.state.email.value} />
           </div>
           <button type="submit" className="btn btn-primary">Create</button>
         </form>

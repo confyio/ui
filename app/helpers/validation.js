@@ -1,4 +1,4 @@
-export default function (state, model, errs, type) {
+export default function (state, model, errs, type, self) {
   var keys;
 
   var dummyModel = {
@@ -45,6 +45,12 @@ export default function (state, model, errs, type) {
         state[key].message = messages[err.code](key);
       }
     });
+  });
+
+  keys.forEach(function (key) {
+    if (!state[key].message && self) {
+      self.refs[key].getDOMNode().className = 'form-control correct';
+    }
   });
 
   return state;

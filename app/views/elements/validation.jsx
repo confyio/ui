@@ -6,7 +6,10 @@ export default React.createClass({
   render: function () {
     if (this.props.message) {
       return (
-        <span className="help-block">{this.props.message}</span>
+        <div className="tooltip top" role="tooltip">
+          <div className="tooltip-arrow"></div>
+          <div className="tooltip-inner">{this.props.message}</div>
+        </div>
       );
     } else {
       return (
