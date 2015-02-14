@@ -17,7 +17,8 @@ export default React.createClass({
       username: this.refs.username.getDOMNode().value.trim(),
       fullname: this.refs.fullname.getDOMNode().value.trim(),
       email: this.refs.email.getDOMNode().value.trim(),
-      password: this.refs.password.getDOMNode().value.trim()
+      password: this.refs.password.getDOMNode().value.trim(),
+      news: this.refs.news.getDOMNode().checked
     });
 
     user.on('invalid', function (model, errs) {
@@ -73,8 +74,8 @@ export default React.createClass({
             <ValidationView message={this.state.password.message} direction="left" />
           </div>
           <div className="after-inputs">
-            <input type="checkbox" ref="remember" defaultChecked />
-            <span>Tell me about confy news</span>
+            <input id="register-news" type="checkbox" ref="news" defaultChecked />
+            <label htmlFor="register-news">Tell me about confy news</label>
           </div>
           <div className="cleared"></div>
           <div id="read-tos">By signing up, I agree to Confy's <a href="#">Terms of Service</a>, <a href="#">Privacy Policy</a> and <a href="#">Refund Policy</a></div>

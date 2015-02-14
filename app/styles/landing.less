@@ -40,16 +40,24 @@ body.landing {
 			line-height: 15px;
 			font-size: 12px;
 
-			input {
-				width: 15px;
-				height: 15px !important;
-				margin: 0 !important;
-				float: left;
-			}
+			input[type="checkbox"] {
+				display: none;
 
-			span {
-				margin-left: 10px;
-				float: left;
+				+ label {
+					float: left;
+					color: inherit;
+					font-family: inherit;
+					font-size: inherit;
+					font-weight: normal;
+					padding-left: 25px;
+					margin-bottom: 0;
+					cursor: pointer;
+					background: url("@{images}/checkbox.svg") no-repeat;
+				}
+
+				&:checked + label {
+					background: url("@{images}/checkbox_ticked.svg") no-repeat;
+				}
 			}
 
 			a {

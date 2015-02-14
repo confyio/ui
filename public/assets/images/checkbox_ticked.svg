@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="15px" height="15px" viewBox="0 0 15 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <g id="homepage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="signup" sketch:type="MSArtboardGroup" transform="translate(-531.000000, -607.000000)">
+            <g id="Group" sketch:type="MSLayerGroup" transform="translate(491.000000, 129.000000)">
+                <g id="Oval-43-+-check" transform="translate(39.000000, 409.000000)" sketch:type="MSShapeGroup">
+                    <g id="check" transform="translate(0.600000, 68.300000)">
+                        <g id="Shape-+-Rectangle-16">
+                            <path d="M6.08636372,9.73204562 L3.98159093,7.62727282 L3.28,8.32886375 L6.08636372,11.1352275 L12.1000003,5.12159093 L11.3984093,4.42 L6.08636372,9.73204562 Z" id="Shape" fill="#FFFFFF"></path>
+                            <rect id="Rectangle-16" stroke="#FFFFFF" x="0.4" y="0.7" width="15" height="15" rx="2"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

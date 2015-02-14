@@ -9,7 +9,8 @@ export default React.createClass({
   handleSubmit: function (e) {
     var self = this
       , username = this.refs.username.getDOMNode().value.trim()
-      , password = this.refs.password.getDOMNode().value.trim();
+      , password = this.refs.password.getDOMNode().value.trim()
+      , remember = this.refs.remember.getDOMNode().checked;
 
     e.preventDefault();
 
@@ -21,7 +22,7 @@ export default React.createClass({
       },
       success: function (data, status) {
         $.cookie('access_token', data.token, {
-          expires: 14,
+          expires: (remember ? 14 : 1),
           secure: window.ENV.COOKIE_SECURE
         });
 
@@ -61,8 +62,8 @@ export default React.createClass({
           <input className="form-control" placeholder="Username" ref="username" />
           <input className="form-control" placeholder="Password" ref="password" type="password" />
           <div className="after-inputs">
-            <input type="checkbox" ref="remember" defaultChecked />
-            <span>Remember me</span>
+            <input id="login-remember" type="checkbox" ref="remember" defaultChecked />
+            <label htmlFor="login-remember">Remember me</label>
             <a href="#">Forgot password?</a>
           </div>
           <div className="cleared"></div>
