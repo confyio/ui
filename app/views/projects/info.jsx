@@ -3,6 +3,7 @@
 import MainView from 'confy/views/elements/main';
 import ProjectAccessView from 'confy/views/projects/access';
 import Access from 'confy/models/access';
+import Alert from 'confy/helpers/alert';
 
 export default React.createClass({
   handleChange: function (e) {
@@ -24,12 +25,9 @@ export default React.createClass({
 
     access.save({}, {
       success: function (model, response) {
-        notif({
-          msg: 'Successfully granted access to the team <b>' + team + '</b>'
-        });
-
         delete window.access;
         Backbone.history.loadUrl();
+        Alert('Successfully granted access to the team <b>' + team + '</b>');
       },
       error: function (model, response) {
         if (response.status == 422) {
@@ -38,10 +36,7 @@ export default React.createClass({
           message = 'Unable to grant access. Please reload the page and try again.';
         }
 
-        notif({
-          type: 'error',
-          msg: message
-        });
+        Alert(message, 'danger');
       }
     });
   },

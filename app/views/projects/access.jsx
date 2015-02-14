@@ -1,5 +1,7 @@
 /** @jsx React.DOM */
 
+import Alert from 'confy/helpers/alert';
+
 export default React.createClass({
   handleClick: function (e) {
     e.preventDefault();
@@ -7,17 +9,11 @@ export default React.createClass({
     this.props.team.destroy({
       wait: true,
       success: function (model, response) {
-        notif({
-          msg: 'Successfully revoked access to the team <b>' + model.get('name') + '</b>'
-        });
-
         Backbone.history.loadUrl();
+        Alert('Successfully revoked access to the team <b>' + model.get('name') + '</b>');
       },
       error: function (model, response) {
-        notif({
-          type: 'error',
-          msg: 'Unable to revoke access. Please reload the page and try again.'
-        });
+        Alert('Unable to revoke access. Please reload the page and try again.', 'danger');
       }
     });
   },

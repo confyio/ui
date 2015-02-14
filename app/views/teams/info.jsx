@@ -4,6 +4,7 @@ import MainView from 'confy/views/elements/main';
 import TeamsListView from 'confy/views/teams/list';
 import TeamsMemberView from 'confy/views/teams/member';
 import Member from 'confy/models/member';
+import Alert from 'confy/helpers/alert';
 
 export default React.createClass({
   handleChange: function (e) {
@@ -25,12 +26,9 @@ export default React.createClass({
 
     member.save({}, {
       success: function (model, response) {
-        notif({
-          msg: 'Successfully added member <b>' + user + '</b> to the team'
-        });
-
         delete window.members;
         Backbone.history.loadUrl();
+        Alert('Successfully added member <b>' + user + '</b> to the team');
       },
       error: function (model, response) {
         if (response.status == 422) {
@@ -39,10 +37,7 @@ export default React.createClass({
           message = 'Unable to add member. Please reload the page and try again.';
         }
 
-        notif({
-          type: 'error',
-          msg: message
-        });
+        Alert(message, 'danger');
       }
     });
   },

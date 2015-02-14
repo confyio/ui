@@ -4,6 +4,7 @@ import MainView from 'confy/views/elements/main';
 import Org from 'confy/models/org';
 import ValidationHelper from 'confy/helpers/validation';
 import ValidationView from 'confy/views/elements/validation';
+import Alert from 'confy/helpers/alert';
 
 export default React.createClass({
   getInitialState: function () {
@@ -22,11 +23,8 @@ export default React.createClass({
     }, {
       patch: true,
       success: function (model, response) {
-        notif({
-          msg: 'Successfully updated the organization <b>' + window.org.get('name') + '</b>'
-        });
-
         Backbone.history.loadUrl();
+        Alert('Successfully updated the organization <b>' + window.org.get('name') + '</b>');
       },
       error: function (model, response) {
         if (response.status == 422) {

@@ -7,7 +7,8 @@ import EnvsLockButtonView from 'confy/views/envs/button-lock';
 
 export default React.createClass({
   render: function () {
-    var actions, admin;
+    var actions, admin, alerts = window.flashes;
+    delete window.flashes;
 
     if (!this.props.noActions) {
       actions = (
@@ -29,6 +30,7 @@ export default React.createClass({
 
     return (
       <div className="content">
+        <div id="alerts" dangerouslySetInnerHTML={{ __html: alerts }}></div>
         <div>
           <h3 className="pageheader">
             {this.props.header}

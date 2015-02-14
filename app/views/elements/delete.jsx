@@ -1,6 +1,7 @@
 /** @jsx React.DOM */
 
 import ModalView from 'confy/views/elements/modal';
+import Alert from 'confy/helpers/alert';
 
 export default React.createClass({
   componentDidMount: function () {
@@ -42,19 +43,14 @@ export default React.createClass({
             link = link.slice(0, -5);
           }
 
-          notif({
-            msg: 'Successfully deleted the ' + self.props.type
-          });
+          Alert('Successfully deleted the ' + self.props.type, null, true);
 
           window.App.navigate(link, {
             trigger: true
           });
         },
         error: function (model, response) {
-          notif({
-            type: 'error',
-            msg: 'Unable to delete the ' + self.props.type + '. Please reload the page and try again.'
-          });
+          Alert('Unable to delete the ' + self.props.type + '. Please reload the page and try again.');
         }
       });
     } else {
@@ -75,7 +71,7 @@ export default React.createClass({
           <p>This action <strong>CANNOT</strong> be undone. This will permanently delete the <strong>{this.props.model.get('name')}</strong> {this.props.type}.</p>
           {this.props.children}
           <p className="modal-second-warn">Please type in the name of the {this.props.type} to confirm.</p>
-          <input className="form-control" onChange={this.handleChange} ref="name" />
+          <input className="form-control" onChange={this.handleChange} ref="name" placeholder={'Enter ' + this.props.type + ' name'} />
           <button type="button" className="btn btn-danger" onClick={this.handleClick}>Delete</button>
           <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
         </ModalView>

@@ -60,11 +60,6 @@
 @tooltip-color: @white;
 @tooltip-bg: @shark;
 
-@notif-color: @white;
-@notif-color-bg: @shark;
-@notif-color-bg-danger: @punch;
-@notif-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-
 @btn-default-color: @white;
 @btn-default-bg: @shark;
 @btn-danger-bg: @punch;
@@ -73,6 +68,13 @@
 @modal-title-line-height: 26px;
 @modal-inner-padding: 40px;
 @modal-md: 420px;
+
+@alert-padding: 15px;
+@alert-border-radius: 2px;
+@alert-success-bg: @shark;
+@alert-success-text: @alabaster;
+@alert-danger-bg: @punch;
+@alert-danger-text: @alabaster;
 
 // Reset
 @import "../../node_modules/bootstrap/less/normalize.less";
@@ -135,9 +137,6 @@
 
 // Our own mixins
 @import "mixins.less";
-
-// NotifIt
-@import "../../node_modules/notif-it/notif-it.less";
 
 @import "fonts.less";
 
@@ -357,6 +356,37 @@ label {
 		color: @punch;
 		background: #f6d1c9;
 		border: 2px solid @punch !important;
+	}
+}
+
+.alert {
+	height: 50px;
+	line-height: 20px;
+	padding-left: 40px;
+	border: 0;
+	margin-bottom: 30px;
+	margin-top: -20px;
+	font-size: 12px;
+	word-spacing: 2px;
+
+	b {
+		font-family: 'Gotham Rounded Medium', sans-serif;
+	}
+
+	.close {
+		.square(20px);
+		padding: 5px;
+		position: relative;
+		.opacity(1);
+
+		i {
+			line-height: 10px;
+			.square(10px);
+			background: url("@{images}/cross_white.svg");
+			background-size: 10px 10px;
+			position: absolute;
+			.position(5px, 5px);
+		}
 	}
 }
 

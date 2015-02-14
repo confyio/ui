@@ -2,6 +2,7 @@
 
 import TooltipMixin from 'confy/helpers/tooltip';
 import DummyView from 'confy/views/elements/dummy';
+import Alert from 'confy/helpers/alert';
 
 export default React.createClass({
   mixins: [TooltipMixin],
@@ -21,10 +22,7 @@ export default React.createClass({
     try {
       config = window.editor.get();
     } catch (e) {
-      notif({
-        type: 'error',
-        msg: 'The credentials document is not a valid JSON'
-      });
+      Alert('The credentials document is not a valid JSON', 'danger');
     } finally {
       if (config) {
         window.env.config.save(config, {
@@ -36,16 +34,10 @@ export default React.createClass({
             window.editor.expandAll();
 
             self.setState({icon: 'unlock'});
-
-            notif({
-              msg: 'Successfully saved your credentials'
-            });
+            Alert('Successfully saved your credentials');
           },
           error: function (model, response) {
-            notif({
-              type: 'error',
-              msg: 'Unable to save credentials. Please reload the page and try again'
-            });
+            Alert('Unable to save credentials. Please reload the page and try again', 'danger');
           }
         })
       }

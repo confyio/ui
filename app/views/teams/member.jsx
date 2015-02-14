@@ -1,5 +1,7 @@
 /** @jsx React.DOM */
 
+import Alert from 'confy/helpers/alert';
+
 export default React.createClass({
   handleClick: function (e) {
     e.preventDefault();
@@ -7,17 +9,11 @@ export default React.createClass({
     this.props.user.destroy({
       wait: true,
       success: function (model, response) {
-        notif({
-          msg: 'Successfully removed member <b>' + model.get('username') + '</b> from the team'
-        });
-
         Backbone.history.loadUrl();
+        Alert('Successfully removed member <b>' + model.get('username') + '</b> from the team');
       },
       error: function (model, response) {
-        notif({
-          type: 'error',
-          msg: 'Unable to remove member. Please reload the page and try again.'
-        });
+        Alert('Unable to remove member. Please reload the page and try again.', 'danger');
       }
     });
   },

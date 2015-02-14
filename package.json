@@ -21,7 +21,6 @@
     "react": "0.12.x",
     "almond": "0.3.x",
     "jquery.cookie": "1.4.x",
-    "notif-it": "1.1.x",
     "grunt": "0.4.x",
     "express": "3.4.x",
     "request": "2.36.x",

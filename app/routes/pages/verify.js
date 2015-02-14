@@ -20,10 +20,7 @@ export default function (user, token) {
           secure: window.ENV.COOKIE_SECURE
         });
 
-        notif({
-          msg: 'Successfully verified your email and logged you in'
-        });
-
+        Alert('Successfully verified your email and logged you in', null, true);
         delete window.user;
 
         window.App.navigate('#orgs', {
