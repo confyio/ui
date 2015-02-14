@@ -71,6 +71,7 @@ export default React.createClass({
           <span>Tell me about confy news</span>
         </div>
         <div className="cleared"></div>
+        <div id="read-tos">By signing up, I agree to Confy's <a href="#">Terms of Service</a>, <a href="#">Privacy Policy</a> and <a href="#">Refund Policy</a></div>
         <button type="button" className="btn btn-danger" onClick={this.handleClick}>Signup</button>
       </ModalView>
     );
