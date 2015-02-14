@@ -1,5 +1,7 @@
 /** @jsx React.DOM */
 
+import ModalView from 'confy/views/elements/modal';
+
 export default React.createClass({
   componentDidMount: function () {
     jQuery('#delete-wrap').show();
@@ -69,24 +71,14 @@ export default React.createClass({
           <button className="btn btn-danger" data-toggle="modal" data-target="#delete-confirm">Delete</button>
         </div>
         <div className="cleared"></div>
-        <div id="delete-confirm" className="modal">
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h4 className="modal-title">Are you sure?</h4>
-              </div>
-              <div className="modal-body">
-                <p>This action <strong>CANNOT</strong> be undone. This will permanently delete the <strong>{this.props.model.get('name')}</strong> {this.props.type}.</p>
-                {this.props.children}
-                <p className="modal-second-warn">Please type in the name of the {this.props.type} to confirm.</p>
-                <input className="form-control" onChange={this.handleChange} ref="name" />
-                <button type="button" className="btn btn-danger" onClick={this.handleClick}>Delete</button>
-                <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
-                <div className="cleared"></div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <ModalView id="delete-confirm" title="Are you sure?">
+          <p>This action <strong>CANNOT</strong> be undone. This will permanently delete the <strong>{this.props.model.get('name')}</strong> {this.props.type}.</p>
+          {this.props.children}
+          <p className="modal-second-warn">Please type in the name of the {this.props.type} to confirm.</p>
+          <input className="form-control" onChange={this.handleChange} ref="name" />
+          <button type="button" className="btn btn-danger" onClick={this.handleClick}>Delete</button>
+          <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
+        </ModalView>
       </div>
     );
   }

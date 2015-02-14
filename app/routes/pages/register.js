@@ -1,5 +1,5 @@
-import PagesRegisterView from 'confy/views/pages/register';
 import NavbarView from 'confy/views/elements/navbar';
+import PagesLandingView from 'confy/views/pages/landing';
 import UserHelper from 'confy/helpers/user';
 
 export default function () {
@@ -13,6 +13,8 @@ export default function () {
     }
 
     React.render(NavbarView({type: 'Register'}), $('#right-nav')[0]);
-    React.render(PagesRegisterView(), $('#wrap')[0]);
+    React.render(PagesLandingView(), $('#wrap')[0]);
+
+    jQuery('#register-modal').modal('show');
   });
 };

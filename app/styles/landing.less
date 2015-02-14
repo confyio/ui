@@ -12,4 +12,71 @@ body.landing {
 		width: 50%;
 		margin: auto;
 	}
+
+	.modal-dialog {
+
+		input {
+			margin-bottom: 30px;
+		}
+
+		.modal-header {
+			text-transform: uppercase;
+			text-align: center;
+			letter-spacing: 2px;
+		}
+
+		.modal-footer a {
+			margin-left: 8px;
+			color: @punch;
+		}
+
+		.after-inputs {
+			text-transform: uppercase;
+			line-height: 15px;
+			font-size: 12px;
+
+			input {
+				width: 15px;
+				height: 15px !important;
+				margin: 0 !important;
+				float: left;
+			}
+
+			span {
+				margin-left: 10px;
+				float: left;
+			}
+
+			a {
+				float: right;
+				color: @punch;
+			}
+
+			+ .cleared {
+				margin-bottom: 30px;
+			}
+		}
+	}
+
+	#register-modal .form-group {
+		margin-bottom: 20px;
+		height: 60px;
+		position: relative;
+
+		.tooltip {
+			top: 15px;
+			left: -100%;
+			position: relative;
+		}
+
+		input {
+			margin-bottom: 0;
+			position: absolute;
+			top: 0;
+		}
+
+		&:nth-child(4) {
+			margin-bottom: 30px;
+		}
+	}
 }

@@ -20,7 +20,7 @@ export default function (state, model, errs, type, self) {
 
   var messages = {
     insecure: function (key) {
-      return 'The given ' + key + ' is not secure enough. Use atleast 6 characters';
+      return key.charAt(0).toUpperCase() + key.slice(1) + ' should be atleast 6 characters';
     },
     invalid: function (key) {
       return 'The given ' + key + ' should be alphanumeric';
@@ -38,6 +38,10 @@ export default function (state, model, errs, type, self) {
     state[key].className = "form-group";
     state[key].value = model.get(key);
     state[key].message = '';
+
+    if (self) {
+      self.refs[key].getDOMNode().className = 'form-control';
+    }
 
     errs.forEach(function (err) {
       if (err.field == key) {

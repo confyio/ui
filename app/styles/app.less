@@ -13,6 +13,7 @@
 
 @white: #ffffff;
 @black: #000000;
+@celery: #6dca63;
 
 @woodsmoke: #131516;
 @tuna: #3B3E41;
@@ -275,7 +276,7 @@ label {
 
 .modal-header {
 	border: 0;
-	padding: 60px 40px 0;
+	padding: 62px 40px 10px;
 
 	.modal-title {
 		font-family: 'Gotham Rounded Medium', sans-serif;
@@ -287,6 +288,17 @@ label {
 .modal-body {
 	text-transform: none;
 	line-height: 32px;
+	min-height: 340px;
+
+	.modal-error {
+		font-family: 'Gotham Rounded Medium', sans-serif;
+		font-size: 10px;
+		line-height: 10px;
+		height: 30px;
+		background: @punch;
+		padding: 10px;
+		margin-bottom: 20px;
+	}
 
 	strong {
 		color: @white;
@@ -300,9 +312,51 @@ label {
 }
 
 .modal-footer {
+	color: @white;
 	border: 0;
-	padding: 30px;
+	height: 60px;
+	line-height: 20px;
+	padding: 20px 30px;
 	background: @woodsmoke;
+	text-transform: uppercase;
+	text-align: left;
+}
+
+.has-error {
+	.tooltip {
+		float: right;
+		position: relative;
+		padding-top: 0;
+		.opacity(1);
+	}
+
+	.tooltip-inner {
+		font-family: 'Gotham Rounded Medium', sans-serif;
+		font-size: 10px;
+		text-transform: none;
+		line-height: 10px;
+		height: 30px;
+		max-width: 400px;
+		background: @punch;
+	}
+
+	.tooltip.top .tooltip-arrow {
+		border-top-color: @punch;
+	}
+
+	.tooltip.right .tooltip-arrow {
+		border-right-color: @punch;
+	}
+
+	.tooltip.left .tooltip-arrow {
+		border-left-color: @punch;
+	}
+
+	.form-control {
+		color: @punch;
+		background: #f6d1c9;
+		border: 2px solid @punch !important;
+	}
 }
 
 ::-webkit-input-placeholder {

@@ -8,12 +8,14 @@ export default React.createClass({
       };
 
       return (
-        <li><a id="avatar" href="#settings" style={avatar}></a></li>
+        <li>
+          <a id="avatar" href="#settings" style={avatar}></a>
+        </li>
       );
     } else {
       return (
-        <li className={this.props.type == 'Login' ? 'active' : ''}>
-          <a href="#login">Login</a>
+        <li>
+          <a href="#login-modal" data-toggle="modal">Login</a>
         </li>
       );
     }
