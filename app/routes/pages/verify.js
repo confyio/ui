@@ -31,9 +31,10 @@ export default function (user, token) {
         });
       },
       error: function (response, error, status) {
-        notif({
-          type: 'error',
-          msg: 'Unable to verify your email. Please check and try again'
+        window.loginError = 'Unable to verify your email. Please check and try again';
+
+        window.App.navigate('#logout', {
+          trigger: true
         });
       }
     });
