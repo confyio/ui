@@ -9,8 +9,9 @@ export default React.createClass({
   getInitialState: function () {
     return ValidationHelper(['username', 'fullname', 'email', 'password']);
   },
-  handleClick: function () {
+  handleSubmit: function (e) {
     var self = this;
+    e.preventDefault();
 
     var user = new User({
       username: this.refs.username.getDOMNode().value.trim(),
@@ -29,9 +30,13 @@ export default React.createClass({
         //TODO: load it here
         alert('Successfully registered. Please verify your email to login');
 
-        window.App.navigate('#login', {
-          trigger: true
-        });
+        if (Backbone.history.fragment != 'login') {
+          window.App.navigate('#login', {
+            trigger: true
+          });
+        } else {
+          Backbone.history.loadUrl();
+        }
       },
       error: function (model, response) {
         if (response.status == 422) {
@@ -51,28 +56,30 @@ export default React.createClass({
 
     return (
       <ModalView id="register-modal" title="Confy Signup" footer={footer}>
-        <div className={this.state.username.className}>
-          <input className="form-control tooltipper" placeholder="Username" ref="username" />
-          <ValidationView message={this.state.username.message} direction="left" />
-        </div>
-        <div className="form-group">
-          <input className="form-control" placeholder="Full Name" ref="fullname" />
-        </div>
-        <div className={this.state.email.className}>
-          <input className="form-control tooltipper" placeholder="Email Adress" ref="email" />
-          <ValidationView message={this.state.email.message} direction="left" />
-        </div>
-        <div className={this.state.password.className}>
-          <input className="form-control tooltipper" placeholder="Password" ref="password" type="password" />
-          <ValidationView message={this.state.password.message} direction="left" />
-        </div>
-        <div className="after-inputs">
-          <input type="checkbox" value="" ref="remember" />
-          <span>Tell me about confy news</span>
-        </div>
-        <div className="cleared"></div>
-        <div id="read-tos">By signing up, I agree to Confy's <a href="#">Terms of Service</a>, <a href="#">Privacy Policy</a> and <a href="#">Refund Policy</a></div>
-        <button type="button" className="btn btn-danger" onClick={this.handleClick}>Signup</button>
+        <form role="form" onSubmit={this.handleSubmit}>
+          <div className={this.state.username.className}>
+            <input className="form-control tooltipper" placeholder="Username" ref="username" />
+            <ValidationView message={this.state.username.message} direction="left" />
+          </div>
+          <div className="form-group">
+            <input className="form-control" placeholder="Full Name" ref="fullname" />
+          </div>
+          <div className={this.state.email.className}>
+            <input className="form-control tooltipper" placeholder="Email Adress" ref="email" />
+            <ValidationView message={this.state.email.message} direction="left" />
+          </div>
+          <div className={this.state.password.className}>
+            <input className="form-control tooltipper" placeholder="Password" ref="password" type="password" />
+            <ValidationView message={this.state.password.message} direction="left" />
+          </div>
+          <div className="after-inputs">
+            <input type="checkbox" ref="remember" defaultChecked />
+            <span>Tell me about confy news</span>
+          </div>
+          <div className="cleared"></div>
+          <div id="read-tos">By signing up, I agree to Confy's <a href="#">Terms of Service</a>, <a href="#">Privacy Policy</a> and <a href="#">Refund Policy</a></div>
+          <button type="submit" className="btn btn-danger">Signup</button>
+        </form>
       </ModalView>
     );
   }

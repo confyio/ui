@@ -6,10 +6,12 @@ export default React.createClass({
   getInitialState: function () {
     return { message: this.props.message };
   },
-  handleClick: function () {
+  handleSubmit: function (e) {
     var self = this
       , username = this.refs.username.getDOMNode().value.trim()
       , password = this.refs.password.getDOMNode().value.trim();
+
+    e.preventDefault();
 
     $.ajax({
       url: window.ENV.BASE_URL + '/user/login',
@@ -55,15 +57,17 @@ export default React.createClass({
     return (
       <ModalView id="login-modal" title="Confy Login" footer={footer}>
         {error}
-        <input className="form-control" placeholder="Username" ref="username" />
-        <input className="form-control" placeholder="Password" ref="password" type="password" />
-        <div className="after-inputs">
-          <input type="checkbox" value="" ref="remember" defaultChecked />
-          <span>Remember me</span>
-          <a href="#">Forgot password?</a>
-        </div>
-        <div className="cleared"></div>
-        <button type="button" className="btn btn-danger" onClick={this.handleClick}>Login</button>
+        <form role="form" onSubmit={this.handleSubmit}>
+          <input className="form-control" placeholder="Username" ref="username" />
+          <input className="form-control" placeholder="Password" ref="password" type="password" />
+          <div className="after-inputs">
+            <input type="checkbox" ref="remember" defaultChecked />
+            <span>Remember me</span>
+            <a href="#">Forgot password?</a>
+          </div>
+          <div className="cleared"></div>
+          <button type="submit" className="btn btn-danger">Login</button>
+        </form>
       </ModalView>
     );
   }
