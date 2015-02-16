@@ -1,5 +1,6 @@
 import UserHelper from 'confy/helpers/user';
 import NavbarView from 'confy/views/elements/navbar';
+import User from 'confy/models/user';
 
 export default function (user, token) {
   var self = this;
@@ -21,7 +22,9 @@ export default function (user, token) {
         });
 
         Alert('Successfully verified your email and logged you in', null, true);
-        delete window.user;
+
+        delete data.token;
+        window.user = new User(data);
 
         window.App.navigate('#orgs', {
           trigger: true, replace: true

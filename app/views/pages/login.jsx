@@ -1,6 +1,7 @@
 /** @jsx React.DOM */
 
 import ModalView from 'confy/views/elements/modal';
+import User from 'confy/models/user';
 
 export default React.createClass({
   getInitialState: function () {
@@ -16,7 +17,10 @@ export default React.createClass({
 
     $.ajax({
       url: window.ENV.BASE_URL + '/user/login',
+      type: 'POST',
       dataType: 'json',
+      contentType: 'application/json',
+      data: JSON.stringify({remember: remember}),
       headers: {
         'Authorization': 'Basic ' + btoa(username + ':' + password)
       },
@@ -25,6 +29,9 @@ export default React.createClass({
           expires: (remember ? 14 : 1),
           secure: window.ENV.COOKIE_SECURE
         });
+
+        delete data.token;
+        window.user = new User(data);
 
         window.App.navigate('#orgs', {
           trigger: true
