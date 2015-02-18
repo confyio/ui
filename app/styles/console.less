@@ -20,6 +20,7 @@ body.console {
 
 			> div {
 				width: 200px;
+				height: 20px;
 				display: inline-block;
 				position: relative;
 				overflow: hidden;
@@ -55,7 +56,12 @@ body.console {
 
 				&.org-name {
 					width: 260px;
-					padding: 20px 30px;
+					padding: 20px 0 20px 30px;
+					overflow: hidden;
+
+					> div {
+						width: 230px;
+					}
 
 					&:hover {
 						background: @shark1;

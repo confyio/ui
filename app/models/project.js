@@ -11,7 +11,7 @@ export default Backbone.Model.extend({
     id: {
       depends: ['name'],
       get: function (fields) {
-        return fields.name.toLowerCase();
+        return fields.name.toLowerCase().replace(/\ /g, '-');
       }
     },
     key: {
@@ -39,7 +39,7 @@ export default Backbone.Model.extend({
       errs.push({ field: 'description', code: 'missing' });
     }
 
-    if (typeof name != 'string' || name.match(/[a-z0-9]*/i)[0] != name) {
+    if (typeof name != 'string' || name.match(/[a-z0-9][a-z0-9\ ]*[a-z0-9]/i)[0] != name) {
       errs.push({ field: 'name', code: 'invalid' });
     }
 

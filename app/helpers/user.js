@@ -26,6 +26,7 @@ UserHelper.load = function (loginPage, callback) {
           }
         } else {
           analytics.identify(window.user.get('username'), {
+            name: window.user.get('fullname'),
             username: window.user.get('username'),
             email: window.user.get('email')
           });

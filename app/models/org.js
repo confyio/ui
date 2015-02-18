@@ -9,9 +9,13 @@ export default Backbone.Model.extend({
 
   computed: {
     id: {
-      depends: ['name'],
+      depends: ['_id', 'name'],
       get: function (fields) {
-        return fields.name.toLowerCase();
+        if (fields._id) {
+          return fields._id.split('/').slice(-1)[0];
+        }
+
+        return fields.name.toLowerCase().replace(/\ /g, '-');
       }
     },
     key: {
@@ -39,7 +43,7 @@ export default Backbone.Model.extend({
       errs.push({ field: 'email', code: 'missing' });
     }
 
-    if (typeof name != 'string' || name.match(/[a-z0-9]*/i)[0] != name) {
+    if (typeof name != 'string' || name.match(/[a-z0-9][a-z0-9\ ]*[a-z0-9]/i)[0] != name) {
       errs.push({ field: 'name', code: 'invalid' });
     }
 
