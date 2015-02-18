@@ -29,7 +29,7 @@ export default React.createClass({
     }
 
     return (
-      <div className="content">
+      <div className="content" id={this.props.id}>
         <div id="alerts" dangerouslySetInnerHTML={{ __html: alerts }}></div>
         <div>
           <h3 className="pageheader">
