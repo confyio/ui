@@ -9,7 +9,7 @@ export default React.createClass({
 
       return (
         <ul className="nav navbar-nav navbar-right">
-          <ProfileView type={this.props.type} />
+          <ProfileView avatar="true" />
         </ul>
       );
     } else if (this.props.type == 'Projects' || this.props.type == 'Teams' || this.props.type == 'Org') {
@@ -23,7 +23,7 @@ export default React.createClass({
           <li className={this.props.type == 'Teams' ? 'active' : ''}>
             <a href={window.org.get('link') + '/teams'}>Teams</a>
           </li>
-          <ProfileView type={this.props.type} />
+          <ProfileView avatar="true" />
         </ul>
       );
     } else {
@@ -31,9 +31,10 @@ export default React.createClass({
 
       return (
         <ul className="nav navbar-nav navbar-right">
-          <li><a href="#">Benefits</a></li>
+          <li><a href="#">Features</a></li>
           <li><a href="#">Pricing</a></li>
           <ProfileView type={this.props.type} />
+          <ProfileView avatar="true" />
         </ul>
       );
     };

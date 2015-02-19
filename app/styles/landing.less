@@ -1,11 +1,12 @@
 body.landing {
+	background-color: @shark2;
 
 	#left-nav, .sidebar {
 		display: none;
 	}
 
 	#wrap {
-		margin: 170px 0 0;
+		margin: 0;
 
 		.content {
 			margin: auto;
@@ -13,9 +14,61 @@ body.landing {
 		}
 	}
 
-	#login-form, #register-form {
-		width: 50%;
-		margin: auto;
+	.navbar {
+		background: transparent;
+		margin-top: 40px;
+		position: relative;
+
+		.nav-container {
+			width: 960px;
+			margin: auto;
+		}
+
+		.btn {
+			padding: 5px 20px;
+			height: 30px;
+			margin: 5px 0 5px 20px;
+		}
+	}
+
+	#tagline {
+		color: @white;
+	}
+
+	#screens {
+		height: 500px;
+	}
+
+	#features {
+		background: @shark1;
+		color: @silverChalice;
+		padding: 150px 0;
+
+		> div {
+			width: 960px;
+			margin: auto;
+		}
+	}
+
+	#trial {
+		background: @punch;
+		color: @white;
+		text-transform: uppercase;
+		padding: 150px 0;
+
+		> div {
+			width: 960px;
+			padding: 0 180px;
+			text-align: center;
+			margin: auto;
+
+			> div {
+				font-family: 'Gotham Rounded Book', sans-serif;
+				font-size: 18px;
+				margin-bottom: 45px;
+				letter-spacing: 2px;
+			}
+		}
 	}
 
 	.modal-dialog {
