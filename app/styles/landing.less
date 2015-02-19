@@ -52,20 +52,36 @@ body.landing {
 	#trial {
 		background: @punch;
 		color: @white;
-		text-transform: uppercase;
-		padding: 150px 0;
+		padding: 150px 0 100px;
 
 		> div {
 			width: 960px;
+			height: 275px;
 			padding: 0 180px;
 			text-align: center;
 			margin: auto;
+			background-image: url("@{images}/trial_shadow.svg");
+			background-size: 600px 96px;
+			background-repeat: no-repeat;
+			background-position: bottom center;
 
 			> div {
 				font-family: 'Gotham Rounded Book', sans-serif;
 				font-size: 18px;
+				line-height: 20px;
 				margin-bottom: 45px;
 				letter-spacing: 2px;
+				text-transform: uppercase;
+			}
+
+			button {
+				width: 600px;
+				height: 100px;
+				font-size: 36px;
+				padding: 30px 90px;
+				line-height: 40px;
+				background: @shark1;
+				letter-spacing: 3px;
 			}
 		}
 	}
