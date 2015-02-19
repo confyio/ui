@@ -58,10 +58,16 @@ export default React.createClass({
     }
   },
   render: function () {
+    var pullRight = '';
+
+    if (this.props.type == 'organization' || this.props.type == 'environment') {
+      pullRight = ' pull-right';
+    }
+
     return (
       <div>
         <div className="trash-bin"></div>
-        <div className="delete-panel">
+        <div className={'delete-panel' + pullRight}>
           <h3>Delete {this.props.type}</h3>
           <p>Once you delete a {this.props.type}, there is no going back.</p>
           <button className="btn btn-danger" data-toggle="modal" data-target="#delete-confirm">Delete</button>

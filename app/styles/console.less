@@ -1,7 +1,7 @@
 body.console {
 	text-transform: uppercase;
 
-	#trial, #features {
+	#trial, #features, footer {
 		display: none;
 	}
 
@@ -32,6 +32,7 @@ body.console {
 				display: inline-block;
 				position: relative;
 				overflow: hidden;
+				letter-spacing: 2.25px;
 				.position(0, 20px);
 			}
 
@@ -103,6 +104,15 @@ body.console {
 			li.create-button {
 				height: 80px;
 				padding: 20px 30px;
+
+				> a {
+					padding-left: 20px !important;
+					padding-right: 20px !important;
+
+					i {
+						margin-left: 6px;
+					}
+				}
 			}
 
 			li.active > a {
@@ -152,9 +162,14 @@ body.console {
 			float: left;
 			margin-left: 50px;
 
+			&.pull-right {
+				margin-left: 0;
+			}
+
 			h3 {
 				margin-top: 60px;
 				line-height: 40px;
+				letter-spacing: 2.25px;
 			}
 
 			p {
@@ -179,6 +194,7 @@ body.console {
 		width: 520px;
 		display: inline-block;
 		float: left;
+		letter-spacing: 2.25px;
 	}
 
 	.subheader {
@@ -222,6 +238,10 @@ body.console {
 		}
 	}
 
+	#admin-actions {
+		letter-spacing: 1.75px;
+	}
+
 	.admin {
 		float: left;
 		display: inline-block;
@@ -255,6 +275,7 @@ body.console {
 		color: @white;
 		background: @chinnabar !important;
 		font-family: 'Gotham Rounded Medium', sans-serif;
+		letter-spacing: 1.5px;
 	}
 
 	.table {
@@ -298,7 +319,8 @@ body.console {
 				line-height: 20px;
 				font-size: 10px;
 				font-family: 'Gotham Rounded Medium', sans-serif;
-				padding: 5px 30px;
+				padding: 5px 25px;
+				letter-spacing: 1.25px;
 
 				&.delete {
 					background: transparent;
@@ -326,7 +348,7 @@ body.console {
 						color: @punch;
 						border-color: @punch;
 						min-width: 150px;
-						padding: 4px 29px;
+						padding: 4px 22px;
 					}
 
 					&:focus {

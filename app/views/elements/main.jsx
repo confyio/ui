@@ -37,7 +37,7 @@ export default React.createClass({
           </h3>
           <EnvsLockButtonView type={this.props.type} />
         </div>
-        <div className="cleared">
+        <div className="cleared" id="admin-actions">
           {admin}
           {actions}
         </div>

@@ -46,7 +46,7 @@ export default React.createClass({
             <ValidationView message={this.state.email.message} />
             <input className="form-control" placeholder="Enter organization's billing email" ref="email" defaultValue={this.state.email.value} />
           </div>
-          <button type="submit" className="btn btn-primary">Update</button>
+          <button type="submit" className="btn btn-primary">Save</button>
         </form>
       </MainView>
     );

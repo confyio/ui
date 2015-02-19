@@ -45,7 +45,7 @@ export default React.createClass({
             <ValidationView message={this.state.description.message} />
             <input className="form-control" placeholder="Enter project description" ref="description" defaultValue={this.state.description.value} />
           </div>
-          <button type="submit" className="btn btn-primary">Update</button>
+          <button type="submit" className="btn btn-primary">Save</button>
         </form>
       </MainView>
     );
