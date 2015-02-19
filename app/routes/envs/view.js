@@ -26,6 +26,8 @@ export default function (org, project, env, callback) {
       }
 
       EnvsHelper.config(function () {
+        if (callback) return callback();
+
         React.render(ProjectsListView({}), $('.sidebar')[0]);
         React.render(EnvsInfoView({}), $('#wrap')[0]);
       });

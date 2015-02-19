@@ -24,8 +24,15 @@ export default React.createClass({
         </div>
         <ul className="dropdown-menu" role="menu" aria-labelledby="org-dropdown">
           {window.orgs.map(function (org) {
+            var className, isOwner = (window.user.get('username') == org.get('owner'))
+              , userOrg = (window.user.get('username') == org.get('id'));
+
+            if (!isOwner || userOrg) {
+              className = ' no-edit-org';
+            }
+
             return (
-              <li className={org.get('name') !== windowOrg.get('name') ? '' : 'active'} role="presentation" key={org.get('key')}>
+              <li className={(org.get('name') !== windowOrg.get('name') ? '' : 'active') + className} role="presentation" key={org.get('key')}>
                 <a className="org-name" role="menuitem" tabIndex="-1" href={org.get('link')}>
                   <div>{org.get('name')}</div>
                 </a>
