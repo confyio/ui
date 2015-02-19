@@ -10,6 +10,8 @@ export default React.createClass({
         <PagesLoginView message={this.props.loginError} />
         <PagesRegisterView />
         <div id="tagline">
+          <h2>Be smart and be safe</h2>
+          <span>All credentials held in one place</span>
         </div>
         <div id="screens">
         </div>

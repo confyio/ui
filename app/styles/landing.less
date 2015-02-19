@@ -32,6 +32,23 @@ body.landing {
 
 	#tagline {
 		color: @white;
+		text-transform: uppercase;
+		margin-top: 100px;
+
+		h2 {
+			font-size: 45px;
+			font-weight: normal;
+			line-height: 54px;
+			height: 54px;
+			color: @osloGray;
+		}
+
+		span {
+			margin: 25px 0;
+			letter-spacing: 2px;
+			font-family: 'Gotham Rounded Book', sans-serif;
+			font-size: 18px;
+		}
 	}
 
 	#screens {
@@ -46,6 +63,51 @@ body.landing {
 		> div {
 			width: 960px;
 			margin: auto;
+
+			&.cleared {
+				margin-bottom: 200px;
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+
+			&.odd {
+				.description {
+					float: left;
+				}
+
+				.illustration {
+					float: right;
+				}
+			}
+
+			&.even {
+				.description {
+					float: right;
+				}
+
+				.illustration {
+					float: left;
+				}
+			}
+
+			.description {
+				width: 400px;
+				line-height: 32px;
+				font-size: 16px;
+
+				h3 {
+					color: @gallery;
+					text-transform: uppercase;
+					letter-spacing: 3px;
+					line-height: 40px;
+				}
+			}
+
+			.illustration {
+				width: 400px;
+			}
 		}
 	}
 
