@@ -7,12 +7,6 @@ export default function (user, token) {
   var self = this;
 
   UserHelper.load(true, function () {
-    if (window.user) {
-      return self.navigate('#orgs', {
-        trigger: true, replace: true
-      });
-    }
-
     $.ajax({
       url: window.ENV.BASE_URL + '/users/' + user + '/verify/' + token,
       dataType: 'json',

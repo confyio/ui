@@ -31,6 +31,9 @@ export default React.createClass({
         //TODO: load it here
         alert('Successfully registered. Please verify your email to login');
 
+        $.removeCookie('access_token');
+        delete window.user;
+
         if (Backbone.history.fragment != 'login') {
           window.App.navigate('#login', {
             trigger: true
