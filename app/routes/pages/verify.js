@@ -1,6 +1,7 @@
 import UserHelper from 'confy/helpers/user';
 import NavbarView from 'confy/views/elements/navbar';
 import User from 'confy/models/user';
+import Alert from 'confy/helpers/alert';
 
 export default function (user, token) {
   var self = this;
