@@ -22,7 +22,7 @@ export default React.createClass({
       return (
         <tr>
           <td colSpan="2">
-            <a href={this.props.user.get('link')}>{this.props.user.get('username')}</a>
+            <span>{this.props.user.get('fullname')}</span>
           </td>
         </tr>
       );
@@ -30,7 +30,7 @@ export default React.createClass({
       return (
         <tr>
           <td>
-            <a href={this.props.user.get('link')}>{this.props.user.get('username')}</a>
+            <span>{this.props.user.get('fullname')}</span>
           </td>
           <td>
             <button className="btn delete" onClick={this.handleClick}>

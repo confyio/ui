@@ -3,6 +3,7 @@ import OrgsRoute from 'confy/routes/orgs/index';
 import ProjectsRoute from 'confy/routes/projects/index';
 import TeamsRoute from 'confy/routes/teams/index';
 import EnvsRoute from 'confy/routes/envs/index';
+import UserRoute from 'confy/routes/user/index';
 
 export default Backbone.Router.extend({
   initialize: function (options) {
@@ -11,6 +12,8 @@ export default Backbone.Router.extend({
     this.route('logout', PagesRoute.logout);
     this.route('register', PagesRoute.register);
     this.route('verify/:user/:token', PagesRoute.verify);
+
+    this.route('settings', UserRoute.settings);
 
     this.route('orgs', OrgsRoute.list);
     this.route('orgs/:org', OrgsRoute.view);

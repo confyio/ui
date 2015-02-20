@@ -47,7 +47,7 @@ export default Backbone.Model.extend({
       errs.push({ field: 'email', code: 'missing' });
     }
 
-    if (attrs.password === undefined || attrs.password === '') {
+    if (!options.patch && (attrs.password === undefined || attrs.password === '')) {
       errs.push({ field: 'password', code: 'missing' });
     }
 
@@ -55,7 +55,7 @@ export default Backbone.Model.extend({
       errs.push({ field: 'username', code: 'invalid' });
     }
 
-    if (typeof attrs.password != 'string' || attrs.password.length < 6) {
+    if (!options.patch && (typeof attrs.password != 'string' || attrs.password.length < 6)) {
       errs.push({ field: 'password', code: 'insecure' });
     }
 
