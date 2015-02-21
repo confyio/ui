@@ -21,6 +21,8 @@ export default function (user, token) {
         delete data.token;
         window.user = new User(data);
 
+        UserHelper.identify();
+
         window.App.navigate('#orgs', {
           trigger: true, replace: true
         });

@@ -2,6 +2,7 @@
 
 import ModalView from 'confy/views/elements/modal';
 import User from 'confy/models/user';
+import UserHelper from 'confy/helpers/user';
 
 export default React.createClass({
   getInitialState: function () {
@@ -32,6 +33,8 @@ export default React.createClass({
 
         delete data.token;
         window.user = new User(data);
+
+        UserHelper.identify();
 
         window.App.navigate('#orgs', {
           trigger: true

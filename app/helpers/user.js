@@ -25,12 +25,7 @@ UserHelper.load = function (loginPage, callback) {
             });
           }
         } else {
-          analytics.identify(window.user.get('username'), {
-            name: window.user.get('fullname'),
-            username: window.user.get('username'),
-            email: window.user.get('email')
-          });
-
+          UserHelper.identify();
           analytics.track('Logged on Frontend');
 
           return callback();
@@ -40,6 +35,16 @@ UserHelper.load = function (loginPage, callback) {
   } else {
     return callback();
   }
+};
+
+UserHelper.identify = function () {
+  if (!window.user) return;
+
+  analytics.identify(window.user.get('username'), {
+    name: window.user.get('fullname'),
+    username: window.user.get('username'),
+    email: window.user.get('email')
+  });
 };
 
 export default UserHelper;

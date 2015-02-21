@@ -6,6 +6,7 @@ import ValidationView from 'confy/views/elements/validation';
 import ModalView from 'confy/views/elements/modal';
 import Alert from 'confy/helpers/alert';
 import User from 'confy/models/user';
+import UserHelper from 'confy/helpers/user';
 
 export default React.createClass({
   getInitialState: function () {
@@ -53,6 +54,8 @@ export default React.createClass({
 
         delete response.token;
         window.user = new User(response);
+
+        UserHelper.identify();
 
         Backbone.history.loadUrl();
         Alert('Successfully updated your user profile');
