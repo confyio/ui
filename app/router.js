@@ -38,8 +38,7 @@ export default Backbone.Router.extend({
     jQuery('#delete-wrap').hide();
 
     analytics.page({
-      path: '/#' + Backbone.history.fragment,
-      url: window.location.href
+      path: '/' + Backbone.history.fragment
     });
 
     return Backbone.Router.prototype.execute.call(this, callback, args);
