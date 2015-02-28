@@ -20,6 +20,11 @@ EnvsHelper.config = function (callback) {
 
   new Config().fetch({
     success: function (child, data) {
+      if (child.get('_encrypted')) {
+        window.env.encrypted = child.get('_encrypted');
+        child.unset('_encrypted');
+      }
+
       child.set('_id', window.env.get('_id') + '/config');
       window.env.config = child;
 
