@@ -21,6 +21,8 @@ export default Backbone.Model.extend({
     options.success = function (response, status, xhr) {
       if (typeof response == 'string') {
         response = { _encrypted: response };
+      } else if (typeof response != 'object') {
+        response = {};
       }
 
       if (success && typeof success == 'function') {
