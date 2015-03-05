@@ -7,7 +7,7 @@ export default React.createClass({
   render: function () {
     return (
       <MainView type="Environment" header={window.env.get('name')}>
-        <EditorView encrypted={window.env.encrypted} json={window.env.config.getJSON()} />
+        <EditorView json={window.env.config.getJSON()} />
       </MainView>
     );
   }

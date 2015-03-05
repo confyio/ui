@@ -24,7 +24,8 @@ export default React.createClass({
         </div>
         <ul className="dropdown-menu" role="menu" aria-labelledby="org-dropdown">
           {window.orgs.map(function (org) {
-            var className, isOwner = (window.user.get('username') == org.get('owner'))
+            var className = ''
+              , isOwner = (window.user.get('username') == org.get('owner'))
               , userOrg = (window.user.get('username') == org.get('id'));
 
             if (!isOwner || userOrg) {

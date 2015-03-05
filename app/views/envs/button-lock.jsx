@@ -10,11 +10,56 @@ export default React.createClass({
   getInitialState: function () {
     return {icon: 'unlock'};
   },
+  unlock: function () {
+    window.editor.setMode('code');
+    this.setState({icon: 'lock'});
+  },
+  lock: function (config) {
+    var self = this;
+
+    window.env.config.save(config, {
+      method: 'put',
+      wait: true,
+      success: function (model, response) {
+        window.editor.setMode('view');
+        window.editor.set(window.env.config.getJSON());
+        window.editor.expandAll();
+
+        self.setState({icon: 'unlock'});
+        Alert('Successfully saved your credentials');
+      },
+      error: function (model, response) {
+        Alert('Unable to save credentials. Please reload the page and try again', 'danger');
+      }
+    });
+  },
+  handleNoEncrypt: function (e) {
+    e.preventDefault();
+    $('#encrypt-pass').modal('hide');
+
+    this.lock(window.editor.get());
+  },
+  handleEncrypt: function (e) {
+    e.preventDefault();
+    $('#encrypt-pass').modal('hide');
+
+    var pass = this.refs.encryptpass.getDOMNode().value;
+  },
+  handleDecrypt: function (e) {
+    e.preventDefault();
+    $('#decrypt-pass').modal('hide');
+
+    var pass = this.refs.decryptpass.getDOMNode().value;
+  },
   clickedUnlock: function (e) {
     e.preventDefault();
 
-    window.editor.setMode('code');
-    this.setState({icon: 'lock'});
+    if (window.env.encrypted) {
+      $('#decrypt-pass').modal('show');
+      this.props.unlockAfterDecrypt = true;
+    } else {
+      this.unlock();
+    }
   },
   clickedLock: function (e) {
     var config = null, self = this;
@@ -25,23 +70,7 @@ export default React.createClass({
     } catch (e) {
       Alert('The credentials document is not a valid JSON', 'danger');
     } finally {
-      if (config) {
-        window.env.config.save(config, {
-          method: 'put',
-          wait: true,
-          success: function (model, response) {
-            window.editor.setMode('view');
-            window.editor.set(window.env.config.getJSON());
-            window.editor.expandAll();
-
-            self.setState({icon: 'unlock'});
-            Alert('Successfully saved your credentials');
-          },
-          error: function (model, response) {
-            Alert('Unable to save credentials. Please reload the page and try again', 'danger');
-          }
-        })
-      }
+      $('#encrypt-pass').modal('show');
     }
   },
   render: function () {
@@ -67,15 +96,16 @@ export default React.createClass({
           {button}
           <ModalView id="decrypt-pass" title="Decrypt it?">
             <p>Please provide the password using which the document has been encrypted.</p>
-            <input className="form-control" ref="pass" type="password" placeholder="Enter password" />
-            <button type="button" className="btn btn-danger">Decrypt</button>
+            <input className="form-control" ref="decryptpass" type="password" placeholder="Enter password" />
+            <button type="button" className="btn btn-danger" onClick={this.handleDecrypt}>Decrypt</button>
             <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
           </ModalView>
           <ModalView id="encrypt-pass" title="Encrypt it?">
-            <p>Please provide the password using which the document will be encrypted.</p>
-            <p className="modal-second-warn">Do not lose the password since it is needed for decryption</p>
-            <input className="form-control" ref="pass" type="password" placeholder="Enter password" />
-            <button type="button" className="btn btn-danger">Encrypt</button>
+            <p>Are you sure you want to encrypt the document? If yes, please provide the password which is used for encrypting the document.</p>
+            <p className="modal-second-warn">Do not lose the encryption password since it is needed for decryption</p>
+            <input className="form-control" ref="encryptpass" type="password" placeholder="Enter password" />
+            <button type="button" className="btn btn-danger" onClick={this.handleNoEncrypt}>No</button>
+            <button type="button" className="btn btn-danger" onClick={this.handleEncrypt}>Yes</button>
             <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
           </ModalView>
         </div>
