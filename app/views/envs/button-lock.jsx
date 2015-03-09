@@ -4,6 +4,8 @@ import TooltipMixin from 'confy/helpers/tooltip';
 import DummyView from 'confy/views/elements/dummy';
 import ModalView from 'confy/views/elements/modal';
 import Alert from 'confy/helpers/alert';
+import MD5Helper from 'confy/helpers/md5';
+import Config from 'confy/models/config';
 
 export default React.createClass({
   mixins: [TooltipMixin],
@@ -17,12 +19,16 @@ export default React.createClass({
   lock: function (config) {
     var self = this;
 
+    if (typeof config == 'string') {
+      config = { _encrypted: config };
+    }
+
     window.env.config.save(config, {
       method: 'put',
       wait: true,
       success: function (model, response) {
         window.editor.setMode('view');
-        window.editor.set(window.env.config.getJSON());
+        window.editor.set(window.env.decrypted);
         window.editor.expandAll();
 
         self.setState({icon: 'unlock'});
@@ -37,24 +43,60 @@ export default React.createClass({
     e.preventDefault();
     $('#encrypt-pass').modal('hide');
 
-    this.lock(window.editor.get());
+    this.lock(window.env.decrypted);
   },
   handleEncrypt: function (e) {
     e.preventDefault();
     $('#encrypt-pass').modal('hide');
 
-    var pass = this.refs.encryptpass.getDOMNode().value;
+    var pass = this.refs.encryptpass.getDOMNode().value
+      , iv = forge.random.getBytesSync(16)
+      , key = MD5Helper(pass);
+
+    var cipher = forge.cipher.createCipher('AES-CBC', key);
+
+    cipher.start({iv: iv});
+    cipher.update(forge.util.createBuffer(JSON.stringify(window.env.decrypted)));
+    cipher.finish();
+
+    window.env.encrypted = forge.util.encode64(iv) + forge.util.encode64(cipher.output.getBytes());
+
+    this.lock(window.env.encrypted);
   },
   handleDecrypt: function (e) {
+    var self = this;
     e.preventDefault();
     $('#decrypt-pass').modal('hide');
 
-    var pass = this.refs.decryptpass.getDOMNode().value;
+    var pass = this.refs.decryptpass.getDOMNode().value
+      , iv = forge.util.decode64(window.env.encrypted.substr(0, 24))
+      , key = MD5Helper(pass);
+
+    var decipher = forge.cipher.createDecipher('AES-CBC', key);
+
+    decipher.start({iv: iv});
+    decipher.update(forge.util.createBuffer(forge.util.decode64(window.env.encrypted.substr(24))));
+    decipher.finish();
+
+    try {
+      window.env.decrypted = JSON.parse(decipher.output.toString());
+
+      window.editor.set(window.env.decrypted);
+      window.editor.expandAll();
+
+      $('#config-encrypted-overlay')[0].className = 'decrypted';
+
+      if (self.props.unlockAfterDecrypt) {
+        self.unlock();
+      }
+    } catch (e) {
+      Alert('The given decryption password is wrong', 'danger');
+    }
   },
   clickedUnlock: function (e) {
     e.preventDefault();
 
-    if (window.env.encrypted) {
+    if (window.env.encrypted && !window.env.decrypted) {
       $('#decrypt-pass').modal('show');
       this.props.unlockAfterDecrypt = true;
     } else {
@@ -62,15 +104,14 @@ export default React.createClass({
     }
   },
   clickedLock: function (e) {
-    var config = null, self = this;
+    var self = this;
     e.preventDefault();
 
     try {
-      config = window.editor.get();
+      window.env.decrypted = window.editor.get();
+      $('#encrypt-pass').modal('show');
     } catch (e) {
       Alert('The credentials document is not a valid JSON', 'danger');
-    } finally {
-      $('#encrypt-pass').modal('show');
     }
   },
   render: function () {

@@ -15,7 +15,7 @@ export default React.createClass({
       <div id="config-container">
         <div className="table-head-like">Console</div>
         <div id="config-editor"></div>
-        <div id="config-encrypted-overlay" data-toggle="modal" data-target="#decrypt-pass" className={window.env.encrypted ? 'encrypted' : 'decrypted'}>
+        <div id="config-encrypted-overlay" data-toggle="modal" data-target="#decrypt-pass" className={window.env.encrypted && !window.env.decrypted ? 'encrypted' : 'decrypted'}>
           <h3>This document is encrypted</h3>
           <span>Please decrypt it before you can view it</span>
         </div>

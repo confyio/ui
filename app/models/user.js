@@ -1,4 +1,5 @@
 import SyncHelper from 'confy/helpers/sync';
+import MD5Helper from 'confy/helpers/md5';
 
 export default Backbone.Model.extend({
   initialize: function () {
@@ -26,7 +27,7 @@ export default Backbone.Model.extend({
         var hash;
 
         if (fields.email) {
-          hash = md5(fields.email.trim().toLowerCase());
+          hash = MD5Helper(fields.email.trim().toLowerCase());
         } else {
           hash = window.ENV.GRAVATAR;
         }
