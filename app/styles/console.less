@@ -49,8 +49,8 @@ body.console {
 			margin: 10px 0 0;
 			border: 0;
 			font-size: 16px;
-			.box-shadow(none);
-			.rounded(0);
+			box-shadow: none;
+			border-radius: 0;
 
 			li > a {
 				height: 60px;
@@ -141,6 +141,10 @@ body.console {
 		.content {
 			margin: auto;
 			width: 605px;
+
+			#loader {
+				margin: 100px 222px;
+			}
 		}
 	}
 
@@ -229,7 +233,7 @@ body.console {
 	.btn-round {
 		padding: 13px 15px;
 		.square(40px);
-		.rounded(20px);
+		border-radius: 20px;
 		border: 0;
 		float: right;
 
@@ -341,7 +345,7 @@ body.console {
 					min-width: 30px;
 					padding: 4px 9px;
 					float: right;
-					.transition(all 0.5s linear);
+					transition: all 0.5s linear;
 
 					i {
 						line-height: 10px;

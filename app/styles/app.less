@@ -139,9 +139,20 @@
 @import "../../node_modules/font-awesome/less/icons.less";
 
 // Our own mixins
-@import "mixins.less";
-@import "loader.less";
+.position(@top: 0, @left: 0) {
+	top: @top;
+	left: @left;
+}
 
+.wrap() {
+	text-wrap: wrap;
+	white-space: -moz-pre-wrap;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+
+// Main
+@import "loader.less";
 @import "fonts.less";
 
 html {
@@ -156,11 +167,7 @@ body {
 }
 
 #wrap {
-	.loader();
-}
-
-#wrap #loader {
-	min-height: 400px;
+	.loader(160px);
 }
 
 .dummy {
@@ -195,11 +202,11 @@ button.btn {
 	padding: 10px 30px;
 	outline: 0 !important;
 	letter-spacing: 2px;
-	.rounded(2px);
-	.box-shadow-important(none);
+	border-radius: 2px;
+	box-shadow: none !important;
 
 	&.disabled {
-		.opacity(1);
+		opacity: 1;
 		background: @silver;
 	}
 
@@ -252,8 +259,8 @@ button.btn {
 	max-width: 200px;
 	height: 35px;
 	letter-spacing: 1.5px;
-	.opacity(1);
-	.rounded(4px);
+	opacity: 1;
+	border-radius: 4px;
 }
 
 form input, .modal-dialog input {
@@ -265,8 +272,8 @@ form input, .modal-dialog input {
 
 input.form-control {
 	line-height: 20px;
-	.rounded(2px);
-	.box-shadow-important(none);
+	border-radius: 2px;
+	box-shadow: none !important;
 
 	&.correct {
 		background: url("@{images}/correct.svg") no-repeat right 20px center @white;
@@ -290,8 +297,8 @@ label {
 	background-size: 420px 498px;
 	background-position: top center;
 	background-repeat: no-repeat;
-	.rounded(2px);
-	.box-shadow(none);
+	border-radius: 2px;
+	box-shadow: none;
 }
 
 .modal-header {
@@ -351,7 +358,7 @@ label {
 		float: right;
 		position: relative;
 		padding-top: 0;
-		.opacity(1);
+		opacity: 1;
 	}
 
 	.tooltip-inner {
@@ -401,7 +408,7 @@ label {
 		.square(20px);
 		padding: 5px;
 		position: relative;
-		.opacity(1);
+		opacity: 1;
 
 		i {
 			line-height: 10px;
@@ -414,19 +421,7 @@ label {
 	}
 }
 
-::-webkit-input-placeholder {
-	color: @silver;
-}
-
-::-moz-placeholder {
-	color: @silver;
-}
-
-:-moz-placeholder {
-	color: @silver;
-}
-
-:-ms-input-placeholder {
+::placeholder {
 	color: @silver;
 }
 

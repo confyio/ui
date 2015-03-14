@@ -35,6 +35,7 @@
     "grunt-contrib-cssmin": "0.9.x",
     "grunt-contrib-htmlmin": "0.3.x",
     "grunt-contrib-less": "0.11.x",
+    "grunt-autoprefixer": "2.2.x",
     "grunt-usemin": "2.1.x",
     "grunt-rev": "0.1.x",
     "grunt-s3": "0.2.x",

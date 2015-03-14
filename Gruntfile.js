@@ -79,7 +79,8 @@ module.exports = function(grunt) {
   // Styles
   grunt.registerTask('buildStyles', [
     'less:compile',
-    'copy:css'
+    'copy:css',
+    'autoprefixer:app'
   ]);
 
   grunt.registerTask('mktmp', function() {
