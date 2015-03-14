@@ -16,7 +16,7 @@
 @celery: #6dca63;
 
 @woodsmoke: #131516;
-@tuna: #3B3E41;
+@tuna: #3b3e41;
 @shark: #1c1e1e;
 @shark1: #242627;
 @shark2: #323436;
@@ -140,6 +140,7 @@
 
 // Our own mixins
 @import "mixins.less";
+@import "loader.less";
 
 @import "fonts.less";
 
@@ -154,7 +155,11 @@ body {
 	background: @mercury;
 }
 
-#wrap .loading {
+#wrap {
+	.loader();
+}
+
+#wrap #loader {
 	min-height: 400px;
 }
 
