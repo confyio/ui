@@ -108,6 +108,30 @@ body.landing {
 		}
 	}
 
+	#usage-tabs {
+		background: @punch;
+
+		> div {
+			width: 960px;
+			margin: auto;
+			padding: 25px 0;
+
+			li {
+				margin: 0 10px;
+				text-align: center;
+				text-transform: uppercase;
+			}
+
+			a {
+				color: @white;
+				letter-spacing: 2px;
+				font-size: 16px;
+				line-height: 20px;
+				padding: 10px 20px;
+			}
+		}
+	}
+
 	#usage {
 		background: @concrete;
 		padding: 50px 0;
@@ -117,11 +141,33 @@ body.landing {
 			margin: auto;
 
 			.description {
-				width: 400px;
+				width: 300px;
+				float: left;
+
+				> div:first-child {
+					margin: 10px 0 20px;
+				}
+
+				> div:last-child {
+					margin: 40px 0 20px;
+				}
 			}
 
-			#code {
-				width: 400px;
+			#code, #package {
+				width: 550px;
+				float: right;
+
+				> div {
+					display: none;
+
+					&.active {
+						display: block;
+					}
+				}
+			}
+
+			#code pre {
+				min-height: 150px;
 			}
 		}
 	}

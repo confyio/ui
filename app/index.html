@@ -153,22 +153,77 @@
 		<div class="cleared"></div>
 	</div>
 
+	<div id="usage-tabs" class="homeblock">
+		<div>
+			<ul class="nav nav-pills">
+				<li id="ruby" role="presentation" class="active"><a href="#" value="ruby">Ruby</a></li>
+				<li id="node" role="presentation"><a href="#" value="node">Node</a></li>
+				<li id="python" role="presentation"><a href="#" value="python">Python</a></li>
+				<li id="php" role="presentation"><a href="#" value="php">Php</a></li>
+			</ul>
+		</div>
+	</div>
+
 	<div id="usage" class="homeblock">
 		<div>
 			<div class="description">
 				<div>After signing up, Install our module</div>
 				<div>Get started right away by setting up CONFY_URL and CONFY_DECRYPT_PASS</div>
 			</div>
-			<div id="code">
-				<div id="ruby" class="code">
+			<div id="package">
+				<div id="ruby" class="active">
+					<pre>gem install confyio</pre>
 				</div>
-				<div id="node" class="code">
+				<div id="node">
+					<pre>npm install confyio</pre>
 				</div>
-				<div id="python" class="code">
+				<div id="python">
+					<pre>pip install confyio</pre>
 				</div>
-				<div id="php" class="code">
+				<div id="php">
+					<pre>composer require confyio/confyio</pre>
 				</div>
 			</div>
+			<div id="code">
+				<div id="ruby" class="active highlight">
+					<pre><span class="nb">require</span> <span class="s2">&quot;confyio&quot;</span>
+
+<span class="no">Confy</span><span class="o">::</span><span class="no">Config</span><span class="o">.</span><span class="n">env</span><span class="p">(</span><span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;CONFY_URL&#39;</span><span class="o">]</span><span class="p">)</span>
+
+<span class="c1"># data[&#39;db&#39;][&#39;pass&#39;]</span>
+<span class="nb">puts</span> <span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;DB_PASS&#39;</span><span class="o">]</span> <span class="c1"># =&gt; &#39;password&#39;</span>
+</pre>
+				</div>
+				<div id="node" class="highlight">
+					<pre><span class="kd">var</span> <span class="nx">confy</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;confyio&#39;</span><span class="p">);</span>
+
+<span class="nx">confy</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">env</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">[</span><span class="s1">&#39;CONFY_URL&#39;</span><span class="p">],</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="c1">// data[&#39;db&#39;][&#39;pass&#39;]</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">[</span><span class="s1">&#39;DB_PASS&#39;</span><span class="p">]);</span> <span class="c1">// =&gt; &#39;password&#39;</span>
+<span class="p">});</span>
+</pre>
+				</div>
+				<div id="python" class="highlight">
+					<pre><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">confy</span>
+
+<span class="n">confy</span><span class="o">.</span><span class="n">Config</span><span class="o">.</span><span class="n">env</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&#39;CONFY_URL&#39;</span><span class="p">])</span>
+
+<span class="c"># data[&#39;db&#39;][&#39;pass&#39;]</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&#39;DB_PASS&#39;</span><span class="p">]</span> <span class="c"># =&gt; &#39;password&#39;</span>
+</pre>
+				</div>
+				<div id="php" class="highlight">
+					<pre><span class="k">require</span> <span class="s1">&#39;vendor/autoload.php&#39;</span><span class="p">;</span>
+
+<span class="nx">Confy\Config</span><span class="o">::</span><span class="na">env</span><span class="p">(</span><span class="nv">$_ENV</span><span class="p">[</span><span class="s1">&#39;CONFY_URL&#39;</span><span class="p">]);</span>
+
+<span class="c1"># data[&#39;db&#39;][&#39;pass&#39;]</span>
+<span class="k">echo</span> <span class="nv">$_ENV</span><span class="p">[</span><span class="s1">&#39;DB_PASS&#39;</span><span class="p">];</span> <span class="c1"># =&gt; &#39;password&#39;</span>
+</pre>
+				</div>
+			</div>
+			<div class="clearfix"></div>
 		</div>
 	</div>
 
@@ -189,9 +244,9 @@
 				<i class="fa fa-fw fa-facebook-square"></i>
 				<span>Facebook</span>
 			</button>
-			<button onClick="window.open('https://plus.google.com/109794652563242297530');" class="btn btn-default">
+			<button onClick="window.open('https://plus.google.com/+confyio');" class="btn btn-default">
 				<i class="fa fa-fw fa-google-plus-square"></i>
-				<span>Google+</span>
+				<span>Google</span>
 			</button>
 		</div>
 	</footer>
