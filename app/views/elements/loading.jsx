@@ -1,7 +1,15 @@
 /** @jsx React.DOM */
 
+import DummyView from 'confy/views/elements/dummy';
+
 export default React.createClass({
   render: function () {
+    if (this.props.noDummy === false) {
+      return (
+        <DummyView />
+      );
+    };
+
     return (
       <div className="content">
         <div id="loader">

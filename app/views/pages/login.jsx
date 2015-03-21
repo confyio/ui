@@ -3,6 +3,7 @@
 import ModalView from 'confy/views/elements/modal';
 import User from 'confy/models/user';
 import UserHelper from 'confy/helpers/user';
+import LoadingView from 'confy/views/elements/loading';
 
 export default React.createClass({
   getInitialState: function () {
@@ -15,6 +16,8 @@ export default React.createClass({
       , remember = this.refs.remember.getDOMNode().checked;
 
     e.preventDefault();
+    this.props.loading = true;
+    this.forceUpdate();
 
     $.ajax({
       url: window.ENV.BASE_URL + '/user/login',
@@ -41,6 +44,8 @@ export default React.createClass({
         });
       },
       error: function (response, error, status) {
+        delete self.props.loading;
+
         if (status == 'Unauthorized' && response.responseJSON.message == 'Bad credentials') {
           self.setState({message: 'Unable to log in. Incorrect credentials or unverified user.'});
         } else if (status == 'Unauthorized' && response.responseJSON.message == 'Unverified email') {
@@ -68,6 +73,7 @@ export default React.createClass({
     return (
       <ModalView id="login-modal" title="Confy Login" footer={footer}>
         {error}
+        <LoadingView noDummy={this.props.loading === true} />
         <form role="form" onSubmit={this.handleSubmit}>
           <input className="form-control" placeholder="Username" ref="username" />
           <input className="form-control" placeholder="Password" ref="password" type="password" />

@@ -4,6 +4,7 @@ import ModalView from 'confy/views/elements/modal';
 import User from 'confy/models/user';
 import ValidationHelper from 'confy/helpers/validation';
 import ValidationView from 'confy/views/elements/validation';
+import LoadingView from 'confy/views/elements/loading';
 
 export default React.createClass({
   getInitialState: function () {
@@ -22,13 +23,16 @@ export default React.createClass({
     });
 
     user.on('invalid', function (model, errs) {
+      delete self.props.loading;
       self.setState(ValidationHelper(self.state, model, errs, 'User', self));
     });
+
+    this.props.loading = true;
+    this.forceUpdate();
 
     user.save({}, {
       noLogout: true,
       success: function (model, response) {
-        //TODO: load it here
         alert('Successfully registered. Please verify your email to login');
 
         $.removeCookie('access_token');
@@ -44,11 +48,11 @@ export default React.createClass({
       },
       error: function (model, response) {
         if (response.status == 422) {
+          delete self.props.loading;
           self.setState(ValidationHelper(self.state, model, response.responseJSON.errors, 'User', self));
         }
       }
     });
-
   },
   render: function () {
     var footer = (
@@ -60,6 +64,7 @@ export default React.createClass({
 
     return (
       <ModalView id="register-modal" title="Confy Signup" footer={footer}>
+        <LoadingView noDummy={this.props.loading === true} />
         <form role="form" onSubmit={this.handleSubmit}>
           <div className={this.state.username.className}>
             <input className="form-control tooltipper" placeholder="Username" ref="username" />
