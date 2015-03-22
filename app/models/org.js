@@ -43,7 +43,7 @@ export default Backbone.Model.extend({
       errs.push({ field: 'email', code: 'missing' });
     }
 
-    if (typeof name != 'string' || name.match(/[a-z0-9][a-z0-9\ ]*[a-z0-9]/i)[0] != name) {
+    if (typeof name != 'string' || name.length < 3 || name.length > 15 || name.match(/[a-z0-9][a-z0-9\ ]*[a-z0-9]/i)[0] != name) {
       errs.push({ field: 'name', code: 'invalid' });
     }
 

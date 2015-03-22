@@ -52,7 +52,7 @@ export default Backbone.Model.extend({
       errs.push({ field: 'password', code: 'missing' });
     }
 
-    if (typeof username != 'string' || username.match(/[a-z0-9]*/i)[0] != username) {
+    if (typeof username != 'string' || username.length < 3 || username.length > 15 || username.match(/[a-z0-9]*/i)[0] != username) {
       errs.push({ field: 'username', code: 'invalid' });
     }
 
