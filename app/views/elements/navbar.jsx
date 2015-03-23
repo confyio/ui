@@ -31,8 +31,8 @@ export default React.createClass({
 
       return (
         <ul className="nav navbar-nav navbar-right">
-          <li><a href="#">Features</a></li>
-          <li><a href="#">Pricing</a></li>
+          <li><a href="#how">How it works</a></li>
+          <li><a href="#pricing">Pricing</a></li>
           <ProfileView type={this.props.type} />
           <ProfileView avatar="true" />
         </ul>
