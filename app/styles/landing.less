@@ -93,7 +93,7 @@ body.landing {
 			margin: auto;
 
 			&.cleared {
-				margin-bottom: 150px;
+				margin-bottom: 200px;
 
 				&:last-child {
 					margin-bottom: 0;
@@ -138,32 +138,54 @@ body.landing {
 			.illustration {
 				width: 400px;
 				background-repeat: no-repeat;
+
+				div {
+					background-image: url("@{images}/trial_shadow.svg");
+					background-size: 360px 40px;
+					background-position: bottom center;
+					background-repeat: no-repeat;
+					height: 100%;
+					width: 100%;
+				}
 			}
 		}
 
 		#feature-1 .illustration {
 			background-image: url("@{images}/security.png");
-			background-size: 327px 200px;
-			height: 200px;
-			margin-right: 50px;
-		}
+			background-size: 350px 132px;
+			height: 132px;
+			margin-right: 25px;
 
-		#feature-1 + .cleared {
-			margin-bottom: 200px;
+			div {
+				margin-top: 75px;
+				margin-left: -10px;
+			}
 		}
 
 		#feature-2 .illustration {
 			background-image: url("@{images}/versioning.png");
-			background-size: 315px 300px;
-			height: 300px;
+			background-size: 314px 250px;
+			height: 250px;
 			margin-top: -25px;
+			margin-left: 25px;
+
+			div {
+				margin-top: 70px;
+				margin-left: -50px;
+			}
 		}
 
 		#feature-3 .illustration {
 			background-image: url("@{images}/access_control.png");
-			background-size: 325px 300px;
-			height: 300px;
+			background-size: 214px 250px;
+			height: 250px;
 			margin-top: -50px;
+			margin-right: 50px;
+
+			div {
+				margin-top: 60px;
+				margin-left: 90px;
+			}
 		}
 	}
 
