@@ -245,7 +245,6 @@ body.landing {
 			}
 
 			#code, #package {
-				width: 550px;
 				float: right;
 
 				> div {
@@ -257,8 +256,55 @@ body.landing {
 				}
 			}
 
-			#code pre {
-				min-height: 150px;
+			#code {
+				margin-top: 10px;
+
+				pre {
+					min-height: 180px;
+					line-height: 30px;
+
+					span.c1, span.c {
+						color: @nevada;
+					}
+
+					span.kd, span.kn, span.k, span.nb {
+						color: @celery;
+					}
+
+					span.s2, span.s1, span.s {
+						color: @punch;
+					}
+
+					span.no, span.nx, span.nv {
+						color: #44cfcf;
+					}
+
+					span.n, span.na, span.nn {
+						color: #ffa500;
+					}
+				}
+			}
+
+			td.linenos {
+				width: 50px;
+				text-align: center;
+
+				pre {
+					background-color: @shark2;
+					border-bottom-left-radius: 2px;
+					border-top-left-radius: 2px;
+					font-family: 'Gotham Rounded Medium', sans-serif;
+					font-size: 13px;
+				}
+			}
+
+			td.code {
+				width: 500px;
+
+				pre {
+					border-bottom-right-radius: 2px;
+					border-top-right-radius: 2px;
+				}
 			}
 		}
 	}
