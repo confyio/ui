@@ -1,12 +1,14 @@
 module.exports = {
   all: {
     options: {
-      bucket: 'confyio',
+      bucket: 'confy',
       access: 'public-read',
       headers: {
         "Cache-Control": "max-age=630720000, public",
         "Expires": new Date(Date.now() + 63072000000).toUTCString()
-      }
+      },
+      region: 'us-east-1',
+      maxOperations: 1
     },
     upload: [
       {
