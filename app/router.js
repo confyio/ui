@@ -10,6 +10,7 @@ export default Backbone.Router.extend({
     this.route('', PagesRoute.landing);
     this.route('how', PagesRoute.landing);
     this.route('pricing', PagesRoute.landing);
+    this.route('privacy', PagesRoute.privacy);
 
     this.route('login', PagesRoute.login);
     this.route('logout', PagesRoute.logout);

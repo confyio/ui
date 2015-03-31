@@ -27,7 +27,7 @@ export default React.createClass({
         </ul>
       );
     } else {
-      $('body').attr('class', 'landing');
+      $('body').attr('class', 'landing ' + (this.props.landing_suffix || ''));
 
       return (
         <ul className="nav navbar-nav navbar-right">
