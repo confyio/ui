@@ -464,9 +464,22 @@ pre {
 	> div {
 		margin-top: 50px;
 
-		p {
+		p, ul {
 			font-size: 13px;
 			margin-bottom: 20px;
+
+			.marked {
+				color: @punch;
+				font-weight: bold;
+			}
+		}
+
+		a {
+			color: @punch;
+
+			&:hover, &:focus {
+				color: @mojo;
+			}
 		}
 	}
 }

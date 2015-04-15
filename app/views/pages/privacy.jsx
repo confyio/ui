@@ -1,9 +1,15 @@
 /** @jsx React.DOM */
 
+import PagesLoginView from 'confy/views/pages/login';
+import PagesRegisterView from 'confy/views/pages/register';
+
 export default React.createClass({
   render: function () {
     return (
       <div id="privacy" className="content copytext">
+        <PagesLoginView />
+        <PagesRegisterView />
+
         <h1>Privacy Policy</h1>
 
         <div>
@@ -42,13 +48,13 @@ export default React.createClass({
             <li>Remove your Personally-Identifying Information from the system</li>
           </ul>
 
-          <p>Should you wish to exercise that right, or if you have any questions concerning our privacy policy please contact us at support@confy.io</p>
+          <p>Should you wish to exercise that right, or if you have any questions concerning our privacy policy please contact us at <a href="mailto:support@confy.io">support@confy.io</a></p>
         </div>
 
         <div>
           <h3>Marketing Activities</h3>
           <p>If you are a registered user of an Confy website and have supplied your email address, Confy may occasionally send you an email to tell you about new features, solicit your feedback, or just keep you up to date with what’s going on with Confy and our products. We primarily use our various product blogs to communicate this type of information, so we expect to keep this type of email to a minimum.</p>
-          <p>If you wish to opt-out of receiving this communication, please contact support@confy.io with the subject line “Unsubscribe”.</p>
+          <p>If you wish to opt-out of receiving this communication, please click on the link "Unsubscribe" in the mail which was sent.</p>
         </div>
 
         <div>

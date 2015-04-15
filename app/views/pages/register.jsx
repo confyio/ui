@@ -86,7 +86,7 @@ export default React.createClass({
             <label htmlFor="register-news">Tell me about confy news</label>
           </div>
           <div className="cleared"></div>
-          <div id="read-tos">By signing up, I agree to Confy's <a href="#">Terms of Service</a> and <a href="#privacy">Privacy Policy</a></div>
+          <div id="read-tos">By signing up, I agree to Confy's <a href="#tos">Terms of Service</a> and <a href="#privacy">Privacy Policy</a></div>
           <button type="submit" className="btn btn-danger">Signup</button>
         </form>
       </ModalView>

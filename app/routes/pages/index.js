@@ -4,6 +4,7 @@ import PagesLogoutRoute from 'confy/routes/pages/logout';
 import PagesRegisterRoute from 'confy/routes/pages/register';
 import PagesVerifyRoute from 'confy/routes/pages/verify';
 import PagesPrivacyRoute from 'confy/routes/pages/privacy';
+import PagesTOSRoute from 'confy/routes/pages/tos';
 
 export default {
   landing: PagesLandingRoute,
@@ -11,5 +12,6 @@ export default {
   logout: PagesLogoutRoute,
   register: PagesRegisterRoute,
   verify: PagesVerifyRoute,
-  privacy: PagesPrivacyRoute
+  privacy: PagesPrivacyRoute,
+  tos: PagesTOSRoute
 };

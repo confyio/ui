@@ -11,6 +11,7 @@ export default Backbone.Router.extend({
     this.route('how', PagesRoute.landing);
     this.route('pricing', PagesRoute.landing);
     this.route('privacy', PagesRoute.privacy);
+    this.route('tos', PagesRoute.tos);
 
     this.route('login', PagesRoute.login);
     this.route('logout', PagesRoute.logout);
