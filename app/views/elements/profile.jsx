@@ -7,7 +7,7 @@ export default React.createClass({
     if (this.props.avatar) {
       if (window.user) {
         var avatar = {
-          background: 'url(' + window.user.get('avatar') +') #ffffff'
+          background: 'url(' + window.user.get('avatar') +') #ffffff 0 0/40px 40px'
         };
 
         link = (
