@@ -5,9 +5,7 @@ export default function (org, callback) {
   var self = this;
 
   OrgsListRoute(function () {
-    if (window.org && window.org.get('id') == org) {
-      if (callback) return callback();
-    } else {
+    if (!window.org || window.org.get('id') != org) {
       window.org = window.orgs.findWhere({ id: org });
 
       if (!window.org) {
