@@ -4,6 +4,7 @@ import ProjectsUpdateButtonView from 'confy/views/projects/button-update';
 import TeamsUpdateButtonView from 'confy/views/teams/button-update';
 import EnvsUpdateButtonView from 'confy/views/envs/button-update';
 import EnvsLockButtonView from 'confy/views/envs/button-lock';
+import EnvsVersionButtonView from 'confy/views/envs/button-version';
 
 export default React.createClass({
   render: function () {
@@ -36,6 +37,7 @@ export default React.createClass({
             {this.props.header}
           </h3>
           <EnvsLockButtonView type={this.props.type} />
+          <EnvsVersionButtonView type={this.props.type} />
         </div>
         <div className="cleared" id="admin-actions">
           {admin}
