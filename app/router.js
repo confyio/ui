@@ -32,6 +32,7 @@ export default Backbone.Router.extend({
 
     this.route('orgs/:org/projects/:project/envs/:env', EnvsRoute.view);
     this.route('orgs/:org/projects/:project/envs/:env/_update', EnvsRoute.update);
+    this.route('orgs/:org/projects/:project/envs/:env/_versions', EnvsRoute.versions);
     this.route('orgs/:org/projects/:project/envs/_create', EnvsRoute.create);
 
     this.route('orgs/:org/teams', TeamsRoute.list);

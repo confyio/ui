@@ -12,6 +12,7 @@
   "devDependencies": {
     "jsoneditor-confy": "3.2.x",
     "forge-min": "0.6.x",
+    "moment": "2.10.x",
     "jquery": "2.1.x",
     "bootstrap": "3.3.x",
     "font-awesome": "4.2.x",

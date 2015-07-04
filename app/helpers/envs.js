@@ -1,6 +1,7 @@
 import Env from 'confy/models/env';
 import EnvCollection from 'confy/collections/env';
 import Config from 'confy/models/config';
+import Versions from 'confy/models/versions';
 
 var EnvsHelper = {};
 
@@ -31,6 +32,17 @@ EnvsHelper.config = function (callback) {
       return callback();
     }
   });
-}
+};
+
+EnvsHelper.versions = function (callback) {
+  if (window.env.versions) return callback();
+
+  new Versions().fetch({
+    success: function (child, data) {
+      window.env.versions = data;
+      return callback();
+    }
+  });
+};
 
 export default EnvsHelper;
