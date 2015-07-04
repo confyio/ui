@@ -8,7 +8,7 @@ import EnvsVersionButtonView from 'confy/views/envs/button-version';
 
 export default React.createClass({
   render: function () {
-    var actions, admin, alerts = window.flashes;
+    var actions, admin, envActions, alerts = window.flashes;
     delete window.flashes;
 
     if (!this.props.noActions) {
@@ -29,6 +29,15 @@ export default React.createClass({
       );
     }
 
+    if (!this.props.isVersions) {
+      envActions = (
+        <div>
+          <EnvsLockButtonView type={this.props.type} />
+          <EnvsVersionButtonView type={this.props.type} isVersions={this.props.isVersions} />
+        </div>
+      );
+    }
+
     return (
       <div className="content" id={this.props.id}>
         <div id="alerts" dangerouslySetInnerHTML={{ __html: alerts }}></div>
@@ -36,8 +45,7 @@ export default React.createClass({
           <h3 className="pageheader">
             {this.props.header}
           </h3>
-          <EnvsLockButtonView type={this.props.type} />
-          <EnvsVersionButtonView type={this.props.type} />
+          {envActions}
         </div>
         <div className="cleared" id="admin-actions">
           {admin}
