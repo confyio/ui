@@ -5,6 +5,32 @@ import Alert from 'confy/helpers/alert';
 export default React.createClass({
   handleClick: function (e) {
     e.preventDefault();
+
+    var config = this.props.version.config;
+
+    if (typeof config == 'string') {
+      config = { _encrypted: config };
+    } else {
+      window.env.config.unset('_encrypted');
+    }
+
+    window.env.config.save(config, {
+      method: 'put',
+      wait: true,
+      success: function (model, response) {
+        Alert('Successfully rolled back your credentials');
+        delete window.env.config;
+        delete window.env.encrypted;
+        delete window.env.decrypted;
+
+        window.App.navigate(window.env.get('link'), {
+          trigger: true
+        });
+      },
+      error: function (model, response) {
+        Alert('Unable to rollback credentials. Please reload the page and try again', 'danger');
+      }
+    });
   },
   render: function () {
     var time = moment.unix(this.props.version.time/1000);

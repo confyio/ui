@@ -21,6 +21,8 @@ export default React.createClass({
 
     if (typeof config == 'string') {
       config = { _encrypted: config };
+    } else {
+      window.env.config.unset('_encrypted');
     }
 
     window.env.config.save(config, {
@@ -104,7 +106,6 @@ export default React.createClass({
     }
   },
   clickedLock: function (e) {
-    var self = this;
     e.preventDefault();
 
     try {
