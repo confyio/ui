@@ -49,7 +49,7 @@ body.landing {
 	}
 
 	#screens {
-		height: 550px;
+		height: 480px;
 
 		> div {
 			width: 960px;
@@ -61,22 +61,31 @@ body.landing {
 				position: absolute;
 
 				&:first-child {
-					height: 505px;
-					width: 771px;
+					width: 565px;
+					height: 358px;
 					background-image: url("@{images}/first_screen.png");
-					background-size: 771px 505px;
-					top: 102px;
-					right: -97px;
+					background-size: 565px 358px;
+					left: 55px;
+					top: 122px;
 					z-index: -100;
 				}
 
+				&:nth-child(2) {
+					width: 675px;
+					height: 458px;
+					background-image: url("@{images}/first_screen_blur.png");
+					background-size: 675px 458px;
+					top: 65px;
+					z-index: -150;
+				}
+
 				&:last-child {
-					height: 287px;
 					width: 428px;
+					height: 287px;
 					background-image: url("@{images}/second_screen.png");
 					background-size: 428px 287px;
-					top: 264px;
-					left: 0px;
+					right: 0px;
+					top: 193px;
 					z-index: -200;
 				}
 			}
