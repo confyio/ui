@@ -9,4 +9,4 @@
 
 window.ENV = window.ENV || {};
 
-window.ENV.GRAVATAR = "7d96c775c0b73a349528b5f9aa1e1b91";
+window.ENV.GRAVATAR = "e5d4be1d04117373422ebcb29985e68b";
