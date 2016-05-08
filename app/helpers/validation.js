@@ -24,10 +24,10 @@ export default function (state, model, errs, type, self) {
     },
     invalid: function (key) {
       if (key == 'email') {
-        return 'The given email should be valid';
+        return 'Email should be valid';
       }
 
-      return 'The given ' + key + ' should be alphanumeric';
+      return key.charAt(0).toUpperCase() + key.slice(1) + ' should be alphanumeric';
     },
     already_exists: function (key) {
       return type + ' with the given ' + key + ' already exists';

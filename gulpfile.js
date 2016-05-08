@@ -9,10 +9,10 @@ var gulp = require('gulp')
   , transpile = require('gulp-es6-module-transpiler')
   , preprocess = require('gulp-preprocess')
   , useref = require('gulp-useref')
-  , minifyCss = require('gulp-minify-css')
+  , cleanCss = require('gulp-clean-css')
   , uglify = require('gulp-uglify')
   , livereload = require('gulp-livereload')
-  , rev = require('gulp-rev-all')
+  , Rev = require('gulp-rev-all')
   , aws = require('gulp-awspublish')
   , cloudfront = require('gulp-cloudfront-invalidate')
   , AMDFormatter = require('es6-module-transpiler-amd-formatter')
@@ -99,18 +99,14 @@ gulp.task('preprocess:dist', function () {
 });
 
 gulp.task('useref', function () {
-  var assets = useref.assets();
-
   return gulp.src('tmp/result/*.html')
-    .pipe(assets)
-    .pipe(assets.restore())
     .pipe(useref())
     .pipe(gulp.dest('tmp/dist'));
 });
 
 gulp.task('minify', function () {
   return gulp.src('tmp/dist/**/*.css')
-    .pipe(minifyCss())
+    .pipe(cleanCss())
     .pipe(gulp.dest('tmp/dist'));
 })
 
@@ -131,10 +127,14 @@ gulp.task('assets', ['assemble:assets'], function () {
 });
 
 gulp.task('rev', function () {
+  var rev = new Rev({
+    dontRenameFile: ['index.html'],
+    dontGlobal: ['robots.txt', 'crossdomain.xml'],
+    dontSearchFile: ['.svg']
+  });
+
   return gulp.src('tmp/dist/**')
-    .pipe(rev({
-      ignore: ['index.html', 'robots.txt', 'crossdomain.xml']
-    }))
+    .pipe(rev.revision())
     .pipe(gulp.dest('tmp/cdn'));
 });
 
