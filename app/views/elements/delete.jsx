@@ -16,7 +16,7 @@ export default React.createClass({
   handleChange: function (e) {
     var name = this.refs.name.getDOMNode().value.trim();
 
-    if (name == this.props.model.get('name')) {
+    if (name.toLowerCase() == this.props.model.get('name').toLowerCase()) {
       this.refs.name.getDOMNode().className = 'form-control correct';
     } else {
       this.refs.name.getDOMNode().className = 'form-control';
