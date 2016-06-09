@@ -7,6 +7,7 @@ var gulp = require('gulp')
   , less = require('gulp-less')
   , autoprefixer = require('gulp-autoprefixer')
   , transpile = require('gulp-es6-module-transpiler')
+  , validate = require('gulp-es6-import-validate')
   , preprocess = require('gulp-preprocess')
   , useref = require('gulp-useref')
   , cleanCss = require('gulp-clean-css')
@@ -52,6 +53,11 @@ gulp.task('javascript', function () {
     .pipe(gulp.dest('tmp/javascript/confy'));
 });
 
+gulp.task('validate', ['react', 'javascript'], function () {
+  return gulp.src('tmp/javascript/**/*.js', { read: false })
+    .pipe(validate({ cwd: 'tmp/javascript'}));
+})
+
 gulp.task('assemble:public', function () {
   return gulp.src('public/**')
     .pipe(gulp.dest('tmp/result'));
@@ -67,7 +73,7 @@ gulp.task('assemble:packages', function () {
     .pipe(gulp.dest('tmp/result/node_modules'));
 });
 
-gulp.task('transpile', ['react', 'javascript'], function () {
+gulp.task('transpile', ['validate'], function () {
   return gulp.src('tmp/javascript/**/*.js')
     .pipe(transpile({
       formatter: new AMDFormatter(),
