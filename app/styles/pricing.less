@@ -1,0 +1,40 @@
+body.landing {
+	&.home, &.how {
+		#pricing-banner, #pricing-table {
+			display: none;
+		}
+	}
+}
+
+body.landing.pricing {
+	#pricing-banner {
+		display: block;
+
+		h1 {
+			font-size: 64px;
+			line-height: 1.1em;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+
+		h2 {
+			font-size: 37px;
+		}
+
+		button {
+			width: 540px;
+			height: 100px;
+			font-size: 36px;
+			padding: 30px 30px;
+			line-height: 40px;
+			background: @shark1;
+			letter-spacing: 3px;
+		}
+	}
+
+	#pricing-table {
+		display: block;
+		background-color: @punch;
+		height: 500px;
+	}
+}

@@ -8,8 +8,8 @@ import UserRoute from 'confy/routes/user/index';
 export default Backbone.Router.extend({
   initialize: function (options) {
     this.route('', PagesRoute.landing);
-    this.route('how', PagesRoute.landing);
-    this.route('pricing', PagesRoute.landing);
+    this.route('how', PagesRoute.how);
+    this.route('pricing', PagesRoute.pricing);
     this.route('privacy', PagesRoute.privacy);
     this.route('tos', PagesRoute.tos);
 
