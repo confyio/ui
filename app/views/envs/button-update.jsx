@@ -8,7 +8,7 @@ export default React.createClass({
   render: function () {
     var isOwner = (window.user.get('username') == window.org.get('owner'));
 
-    if (this.props.type == 'Environment' && window.env && window.env.get('id') != 'production' && isOwner) {
+    if (this.props.type == 'Stage' && window.env && window.env.get('id') != 'production' && isOwner) {
       return (
         <div className="settings">
           <a href={window.env.get('link') + '/_update'}>

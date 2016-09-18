@@ -6,7 +6,7 @@ import EnvsVersionView from 'confy/views/envs/version';
 export default React.createClass({
   render: function () {
     return (
-      <MainView type="Environment" header={window.env.get('name')} isVersions="true">
+      <MainView type="Stage" header={window.env.get('name')} isVersions="true">
         <table className="table">
           <thead>
             <tr>

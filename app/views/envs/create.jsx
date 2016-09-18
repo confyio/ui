@@ -19,7 +19,7 @@ export default React.createClass({
     });
 
     env.on('invalid', function (model, errs) {
-      self.setState(ValidationHelper(self.state, model, errs, 'Environment', self));
+      self.setState(ValidationHelper(self.state, model, errs, 'Stage', self));
     });
 
     env.save({}, {
@@ -32,24 +32,24 @@ export default React.createClass({
       },
       error: function (model, response) {
         if (response.status == 422) {
-          self.setState(ValidationHelper(self.state, model, response.responseJSON.errors, 'Environment', self));
+          self.setState(ValidationHelper(self.state, model, response.responseJSON.errors, 'Stage', self));
         }
       }
     });
   },
   render: function () {
     return (
-      <MainView header="Create Environment">
+      <MainView header="Create Stage">
         <form role="form" onSubmit={this.handleSubmit}>
           <div className={this.state.name.className}>
-            <label>Environment Name</label>
+            <label>Stage Name</label>
             <ValidationView message={this.state.name.message} />
-            <input className="form-control" placeholder="Enter environment name" ref="name" defaultValue={this.state.name.value} />
+            <input className="form-control" placeholder="Enter stage name" ref="name" defaultValue={this.state.name.value} />
           </div>
           <div className={this.state.description.className}>
             <label>Description</label>
             <ValidationView message={this.state.description.message} />
-            <input className="form-control" placeholder="Enter environment description" ref="description" defaultValue={this.state.description.value} />
+            <input className="form-control" placeholder="Enter stage description" ref="description" defaultValue={this.state.description.value} />
           </div>
           <button type="submit" className="btn btn-primary">Create</button>
         </form>

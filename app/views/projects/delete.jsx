@@ -6,7 +6,7 @@ export default React.createClass({
   render: function () {
     return (
       <DeleteConfirmationView type="project" model={window.project}>
-        <p>All the environments under this project will be deleted.</p>
+        <p>All the stages under this project will be deleted.</p>
       </DeleteConfirmationView>
     );
   }

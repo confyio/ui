@@ -60,7 +60,7 @@ export default React.createClass({
   render: function () {
     var pullRight = '';
 
-    if (this.props.type == 'organization' || this.props.type == 'environment') {
+    if (this.props.type == 'organization' || this.props.type == 'stage') {
       pullRight = ' pull-right';
     }
 

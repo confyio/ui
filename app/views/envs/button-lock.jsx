@@ -116,7 +116,7 @@ export default React.createClass({
     }
   },
   render: function () {
-    if (this.props.type == 'Environment' && window.env && window.env.config) {
+    if (this.props.type == 'Stage' && window.env && window.env.config) {
       var button;
 
       if (this.state.icon == 'unlock') {

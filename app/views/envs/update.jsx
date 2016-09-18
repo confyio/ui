@@ -14,7 +14,7 @@ export default React.createClass({
     e.preventDefault();
 
     window.env.on('invalid', function (model, errs) {
-      self.setState(ValidationHelper(self.state, model, errs, 'Environment', self));
+      self.setState(ValidationHelper(self.state, model, errs, 'Stage', self));
     });
 
     window.env.save({
@@ -23,27 +23,27 @@ export default React.createClass({
       patch: true,
       success: function (model, response) {
         Backbone.history.loadUrl();
-        Alert('Successfully updated the environment <b>' + window.env.get('name') + '</b>');
+        Alert('Successfully updated the stage <b>' + window.env.get('name') + '</b>');
       },
       error: function (model, response) {
         if (response.status == 422) {
-          self.setState(ValidationHelper(self.state, model, response.responseJSON.errors, 'Environment', self));
+          self.setState(ValidationHelper(self.state, model, response.responseJSON.errors, 'Stage', self));
         }
       }
     });
   },
   render: function () {
     return (
-      <MainView header="Update Environment">
+      <MainView header="Update Stage">
         <form role="form" onSubmit={this.handleSubmit}>
           <div className="form-group">
-            <label>Environment Name</label>
+            <label>Stage Name</label>
             <p className="form-control-static">{window.env.get('name')}</p>
           </div>
           <div className={this.state.description.className}>
             <label>Description</label>
             <ValidationView message={this.state.description.message} />
-            <input className="form-control" placeholder="Enter environment description" ref="description" defaultValue={this.state.description.value} />
+            <input className="form-control" placeholder="Enter stage description" ref="description" defaultValue={this.state.description.value} />
           </div>
           <button type="submit" className="btn btn-primary">Save</button>
         </form>
