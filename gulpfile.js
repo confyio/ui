@@ -56,7 +56,7 @@ gulp.task('javascript', function () {
 gulp.task('validate', ['react', 'javascript'], function () {
   return gulp.src('tmp/javascript/**/*.js', { read: false })
     .pipe(validate({ cwd: 'tmp/javascript'}));
-})
+});
 
 gulp.task('assemble:public', function () {
   return gulp.src('public/**')

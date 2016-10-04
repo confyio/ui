@@ -1,0 +1,11 @@
+{
+	"folders":
+	[
+		{
+			"name": "Confy Web",
+			"follow_symlinks": true,
+			"path": "/",
+			"folder_exclude_patterns": [".tmp", "dist", "node_modules", "tests", "tmp"]
+		}
+	]
+}
