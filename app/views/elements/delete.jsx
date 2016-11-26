@@ -26,7 +26,9 @@ export default React.createClass({
     var self = this;
     e.preventDefault();
 
-    if (this.props.model.get('name') == this.refs.name.getDOMNode().value.trim()) {
+    var name = this.refs.name.getDOMNode().value.trim();
+
+    if (this.props.model.get('name').toLowerCase() == name.toLowerCase()) {
       this.props.model.destroy({
         wait: true,
         success: function (model, response) {

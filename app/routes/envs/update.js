@@ -7,7 +7,7 @@ export default function (org, project, env, callback) {
   var self = this;
 
   EnvsViewRoute(org, project, env, function () {
-    if (window.user.get('username') != window.org.get('owner') || window.env.get('id') == 'production') {
+    if (window.user.get('username') != window.org.get('owner')) {
       self.navigate(window.env.get('link'), {
         trigger: true, replace: true
       });
