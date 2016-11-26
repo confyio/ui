@@ -8,7 +8,7 @@ import LoadingView from 'confy/views/elements/loading';
 
 export default React.createClass({
   getInitialState: function () {
-    return ValidationHelper(['username', 'fullname', 'email', 'password']);
+    return ValidationHelper(['username', 'email', 'password']);
   },
   handleSubmit: function (e) {
     var self = this;
@@ -16,7 +16,6 @@ export default React.createClass({
 
     var user = new User({
       username: this.refs.username.getDOMNode().value.trim(),
-      fullname: this.refs.fullname.getDOMNode().value.trim(),
       email: this.refs.email.getDOMNode().value.trim(),
       password: this.refs.password.getDOMNode().value.trim(),
       news: this.refs.news.getDOMNode().checked
@@ -69,9 +68,6 @@ export default React.createClass({
           <div className={this.state.username.className}>
             <input className="form-control tooltipper" placeholder="Username" ref="username" />
             <ValidationView message={this.state.username.message} direction="left" />
-          </div>
-          <div className="form-group">
-            <input className="form-control" placeholder="Full Name" ref="fullname" />
           </div>
           <div className={this.state.email.className}>
             <input className="form-control tooltipper" placeholder="Email Adress" ref="email" />
