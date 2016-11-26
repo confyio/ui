@@ -1,6 +1,6 @@
 body.landing {
 	&.home, &.how {
-		#pricing-banner, #pricing-table {
+		#pricing-banner, #pricing-table, #pricing-enterprise {
 			display: none;
 		}
 	}
@@ -17,7 +17,7 @@ body.landing.pricing {
 			font-weight: 700;
 			text-transform: uppercase;
 			margin: 100px auto 50px;
-			color: @white;
+			color: @osloGray;
 		}
 
 		h2 {
@@ -25,7 +25,7 @@ body.landing.pricing {
 			line-height: 1.1em;
 			font-weight: 400;
 			margin: 0 0 50px;
-			color: @mercury;
+			color: @white;
 		}
 
 		button {
@@ -98,6 +98,44 @@ body.landing.pricing {
 					letter-spacing: 1px;
 					padding: 3px 10px;
 				}
+			}
+		}
+	}
+
+	#pricing-enterprise {
+		display: block;
+		text-align: center;
+		background-color: @shark;
+		padding: 45px 0 75px;
+
+		h1 {
+			color: @gallery;
+			font-size: 50px;
+			text-transform: uppercase;
+			margin-bottom: 50px;
+		}
+
+		h2 {
+			color: @alabaster;
+			font-size: 24px;
+		}
+
+		p {
+			color: @silverChalice;
+			font-size: 20px;
+			margin: 50px 0;
+		}
+
+		button {
+			border: 1px solid @alabaster;
+			height: 50px;
+
+			&.top-button {
+				margin-top: 50px;
+			}
+
+			&:hover {
+				border-width: 2px;
 			}
 		}
 	}
