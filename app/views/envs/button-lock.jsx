@@ -121,14 +121,14 @@ export default React.createClass({
 
       if (this.state.icon == 'unlock') {
         button = (
-          <a className="btn btn-danger btn-round tooltipper" href="#" onClick={this.clickedUnlock} data-placement="top" data-original-title="Unlock credentials">
-            <i className="fa fa-fw unlock"></i>
+          <a className="btn btn-default btn-round tooltipper" href="#" onClick={this.clickedUnlock} data-placement="top" data-original-title="Edit credentials">
+            <i className="fa fa-fw fa-pencil"></i>
           </a>
         );
       } else if (this.state.icon == 'lock') {
         button = (
-          <a className="btn btn-success btn-round tooltipper" href="#" onClick={this.clickedLock} data-placement="top" data-original-title="Lock credentials">
-            <i className="fa fa-fw lock"></i>
+          <a className="btn btn-success btn-round tooltipper" href="#" onClick={this.clickedLock} data-placement="top" data-original-title="Save credentials">
+            <i className="fa fa-fw fa-save"></i>
           </a>
         );
       }
@@ -143,7 +143,7 @@ export default React.createClass({
             <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
           </ModalView>
           <ModalView id="encrypt-pass" title="Encrypt it?">
-            <p>Are you sure you want to encrypt the document? If yes, please provide the password which is used for encrypting the document.</p>
+            <p>Do you want to encrypt the document? If yes, please provide the password which is used for encrypting the document.</p>
             <p className="modal-second-warn">Do not lose the encryption password since it is needed for decryption</p>
             <input className="form-control" ref="encryptpass" type="password" placeholder="Enter password" />
             <button type="button" className="btn btn-danger" onClick={this.handleNoEncrypt}>No</button>

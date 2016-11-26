@@ -242,6 +242,9 @@ body.console {
 			height: 14px;
 			line-height: 14px;
 			background-size: 10px 14px;
+			top: -1px;
+			position: relative;
+			left: -1px;
 
 			&.lock {
 				background: url("@{images}/lock.svg");
@@ -256,12 +259,6 @@ body.console {
 
 	.btn-version {
 		margin-right: 10px;
-
-		i {
-			top: -1px;
-			position: relative;
-			left: -1px;
-		}
 	}
 
 	#admin-actions {
@@ -277,16 +274,26 @@ body.console {
 		a {
 			color: @punch;
 			margin-left: 5px;
+
+			&:focus, &:hover {
+				color: @wellRead;
+			}
 		}
 	}
 
 	.actions {
 		float: right;
 		display: inline-block;
+		margin-right: -20px;
 
-		.settings a {
+		> div {
+			display: inline-block;
+		}
+
+		a {
 			color: @doveGray;
 			font-family: 'Gotham Rounded Book', sans-serif;
+			margin-right: 20px;
 
 			i {
 				padding-right: 5px;
@@ -333,8 +340,16 @@ body.console {
 				min-width: 270px;
 			}
 
-			a, > span {
+			> span {
 				color: @shark1;
+			}
+
+			a {
+				color: @punch;
+
+				&:focus, &:hover {
+					color: @wellRead;
+				}
 			}
 
 			input {

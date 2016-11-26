@@ -22,7 +22,10 @@ export default React.createClass({
           return (
             <li role="presentation" key={env.get('key')} className={env.get('id') == id ? 'active' : ''}>
               <a href={env.get('link')}>
-                <div>{env.get('name')}</div>
+                <div>
+                  <i className="fa fa-fw fa-chevron-right"></i>
+                  {env.get('name')}
+                </div>
               </a>
             </li>
           );

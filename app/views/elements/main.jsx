@@ -1,6 +1,7 @@
 /** @jsx React.DOM */
 
 import ProjectsUpdateButtonView from 'confy/views/projects/button-update';
+import ProjectsTeamsButtonView from 'confy/views/projects/button-teams';
 import TeamsUpdateButtonView from 'confy/views/teams/button-update';
 import EnvsUpdateButtonView from 'confy/views/envs/button-update';
 import EnvsLockButtonView from 'confy/views/envs/button-lock';
@@ -8,15 +9,22 @@ import EnvsVersionButtonView from 'confy/views/envs/button-version';
 
 export default React.createClass({
   render: function () {
-    var actions, admin, envActions, alerts = window.flashes;
+    var actions, admin, envActions, access, alerts = window.flashes;
     delete window.flashes;
+
+    if (!this.props.noAccess) {
+      access = (
+        <ProjectsTeamsButtonView type={this.props.type} />
+      )
+    }
 
     if (!this.props.noActions) {
       actions = (
         <div className="actions">
           <EnvsUpdateButtonView type={this.props.type} />
-          <TeamsUpdateButtonView type={this.props.type} />
-          <ProjectsUpdateButtonView type={this.props.type} />
+          <TeamsUpdateButtonView type={this.props.type} noSettings={this.props.noSettings} />
+          {access}
+          <ProjectsUpdateButtonView type={this.props.type} noSettings={this.props.noSettings} />
         </div>
       );
     }

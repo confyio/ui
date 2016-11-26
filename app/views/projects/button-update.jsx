@@ -8,9 +8,9 @@ export default React.createClass({
   render: function () {
     var isOwner = (window.user.get('username') == window.org.get('owner'));
 
-    if (this.props.type == 'Project' && window.project && isOwner) {
+    if (!this.props.noSettings && this.props.type == 'Project' && window.project && isOwner) {
       return (
-        <div className="settings">
+        <div>
           <a href={window.project.get('link') + '/_update'}>
             <i className="fa fa-fw fa-gear"></i>
             Settings

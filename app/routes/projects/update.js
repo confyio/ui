@@ -8,13 +8,13 @@ export default function (org, project, callback) {
 
   ProjectsViewRoute(org, project, function () {
     if (window.user.get('username') != window.org.get('owner')) {
-      self.navigate(window.project.get('link'), {
+      return self.navigate(window.project.get('link'), {
         trigger: true, replace: true
       });
-    } else {
-      React.render(ProjectsListView({}), $('.sidebar')[0]);
-      React.render(ProjectsUpdateView({}), $('#wrap')[0]);
-      React.render(ProjectsDeleteView({}), $('#delete-wrap')[0]);
     }
+
+    React.render(ProjectsListView({noEnvActive: true}), $('.sidebar')[0]);
+    React.render(ProjectsUpdateView({}), $('#wrap')[0]);
+    React.render(ProjectsDeleteView({}), $('#delete-wrap')[0]);
   });
 };

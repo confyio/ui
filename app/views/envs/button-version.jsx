@@ -8,7 +8,7 @@ export default React.createClass({
   render: function () {
     if (this.props.type == 'Stage' && window.env) {
       return (
-        <a className="btn btn-success btn-round tooltipper btn-version" href={window.env.get('link') + '/_versions'} data-placement="top" data-original-title="List all versions">
+        <a className="btn btn-default btn-round tooltipper btn-version" href={window.env.get('link') + '/_versions'} data-placement="top" data-original-title="List all versions">
           <i className="fa fa-fw fa-database"></i>
         </a>
       );

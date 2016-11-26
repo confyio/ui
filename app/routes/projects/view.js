@@ -27,10 +27,8 @@ export default function (org, project, callback) {
     EnvsHelper.list(function () {
       if (callback) return callback();
 
-      ProjectsHelper.teams(function () {
-        React.render(ProjectsListView({noEnvActive: true}), $('.sidebar')[0]);
-        React.render(ProjectsInfoView({}), $('#wrap')[0]);
-      });
+      React.render(ProjectsListView({noEnvActive: true}), $('.sidebar')[0]);
+      React.render(ProjectsInfoView({}), $('#wrap')[0]);
     });
   });
 };

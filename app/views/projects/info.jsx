@@ -1,82 +1,35 @@
 /** @jsx React.DOM */
 
 import MainView from 'confy/views/elements/main';
-import ProjectAccessView from 'confy/views/projects/access';
-import Access from 'confy/models/access';
-import Alert from 'confy/helpers/alert';
+import EnvsCreateFormView from 'confy/views/envs/create-form';
 
 export default React.createClass({
-  handleChange: function (e) {
-    var team = this.refs.name.getDOMNode().value.trim();
-
-    if (team) {
-      this.refs.button.getDOMNode().className = 'btn btn-success';
-    } else {
-      this.refs.button.getDOMNode().className = 'btn btn-success disabled';
-    }
-  },
-  handleClick: function (e) {
-    var message, team = this.refs.name.getDOMNode().value.trim();
-    e.preventDefault();
-
-    var access = new Access({
-      name: team
-    });
-
-    access.save({}, {
-      success: function (model, response) {
-        delete window.access;
-        Backbone.history.loadUrl();
-        Alert('Successfully granted access to the team <b>' + team + '</b>');
-      },
-      error: function (model, response) {
-        if (response.status == 422) {
-          message = 'We are unable to find a team with the name <b>' + model.get('name') + '</b>';
-        } else {
-          message = 'Unable to grant access. Please reload the page and try again.';
-        }
-
-        Alert(message, 'danger');
-      }
-    });
-  },
   render: function () {
-    var grant, notOwner = (window.user.get('username') != window.org.get('owner'));
-
-    if (!notOwner) {
-      grant = (
-        <table className="table">
-          <tbody>
-            <tr>
-              <td>
-                <input className="form-control grant" placeholder="Enter team name" ref="name" onChange={this.handleChange} />
-              </td>
-              <td>
-                <button className="btn btn-success disabled" ref="button" onClick={this.handleClick}>Grant Access</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+    if (window.envs.length == 0) {
+      return (
+        <MainView id="empty-projects" header="No stages" noAdmin="true" noActions="true">
+          <h5 className="subheader">Lets get started by creating a new stage</h5>
+          <EnvsCreateFormView />
+        </MainView>
       );
     }
 
     return (
       <MainView type="Project" header={window.project.get('name')}>
+        <h5 className="subheader">Please select one of the following stages to get started</h5>
         <table className="table">
-          <thead>
-            <tr>
-              <td colSpan="2">Team Name</td>
-            </tr>
-          </thead>
           <tbody>
-            {window.access.map(function (team) {
+            {window.envs.map(function (env) {
               return (
-                <ProjectAccessView team={team} notOwner={notOwner} />
+                <tr>
+                  <td>
+                    <a href={env.get('link')}>{env.get('name')}</a>
+                  </td>
+                </tr>
               );
             })}
           </tbody>
         </table>
-        {grant}
       </MainView>
     );
   }
