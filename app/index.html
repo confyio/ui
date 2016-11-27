@@ -188,7 +188,7 @@
 				</div>
 			</div>
 			<div id="package">
-				<div id="ruby" class="active">
+				<div id="ruby" class="highlight active">
 					<table>
 						<tr>
 							<td class="linenos">
@@ -200,7 +200,7 @@
 						</tr>
 					</table>
 				</div>
-				<div id="node">
+				<div id="node" class="highlight">
 					<table>
 						<tr>
 							<td class="linenos">
@@ -212,7 +212,7 @@
 						</tr>
 					</table>
 				</div>
-				<div id="python">
+				<div id="python" class="highlight">
 					<table>
 						<tr>
 							<td class="linenos">
@@ -224,7 +224,7 @@
 						</tr>
 					</table>
 				</div>
-				<div id="php">
+				<div id="php" class="highlight">
 					<table>
 						<tr>
 							<td class="linenos">
@@ -245,7 +245,7 @@
 								<pre>1<br>2<br>3<br>4<br>5<br>6</pre>
 							</td>
 							<td class="code">
-								<pre><span class="nb">require</span> <span class="s2">&quot;confyio&quot;</span><br><br><span class="no">Confy</span><span class="o">::</span><span class="no">Config</span><span class="o">.</span><span class="n">env</span><span class="p">(</span><span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;CONFY_URL&#39;</span><span class="o">]</span><span class="p">)</span><br><br><span class="c1"># data[&#39;db&#39;][&#39;pass&#39;]</span><br><span class="nb">puts</span> <span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;DB_PASS&#39;</span><span class="o">]</span> <span class="c1"># =&gt; &#39;password&#39;</span></pre>
+								<pre><span class="nb">require</span> <span class="s2">&quot;confyio&quot;</span><br><br><span class="no">Confy</span><span class="o">::</span><span class="no">Config</span><span class="o">.</span><span class="n">env</span><span class="p">(</span><span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;CONFY_URL&#39;</span><span class="o">]</span><span class="p">)</span><br><br><span class="c1"># data[&#39;db&#39;][&#39;pass&#39;] becomes ENV[&#39;DB_PASS&#39;]</span><br><span class="nb">puts</span> <span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;DB_PASS&#39;</span><span class="o">]</span> <span class="c1"># =&gt; &#39;password&#39;</span></pre>
 							</td>
 						</tr>
 					</table>
@@ -257,7 +257,7 @@
 								<pre>1<br>2<br>3<br>4<br>5<br>6</pre>
 							</td>
 							<td class="code">
-								<pre><span class="kd">var</span> <span class="nn">confy</span> <span class="o">=</span> <span class="kd">require</span><span class="p">(</span><span class="s1">&#39;confyio&#39;</span><span class="p">);</span><br><br><span class="nx">confy</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="n">env</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="n">env</span><span class="p">[</span><span class="s1">&#39;CONFY_URL&#39;</span><span class="p">],</span> <span class="kd">function</span> <span class="p">(</span><span class="n">err</span><span class="p">)</span> <span class="p">{</span><br>  <span class="c1">// data[&#39;db&#39;][&#39;pass&#39;]</span><br>  <span class="nx">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="n">env</span><span class="p">[</span><span class="s1">&#39;DB_PASS&#39;</span><span class="p">]);</span> <span class="c1">// =&gt; &#39;password&#39;</span><br><span class="p">});</span></pre>
+								<pre><span class="kd">var</span> <span class="nn">confy</span> <span class="o">=</span> <span class="kd">require</span><span class="p">(</span><span class="s1">&#39;confyio&#39;</span><span class="p">);</span><br><br><span class="nx">confy</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="n">env</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="n">env</span><span class="p">[</span><span class="s1">&#39;CONFY_URL&#39;</span><span class="p">],</span> <span class="kd">function</span> <span class="p">(</span><span class="n">err</span><span class="p">)</span> <span class="p">{</span><br>  <span class="c1">// data[&#39;db&#39;][&#39;pass&#39;] becomes process.env[&#39;DB_PASS&#39;]</span><br>  <span class="nx">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="n">env</span><span class="p">[</span><span class="s1">&#39;DB_PASS&#39;</span><span class="p">]);</span> <span class="c1">// =&gt; &#39;password&#39;</span><br><span class="p">});</span></pre>
 							</td>
 						</tr>
 					</table>
@@ -269,7 +269,7 @@
 								<pre>1<br>2<br>3<br>4<br>5<br>6</pre>
 							</td>
 							<td class="code">
-								<pre><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">confy</span><br><br><span class="nx">confy</span><span class="o">.</span><span class="nx">Config</span><span class="o">.</span><span class="n">env</span><span class="p">(</span><span class="nx">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&#39;CONFY_URL&#39;</span><span class="p">])</span><br><br><span class="c"># data[&#39;db&#39;][&#39;pass&#39;]</span><br><span class="k">print</span><span class="p">(</span><span class="nx">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&#39;DB_PASS&#39;</span><span class="p">])</span> <span class="c"># =&gt; &#39;password&#39;</span></pre>
+								<pre><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">confy</span><br><br><span class="nx">confy</span><span class="o">.</span><span class="nx">Config</span><span class="o">.</span><span class="n">env</span><span class="p">(</span><span class="nx">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&#39;CONFY_URL&#39;</span><span class="p">])</span><br><br><span class="c"># data[&#39;db&#39;][&#39;pass&#39;] becomes os.environ[&#39;DB_PASS&#39;]</span><br><span class="k">print</span><span class="p">(</span><span class="nx">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&#39;DB_PASS&#39;</span><span class="p">])</span> <span class="c"># =&gt; &#39;password&#39;</span></pre>
 							</td>
 						</tr>
 					</table>
@@ -281,7 +281,7 @@
 								<pre>1<br>2<br>3<br>4<br>5<br>6</pre>
 							</td>
 							<td class="code">
-								<pre><span class="k">require</span> <span class="s1">&#39;vendor/autoload.php&#39;</span><span class="p">;</span><br><br><span class="nx">Confy</span><span class="o">\</span><span class="nx">Config</span><span class="o">::</span><span class="na">env</span><span class="p">(</span><span class="nv">$_ENV</span><span class="p">[</span><span class="s1">&#39;CONFY_URL&#39;</span><span class="p">]);</span><br><br><span class="c1"># data[&#39;db&#39;][&#39;pass&#39;]</span><br><span class="k">echo</span> <span class="nv">$_ENV</span><span class="p">[</span><span class="s1">&#39;DB_PASS&#39;</span><span class="p">];</span> <span class="c1"># =&gt; &#39;password&#39;</span></pre>
+								<pre><span class="k">require</span> <span class="s1">&#39;vendor/autoload.php&#39;</span><span class="p">;</span><br><br><span class="nx">Confy</span><span class="o">\</span><span class="nx">Config</span><span class="o">::</span><span class="na">env</span><span class="p">(</span><span class="nv">$_ENV</span><span class="p">[</span><span class="s1">&#39;CONFY_URL&#39;</span><span class="p">]);</span><br><br><span class="c1"># data[&#39;db&#39;][&#39;pass&#39;] becomes $_ENV[&#39;DB_PASS&#39;]</span><br><span class="k">echo</span> <span class="nv">$_ENV</span><span class="p">[</span><span class="s1">&#39;DB_PASS&#39;</span><span class="p">];</span> <span class="c1"># =&gt; &#39;password&#39;</span></pre>
 							</td>
 						</tr>
 					</table>

@@ -28,7 +28,7 @@ export default function (org, project, callback) {
       if (callback) return callback();
 
       React.render(ProjectsListView({noEnvActive: true}), $('.sidebar')[0]);
-      React.render(ProjectsInfoView({}), $('#wrap')[0]);
+      React.render(ProjectsInfoView(), $('#wrap')[0]);
     });
   });
 };

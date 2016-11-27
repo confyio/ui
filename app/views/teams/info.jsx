@@ -28,7 +28,7 @@ export default React.createClass({
       success: function (model, response) {
         delete window.members;
         Backbone.history.loadUrl();
-        Alert('Successfully added member <b>' + user + '</b> to the team');
+        Alert('Successfully added member <b>' + user + '</b> to the team', null, true);
       },
       error: function (model, response) {
         if (response.status == 422) {

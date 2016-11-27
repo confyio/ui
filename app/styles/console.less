@@ -454,4 +454,58 @@ body.console {
 			display: none;
 		}
 	}
+
+	.getting-started {
+		background-color: @white;
+		margin-bottom: 20px;
+		padding: 10px 20px;
+
+		a {
+			color: @punch;
+
+			&:hover, &:focus {
+				color: @wellRead;
+			}
+		}
+	}
+
+	#documentation {
+		text-transform: none;
+
+		h4 {
+			font-size: 24px;
+			margin: 20px 0;
+
+			&:first-child {
+				margin-top: 10px;
+			}
+		}
+
+		p, .highlight {
+			margin-left: 20px;
+		}
+
+		.highlight {
+			margin-top: 20px;
+
+			.code {
+				width: 480px;
+				display: none;
+
+				&.active {
+					display: block;
+				}
+			}
+		}
+
+		.nav-pills {
+			a:hover, a:focus {
+				color: @white;
+			}
+
+			.active a {
+				color: @white;
+			}
+		}
+	}
 }
