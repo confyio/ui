@@ -4,6 +4,10 @@ export default Backbone.Model.extend({
   idAttribute: "_id",
 
   getJSON: function () {
+    if (window.env.decrypted) {
+      return window.env.decrypted;
+    }
+
     var ret = this.toJSON();
     delete ret._id;
 
