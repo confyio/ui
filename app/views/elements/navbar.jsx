@@ -4,15 +4,7 @@ import ProfileView from 'confy/views/elements/profile';
 
 export default React.createClass({
   render: function () {
-    if (this.props.console) {
-      $('body').attr('class', 'console');
-
-      return (
-        <ul className="nav navbar-nav navbar-right">
-          <ProfileView avatar="true" />
-        </ul>
-      );
-    } else if (this.props.type == 'Projects' || this.props.type == 'Teams' || this.props.type == 'Org') {
+    if (['Project', 'Team', 'Org', 'Settings'].indexOf(this.props.type) != -1) {
       $('body').attr('class', 'console');
 
       return (

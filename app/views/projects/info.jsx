@@ -16,7 +16,7 @@ export default React.createClass({
 
     return (
       <MainView type="Project" header={window.project.get('name')}>
-        <h5 className="subheader">Please select one of the following stages to get started</h5>
+        <h5 className="subheader">Select one of the following stages to get started</h5>
         <table className="table">
           <tbody>
             {window.envs.map(function (env) {

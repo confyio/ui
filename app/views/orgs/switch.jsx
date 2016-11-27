@@ -4,22 +4,10 @@ import OrgsUpdateButtonView from 'confy/views/orgs/button-update';
 
 export default React.createClass({
   render: function () {
-    var windowOrg;
-
-    if (this.props.empty) {
-      windowOrg = {
-        get: function () {
-          return '';
-        }
-      };
-    } else {
-      windowOrg = window.org;
-    }
-
     return (
       <div className="dropdown">
         <div className="dropdown-toggle" id="org-dropdown" data-toggle="dropdown">
-          <div>{windowOrg.get('name')}</div>
+          <div>{window.org.get('name')}</div>
           <i className="fa fa-fw"></i>
         </div>
         <ul className="dropdown-menu" role="menu" aria-labelledby="org-dropdown">
@@ -33,7 +21,7 @@ export default React.createClass({
             }
 
             return (
-              <li className={(org.get('name') !== windowOrg.get('name') ? '' : 'active') + className} role="presentation" key={org.get('key')}>
+              <li className={(org.get('name') !== window.org.get('name') ? '' : 'active') + className} role="presentation" key={org.get('key')}>
                 <a className="org-name" role="menuitem" tabIndex="-1" href={org.get('link')}>
                   <div>{org.get('name')}</div>
                 </a>
