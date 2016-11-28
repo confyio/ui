@@ -18,7 +18,7 @@ export default React.createClass({
       method: 'put',
       wait: true,
       success: function (model, response) {
-        Alert('Successfully rolled back your credentials');
+        Alert('Successfully rolled back your credentials', null, true);
         delete window.env.config;
         delete window.env.encrypted;
         delete window.env.decrypted;
@@ -38,9 +38,10 @@ export default React.createClass({
 
     return (
       <tr>
+        <td>{this.props.version.user.fullname}</td>
         <td>{time}</td>
         <td>
-          <button className="btn btn-success" onClick={this.handleClick}>Use Version</button>
+          <button className="btn btn-success" disabled={this.props.noUse} onClick={this.handleClick}>Use Version</button>
         </td>
       </tr>
     );

@@ -110,7 +110,7 @@ export default React.createClass({
           </div>
 
           <h4>4. Call our API to Retrieve Data</h4>
-          <p>Finally, call our API using the API client. It will retireve your software credentials for you and will also try to decrypt it if it is encrypted.</p>
+          <p>Finally, call our API using the API client. It will retireve your software credentials for you and will also try to decrypt it if they are encrypted.</p>
           <div className="highlight">
             <table>
               <tr>

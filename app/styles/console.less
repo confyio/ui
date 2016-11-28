@@ -472,6 +472,11 @@ body.console {
 	#documentation {
 		text-transform: none;
 
+		div:first-child {
+			padding: 10px 0;
+			border: 1px solid @alto;
+		}
+
 		h4 {
 			font-size: 24px;
 			margin: 20px 0;
@@ -505,6 +510,35 @@ body.console {
 
 			.active a {
 				color: @white;
+			}
+		}
+	}
+
+	#versions {
+		td {
+			line-height: 20px;
+			padding: 20px 20px;
+			border: 0;
+			min-width: 0px;
+		}
+
+		thead td:first-child {
+			width: 230px;
+		}
+
+		tbody td {
+			font-size: 12px;
+
+			&:first-child {
+				width: 230px;
+			}
+
+			&:nth-child(2) {
+				width: 180px;
+			}
+
+			&:last-child {
+				padding: 15px 20px;
 			}
 		}
 	}

@@ -7,14 +7,16 @@ export default React.createClass({
   render: function () {
     return (
       <MainView type="Stage" header={window.env.get('name')} isVersions="true">
-        <table className="table">
+        <table className="table" id="versions">
           <thead>
             <tr>
-              <td colSpan="2">Version Dated</td>
+              <td>Editor</td>
+              <td colSpan="2">Time</td>
             </tr>
           </thead>
           <tbody>
-            {window.env.versions.map(function (version) {
+            <EnvsVersionView version={window.env.versions[0]} noUse={true} />
+            {window.env.versions.slice(1).map(function (version) {
               return (
                 <EnvsVersionView version={version} />
               );
