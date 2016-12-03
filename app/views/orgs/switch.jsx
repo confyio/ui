@@ -4,6 +4,19 @@ import OrgsUpdateButtonView from 'confy/views/orgs/button-update';
 
 export default React.createClass({
   render: function () {
+    var newOrgButton;
+
+    if (!window.ENV.ON_PREMISE) {
+      newOrgButton = (
+        <li className="create-button">
+          <a className="btn" href="#orgs/_create">
+            <i className="fa fa-fw"></i>
+            <div>New Organization</div>
+          </a>
+        </li>
+      );
+    }
+
     return (
       <div className="dropdown">
         <div className="dropdown-toggle" id="org-dropdown" data-toggle="dropdown">
@@ -29,12 +42,7 @@ export default React.createClass({
               </li>
             );
           })}
-          <li className="create-button">
-            <a className="btn" href="#orgs/_create">
-              <i className="fa fa-fw"></i>
-              <div>New Organization</div>
-            </a>
-          </li>
+          {newOrgButton}
         </ul>
       </div>
     );
