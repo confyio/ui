@@ -91,19 +91,19 @@ export default React.createClass({
             <table>
               <tr>
                 <td className="linenos">
-                  <pre>1</pre>
+                  <pre>1<br/>2</pre>
                 </td>
                 <td className={'code' + (this.state.lang == 'ruby' ? ' active': '')}>
-                  <pre><span className="n">token</span> <span className="o">{'='}</span> <span className="s2">&quot;{window.env.get('token')}&quot;</span></pre>
+                  <pre><span className="n">org</span> <span className="o">{'='}</span> <span className="s2">&quot;{window.env.get('org')}&quot;</span><br/><span className="n">token</span> <span className="o">{'='}</span> <span className="s2">&quot;{window.env.get('token')}&quot;</span></pre>
                 </td>
                 <td className={'code' + (this.state.lang == 'node' ? ' active': '')}>
-                  <pre><span className="kd">var</span> <span className="nn">token</span> <span className="o">{'='}</span> <span className="s2">&quot;{window.env.get('token')}&quot;</span><span className="p">;</span></pre>
+                  <pre><span className="kd">var</span> <span className="nn">org</span> <span className="o">{'='}</span> <span className="s2">&quot;{window.env.get('org')}&quot;</span><span className="p">;</span><br/><span className="kd">var</span> <span className="nn">token</span> <span className="o">{'='}</span> <span className="s2">&quot;{window.env.get('token')}&quot;</span><span className="p">;</span></pre>
                 </td>
                 <td className={'code' + (this.state.lang == 'python' ? ' active': '')}>
-                  <pre><span className="n">token</span> <span className="o">{'='}</span> <span className="s">&quot;{window.env.get('token')}&quot;</span></pre>
+                  <pre><span className="n">org</span> <span className="o">{'='}</span> <span className="s">&quot;{window.env.get('org')}&quot;</span><br/><span className="n">token</span> <span className="o">{'='}</span> <span className="s">&quot;{window.env.get('token')}&quot;</span></pre>
                 </td>
                 <td className={'code' + (this.state.lang == 'php' ? ' active': '')}>
-                  <pre><span className="nv">$token</span> <span className="o">{'='}</span> <span className="s2">&quot;{window.env.get('token')}&quot;</span><span className="p">;</span></pre>
+                  <pre><span className="nv">$org</span> <span className="o">{'='}</span> <span className="s2">&quot;{window.env.get('org')}&quot;</span><span className="p">;</span><br/><span className="nv">$token</span> <span className="o">{'='}</span> <span className="s2">&quot;{window.env.get('token')}&quot;</span><span className="p">;</span></pre>
                 </td>
               </tr>
             </table>
@@ -115,19 +115,19 @@ export default React.createClass({
             <table>
               <tr>
                 <td className="linenos">
-                  <pre>1<br/>2<br/>3</pre>
+                  <pre>1<br/>2<br/>3<br/>4<br/>5</pre>
                 </td>
                 <td className={'code' + (this.state.lang == 'ruby' ? ' active': '')}>
-                  <pre><span className="n">data</span> <span className="o">{'='}</span> <span className="no">Confy</span><span className="o">::</span><span className="no">Config</span><span className="o">.</span><span className="n">load</span><span className="p">{'({'}</span> <span className="ss">:token</span> <span className="o">{'=>'}</span> <span className="n">token</span> <span className="p">})</span><br/><br/><span className="nb">puts</span> <span className="n">data</span></pre>
+                  <pre><span className="n">info</span> <span className="o">{'='}</span> <span className="p">{'{'}</span> <span className="ss">:org</span> <span className="o">{'=>'}</span> <span className="n">org</span><span className="p">,</span> <span className="ss">:token</span> <span className="o">{'=>'}</span> <span className="n">token</span> <span className="p">};</span><br/><br/><span className="n">data</span> <span className="o">{'='}</span> <span className="no">Confy</span><span className="o">::</span><span className="no">Config</span><span className="o">.</span><span className="n">load</span><span className="p">(</span><span className="n">info</span><span className="p">)</span><br/><br/><span className="nb">puts</span> <span className="n">data</span></pre>
                 </td>
                 <td className={'code' + (this.state.lang == 'node' ? ' active': '')}>
-                  <pre><span className="nx">confy</span><span className="p">.</span><span className="nx">config</span><span className="p">.</span><span className="n">load</span><span className="p">{'({'}</span> <span className="n">token</span><span className="o">:</span> <span className="nx">token</span> <span className="p">},</span> <span className="kd">function</span> <span className="p">(</span><span className="n">err</span><span className="p">,</span> <span className="n">data</span><span className="p">)</span> <span className="p">{'{'}</span><br/>  <span className="nx">console</span><span className="p">.</span><span className="n">log</span><span className="p">(</span><span className="nx">data</span><span className="p">);</span><br/><span className="p">});</span></pre>
+                  <pre><span className="k">var</span> <span className="n">info</span> <span className="o">{'='}</span> <span className="p">{'{'}</span> <span className="n">org</span><span className="o">:</span> <span className="nx">org</span><span className="p">,</span> <span className="n">token</span><span className="o">:</span> <span className="nx">token</span> <span className="p">};</span><br/><br/><span className="nx">confy</span><span className="p">.</span><span className="nx">config</span><span className="p">.</span><span className="n">load</span><span className="p">(</span><span className="nv">info</span><span className="p">,</span> <span className="kd">function</span> <span className="p">(</span><span className="n">err</span><span className="p">,</span> <span className="n">data</span><span className="p">)</span> <span className="p">{'{'}</span><br/>  <span className="nx">console</span><span className="p">.</span><span className="n">log</span><span className="p">(</span><span className="nx">data</span><span className="p">);</span><br/><span className="p">});</span></pre>
                 </td>
                 <td className={'code' + (this.state.lang == 'python' ? ' active': '')}>
-                  <pre><span className="n">data</span> <span className="o">{'='}</span> <span className="nx">confy</span><span className="o">.</span><span className="nx">Config</span><span className="o">.</span><span className="n">load</span><span className="p">{'({'}</span> <span className="s">&#39;token&#39;</span><span className="p">:</span> <span className="n">token</span> <span className="p">})</span><br/><br/><span className="k">print</span><span className="p">(</span><span className="n">data</span><span className="p">)</span></pre>
+                  <pre><span className="n">info</span> <span className="o">{'='}</span> <span className="p">{'{'}</span> <span className="s">&#39;org&#39;</span><span className="p">:</span> <span className="n">org</span><span className="p">,</span> <span className="s">&#39;token&#39;</span><span className="p">:</span> <span className="n">token</span> <span className="p">};</span><br/><br/><span className="n">data</span> <span className="o">{'='}</span> <span className="nx">confy</span><span className="o">.</span><span className="nx">Config</span><span className="o">.</span><span className="n">load</span><span className="p">(</span><span className="n">info</span><span className="p">)</span><br/><br/><span className="k">print</span><span className="p">(</span><span className="n">data</span><span className="p">)</span></pre>
                 </td>
                 <td className={'code' + (this.state.lang == 'php' ? ' active': '')}>
-                  <pre><span className="nv">$data</span> <span className="o">{'='}</span> <span className="nx">Confy</span><span className="o">\</span><span className="nx">Config</span><span className="o">::</span><span className="na">load</span><span className="p">(</span><span className="k">array</span><span className="p">(</span><span className="s1">&#39;token&#39;</span> <span className="o">{'=>'}</span> <span className="nv">$token</span><span className="p">));</span><br/><br/><span className="k">echo</span> <span className="nv">$data</span><span className="p">;</span></pre>
+                  <pre><span className="nv">$info</span> <span className="o">{'='}</span> <span className="k">array</span><span className="p">(</span><span className="s1">&#39;org&#39;</span> <span className="o">{'=>'}</span> <span className="nv">$org</span><span className="p">,</span> <span className="s1">&#39;token&#39;</span> <span className="o">{'=>'}</span> <span className="nv">$token</span><span className="p">);</span><br/><br/><span className="nv">$data</span> <span className="o">{'='}</span> <span className="nx">Confy</span><span className="o">\</span><span className="nx">Config</span><span className="o">::</span><span className="na">load</span><span className="p">(</span><span className="nv">$info</span><span className="p">);</span><br/><br/><span className="k">echo</span> <span className="nv">$data</span><span className="p">;</span></pre>
                 </td>
               </tr>
             </table>
