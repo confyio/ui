@@ -10,7 +10,12 @@
   },
   "license": "BSD",
   "engines": {
-    "node": "4.x.x"
+    "node": "6.x.x"
+  },
+  "scripts": {
+    "docker": "docker build -t confy/web .",
+    "dist-build": "gulp build:dist",
+    "onpremise": "gulp server:onpremise"
   },
   "devDependencies": {
     "jsoneditor-confy": "3.2.x",

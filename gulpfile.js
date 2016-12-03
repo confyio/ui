@@ -1,4 +1,5 @@
 var gulp = require('gulp')
+  , fs = require('fs')
   , sync = require('gulp-sync')(gulp)
   , sourcemaps = require('gulp-sourcemaps')
   , concat  = require('gulp-concat')
@@ -19,6 +20,8 @@ var gulp = require('gulp')
   , AMDFormatter = require('es6-module-transpiler-amd-formatter')
   , connectLiveReload = require('connect-livereload')
   , express = require('express');
+
+var onpremise = process.env.ON_PREMISE ? true : false;
 
 gulp.task('default', ['server:debug']);
 
@@ -100,7 +103,7 @@ gulp.task('preprocess:debug', function () {
 
 gulp.task('preprocess:dist', function () {
   return gulp.src('app/index.html')
-    .pipe(preprocess({ context: { dist: true } }))
+    .pipe(preprocess({ context: { dist: true, onpremise: onpremise } }))
     .pipe(gulp.dest('tmp/result'));
 });
 
@@ -160,6 +163,15 @@ gulp.task('s3', function () {
     }));
 });
 
+gulp.task('onpremise', function () {
+  var config = fs.readFileSync('tmp/dist/assets/config.min.js', 'utf8');
+
+  config = config.replace('BASE_URL="https://api.confy.io"', 'BASE_URL="' + process.env.BASE_URL + '"');
+  config = config.replace('COOKIE_SECURE=!0', 'COOKIE_SECURE=' + (process.env.SSL === '1' ? '!0' : '0'));
+
+  fs.writeFileSync('tmp/dist/assets/config.min.js', config, 'utf8');
+});
+
 gulp.task('express:debug', function () {
   var app = express();
 
@@ -215,6 +227,11 @@ gulp.task('server:dist', sync.sync([
   'build:dist',
   'express:dist'
 ], 'server:dist:deps'));
+
+gulp.task('server:onpremise', sync.sync([
+  'onpremise',
+  'express:dist'
+], 'server:onpremise:deps'));
 
 gulp.task('publish', sync.sync([
   'build:dist',

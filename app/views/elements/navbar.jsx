@@ -21,10 +21,18 @@ export default React.createClass({
     } else {
       $('body').attr('class', 'landing ' + (this.props.landing_suffix || ''));
 
+      var pricing;
+
+      if (!window.ENV.ON_PREMISE) {
+        pricing = (
+          <li><a href="#pricing">Pricing</a></li>
+        );
+      }
+
       return (
         <ul className="nav navbar-nav navbar-right">
           <li><a href="#how">How it works</a></li>
-          <li><a href="#pricing">Pricing</a></li>
+          {pricing}
           <ProfileView type={this.props.type} />
           <ProfileView avatar="true" />
         </ul>

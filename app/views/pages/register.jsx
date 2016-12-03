@@ -14,12 +14,17 @@ export default React.createClass({
     var self = this;
     e.preventDefault();
 
-    var user = new User({
+    var userObj = {
       username: this.refs.username.getDOMNode().value.trim(),
       email: this.refs.email.getDOMNode().value.trim(),
-      password: this.refs.password.getDOMNode().value.trim(),
-      news: this.refs.news.getDOMNode().checked
-    });
+      password: this.refs.password.getDOMNode().value.trim()
+    };
+
+    if (!window.ENV.ON_PREMISE) {
+      userObj.news = this.refs.news.getDOMNode().checked;
+    }
+
+    var user = new User(userObj);
 
     user.on('invalid', function (model, errs) {
       delete self.props.loading;
@@ -32,7 +37,11 @@ export default React.createClass({
     user.save({}, {
       noLogout: true,
       success: function (model, response) {
-        alert('Successfully registered. Please verify your email to login');
+        if (!window.ENV.ON_PREMISE) {
+          alert('Successfully registered. Please verify your email to login');
+        } else {
+          alert('Successfully registered');
+        }
 
         $.removeCookie('access_token');
         delete window.user;
@@ -54,12 +63,21 @@ export default React.createClass({
     });
   },
   render: function () {
-    var footer = (
+    var subscribe, footer = (
       <div>
         Already a confy user?
         <a href="#login-modal" data-dismiss="modal" data-toggle="modal">Login</a>
       </div>
     );
+
+    if (!window.ENV.ON_PREMISE) {
+      subscribe = (
+        <div className="after-inputs">
+          <input id="register-news" type="checkbox" ref="news" defaultChecked />
+          <label htmlFor="register-news">Tell me about confy news</label>
+        </div>
+      );
+    }
 
     return (
       <ModalView id="register-modal" title="Confy Signup" footer={footer}>
@@ -77,10 +95,7 @@ export default React.createClass({
             <input className="form-control tooltipper" placeholder="Password" ref="password" type="password" />
             <ValidationView message={this.state.password.message} direction="left" />
           </div>
-          <div className="after-inputs">
-            <input id="register-news" type="checkbox" ref="news" defaultChecked />
-            <label htmlFor="register-news">Tell me about confy news</label>
-          </div>
+          {subscribe}
           <div className="cleared"></div>
           <div id="read-tos">By signing up, I agree to Confy's <a href="#tos">Terms of Service</a> and <a href="#privacy">Privacy Policy</a></div>
           <button type="submit" className="btn btn-danger">Signup</button>

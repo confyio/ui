@@ -7,5 +7,8 @@
 
 window.ENV.BASE_URL = "https://api.confy.io";
 window.ENV.COOKIE_SECURE = true;
-window.ENV.SEGMENT_WRITE_KEY = "e02VLQZbOMyVAs97sFNcJnqYJpEXEcUu";
-window.ENV.STRIPE_KEY = "pk_live_nMnx8pAls6obRBrTmyuy6YTd";
+
+if (!window.ENV.ON_PREMISE) {
+  window.ENV.SEGMENT_WRITE_KEY = "e02VLQZbOMyVAs97sFNcJnqYJpEXEcUu";
+  window.ENV.STRIPE_KEY = "pk_live_nMnx8pAls6obRBrTmyuy6YTd";
+}

@@ -44,9 +44,11 @@ export default Backbone.Router.extend({
   execute: function (callback, args) {
     jQuery('#delete-wrap').hide();
 
-    analytics.page({
-      path: '/' + Backbone.history.fragment
-    });
+    if (!window.ENV.ON_PREMISE) {
+      analytics.page({
+        path: '/' + Backbone.history.fragment
+      });
+    }
 
     return Backbone.Router.prototype.execute.call(this, callback, args);
   }
