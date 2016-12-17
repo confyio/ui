@@ -10,7 +10,7 @@ import UserHelper from 'confy/helpers/user';
 
 export default React.createClass({
   getInitialState: function () {
-    return ValidationHelper(['fullname', 'email'], window.user);
+    return ValidationHelper(['fullname', 'email', 'newPassword'], window.user);
   },
   handleSubmit: function () {
     var self = this;
@@ -24,7 +24,8 @@ export default React.createClass({
 
     window.user.save({
       fullname: this.refs.fullname.getDOMNode().value.trim(),
-      email: this.refs.email.getDOMNode().value.trim()
+      email: this.refs.email.getDOMNode().value.trim(),
+      newPassword: this.refs.newPassword.getDOMNode().value.trim()
     }, {
       noLogout: true,
       patch: true,
@@ -85,6 +86,11 @@ export default React.createClass({
             <label>Email Address</label>
             <ValidationView message={this.state.email.message} />
             <input className="form-control tooltipper" placeholder="Enter your email adress here" ref="email" defaultValue={this.state.email.value} />
+          </div>
+          <div className={this.state.newPassword.className}>
+            <label>New Password</label>
+            <ValidationView message={this.state.newPassword.message} />
+            <input className="form-control tooltipper" placeholder="Enter your new password here" ref="newPassword" defaultValue={this.state.newPassword.value} />
           </div>
           <button className="btn btn-primary pull-right" data-toggle="modal" data-target="#confirm-password">Save</button>
         </form>
