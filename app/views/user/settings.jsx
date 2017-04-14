@@ -90,7 +90,7 @@ export default React.createClass({
           <div className={this.state.newPassword.className}>
             <label>New Password</label>
             <ValidationView message={this.state.newPassword.message} />
-            <input className="form-control tooltipper" placeholder="Enter your new password here" ref="newPassword" defaultValue={this.state.newPassword.value} />
+            <input className="form-control tooltipper" placeholder="Enter your new password here" ref="newPassword" type="password" defaultValue={this.state.newPassword.value} />
           </div>
           <button className="btn btn-primary pull-right" data-toggle="modal" data-target="#confirm-password">Save</button>
         </form>

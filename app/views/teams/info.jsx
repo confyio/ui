@@ -50,7 +50,7 @@ export default React.createClass({
           <tbody>
             <tr>
               <td>
-                <input className="form-control grant" placeholder="Enter user name" ref="name" onChange={this.handleChange} />
+                <input className="form-control grant" placeholder="Enter username or email" ref="name" onChange={this.handleChange} />
               </td>
               <td>
                 <button className="btn btn-success disabled" ref="button" onClick={this.handleClick}>Add Member</button>

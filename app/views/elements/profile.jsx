@@ -11,7 +11,23 @@ export default React.createClass({
         };
 
         link = (
-          <a id="avatar" href="#settings" style={avatar}></a>
+          <div className="dropdown" id="user-menu">
+            <div className="dropdown-toggle" id="profile-dropdown" data-toggle="dropdown">
+              <div id="avatar" style={avatar}></div>
+            </div>
+            <ul className="dropdown-menu" role="menu" aria-labelledby="profile-dropdown">
+              <li role="presentation">
+                <a role="menuitem" tabIndex="-1" href="#settings">
+                  <div>Settings</div>
+                </a>
+              </li>
+              <li role="presentation">
+                <a role="menuitem" tabIndex="-1" href="#logout">
+                  <div>Logout</div>
+                </a>
+              </li>
+            </ul>
+          </div>
         );
       } else {
         link = (

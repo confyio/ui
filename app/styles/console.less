@@ -17,7 +17,6 @@ body.console {
 			padding: 10px;
 			color: @silver;
 			background: @shark;
-			cursor: pointer;
 			width: 260px;
 			height: 40px;
 			font-size: 18px;
@@ -45,20 +44,8 @@ body.console {
 
 		.dropdown-menu {
 			width: 320px;
-			padding: 0;
-			margin: 10px 0 0;
-			border: 0;
-			font-size: 16px;
-			box-shadow: none;
-			border-radius: 0;
 
 			li > a {
-				height: 60px;
-				background: @shark2;
-				margin: 0;
-				border-bottom: 1px solid @shark3;
-				display: inline-block;
-
 				&.org-name {
 					width: 260px;
 					padding: 20px 0 20px 30px;
@@ -67,16 +54,11 @@ body.console {
 					> div {
 						width: 230px;
 					}
-
-					&:hover {
-						background: @shark1;
-					}
 				}
 
 				&.edit-org {
 					color: @doveGray;
 					width: 60px;
-					padding: 20px;
 					float: right;
 
 					i {
@@ -84,17 +66,6 @@ body.console {
 						.square(20px);
 					}
 				}
-
-				> div {
-					width: 200px;
-					height: 20px;
-					line-height: 20px;
-					padding: 0;
-				}
-			}
-
-			li:last-child > a {
-				border: 0;
 			}
 
 			li.create-button {

@@ -44,4 +44,43 @@
 	line-height: 40px;
 	.square(40px);
 	border-radius: 20px;
+	margin: 0 20px;
+}
+
+.dropdown-toggle {
+	cursor: pointer;
+}
+
+.dropdown-menu {
+	width: 200px;
+	padding: 0;
+	margin: 10px 0 0;
+	border: 0;
+	font-size: 16px;
+	box-shadow: none;
+	border-radius: 0;
+
+	li > a {
+		height: 60px;
+		background: @shark2;
+		margin: 0;
+		border-bottom: 1px solid @shark3;
+		display: inline-block;
+		padding: 20px;
+
+		> div {
+			width: 200px;
+			height: 20px;
+			line-height: 20px;
+			padding: 0;
+		}
+
+		&:hover {
+			background: @shark;
+		}
+	}
+
+	li:last-child > a {
+		border: 0;
+	}
 }
