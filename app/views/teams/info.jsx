@@ -17,7 +17,7 @@ export default React.createClass({
     }
   },
   handleClick: function (e) {
-    var message, user = this.refs.name.getDOMNode().value.trim();
+    var message, self = this, user = this.refs.name.getDOMNode().value.trim();
     e.preventDefault();
 
     var member = new Member({
@@ -26,9 +26,14 @@ export default React.createClass({
 
     member.save({}, {
       success: function (model, response) {
-        delete window.members;
-        Backbone.history.loadUrl();
-        Alert('Successfully added member <b>' + user + '</b> to the team', null, true);
+        if (window.members.length == model.toJSON().users.length) {
+          self.refs.name.getDOMNode().value = '';
+          Alert('Invitation sent to <b>' + user + '</b> for joining the team');
+        } else {
+          delete window.members;
+          Backbone.history.loadUrl();
+          Alert('Successfully added member <b>' + user + '</b> to the team', null, true);
+        }
       },
       error: function (model, response) {
         if (response.status == 422) {
