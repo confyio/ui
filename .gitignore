@@ -19,3 +19,4 @@ Thumbs.db
 /coverage/*
 *.sublime-workspace
 .awspublish*
+package-lock.json
