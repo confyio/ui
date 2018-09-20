@@ -8,7 +8,7 @@ ADD . /opt/srv
 WORKDIR /opt/srv
 
 RUN npm install
-RUN npm run dist-build
+RUN npm run build
 
 EXPOSE 8000
 

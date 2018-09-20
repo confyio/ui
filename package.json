@@ -6,15 +6,17 @@
   "namespace": "confy",
   "repository": {
     "type": "git",
-    "url": "git://github.com/asm-products/confy-web"
+    "url": "git://github.com/confyio/confy-web"
   },
-  "license": "BSD",
+  "license": "GNU AGPLv3",
   "engines": {
     "node": "6.x.x"
   },
   "scripts": {
     "docker": "docker build -t confy/web .",
-    "dist-build": "gulp build:dist",
+    "start": "gulp server:debug",
+    "build": "gulp build:dist",
+    "deploy": "gulp publish",
     "onpremise": "gulp server:onpremise"
   },
   "devDependencies": {
@@ -49,6 +51,7 @@
     "jquery.cookie": "1.4.x",
     "jsoneditor-confy": "3.2.x",
     "moment": "^2.19.1",
+    "natives": "^1.1.3",
     "node-forge": "^0.7.1",
     "react": "0.12.x",
     "underscore": "1.8.x"
