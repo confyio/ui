@@ -1,0 +1,14 @@
+version: "3.7"
+services:
+  web:
+    build:
+      context: ..
+      dockerfile: docker/start.Dockerfile
+    image: confy/web:dev
+    ports:
+      - "8000:8000"
+    volumes:
+      - ..:/opt/srv
+    environment:
+      NODE_ENV: development
+    container_name: confy-web-dev

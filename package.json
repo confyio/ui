@@ -14,6 +14,8 @@
   },
   "scripts": {
     "docker": "docker build -t confy/web .",
+    "docker:start": "docker-compose -f docker/start.yml up",
+    "docker:deploy": "AAKI=$(aws configure get aws_access_key_id) ASAK=$(aws configure get aws_secret_access_key) docker-compose -f docker/deploy.yml up",
     "start": "gulp server:debug",
     "build": "gulp build:dist",
     "deploy": "gulp publish",

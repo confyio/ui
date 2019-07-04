@@ -1,0 +1,14 @@
+version: "3.7"
+services:
+  web:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: confy/web:dev
+    volumes:
+      - ..:/opt/srv
+    environment:
+      AWS_ACCESS_KEY_ID: ${AAKI}
+      AWS_SECRET_ACCESS_KEY: ${ASAK}
+    command: npm run deploy
+    container_name: confy-web-dev
