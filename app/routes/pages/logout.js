@@ -5,7 +5,20 @@ export default function () {
       dataType: 'json',
       complete: function () {
         $.removeCookie('access_token');
+
         delete window.user;
+
+        delete window.orgs;
+        delete window.org;
+
+        delete window.projects;
+        delete window.project;
+
+        delete window.teams;
+        delete window.team;
+
+        delete window.envs;
+        delete window.env;
 
         window.App.navigate('#login', {
           trigger: true
